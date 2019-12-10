@@ -12,6 +12,29 @@
 
 ActiveRecord::Schema.define(version: 2019_12_10_044035) do
 
+  create_table "artists", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "cds", force: :cascade do |t|
+    t.string "name", null: false
+    t.integer "user_id", null: false
+    t.integer "artist_id", null: false
+    t.integer "genre_id", null: false
+    t.integer "label_id", null: false
+    t.integer "arrive_id", null: false
+    t.string "jacket_image_id"
+    t.datetime "released_at", null: false
+    t.string "price", null: false
+    t.integer "stock", null: false
+    t.integer "status", null: false
+    t.datetime "deleted_at", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "deliver_addresses", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "deliver_post_front", null: false
@@ -20,6 +43,25 @@ ActiveRecord::Schema.define(version: 2019_12_10_044035) do
     t.text "deliver_town", null: false
     t.integer "deliver_post_namber", null: false
     t.string "deliver_condo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "discs", force: :cascade do |t|
+    t.integer "cd_id", null: false
+    t.integer "disc_count", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "genres", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "labels", force: :cascade do |t|
+    t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -46,6 +88,29 @@ ActiveRecord::Schema.define(version: 2019_12_10_044035) do
     t.string "passward"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "last_name"
+    t.string "first_name"
+    t.string "last_name_kana"
+    t.string "first_name_kana"
+    t.string "post_front"
+    t.string "post_back"
+    t.string "prefecture"
+    t.text "town"
+    t.integer "post_number"
+    t.string "condo"
+    t.string "phone_number"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
 end
