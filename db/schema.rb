@@ -10,30 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_09_115238) do
 
-  create_table "cds", force: :cascade do |t|
-    t.string "name", null: false
-    t.integer "user_id", null: false
-    t.integer "artist_id", null: false
-    t.integer "genre_id", null: false
-    t.integer "label_id", null: false
-    t.integer "arrive_id", null: false
-    t.string "jacket_image_id"
-    t.datetime "released_at", null: false
-    t.string "price", null: false
-    t.integer "stock", null: false
-    t.integer "status", null: false
-    t.datetime "deleted_at", null: false
+ActiveRecord::Schema.define(version: 2019_12_09_062938) do
+
+  create_table "users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
-  create_table "discs", force: :cascade do |t|
-    t.integer "cd_id", null: false
-    t.integer "disc_count", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
 end
