@@ -10,6 +10,7 @@ class CreateCdOrders < ActiveRecord::Migration[5.2]
       t.integer :disc_count, :null => false
 
       t.timestamps
+      t.datetime :deleted_at, :null => false
     end
   end
 end
