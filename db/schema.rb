@@ -10,9 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 2019_12_09_115238) do
-=======
 ActiveRecord::Schema.define(version: 2019_12_10_064303) do
 
   create_table "arrivals", force: :cascade do |t|
@@ -23,7 +20,6 @@ ActiveRecord::Schema.define(version: 2019_12_10_064303) do
     t.datetime "updated_at", null: false
     t.datetime "deleted_at", null: false
   end
->>>>>>> 959a2d0e488156da01453599ac815fb3dfb094d8
 
   create_table "artists", force: :cascade do |t|
     t.string "name", null: false
@@ -31,8 +27,6 @@ ActiveRecord::Schema.define(version: 2019_12_10_064303) do
     t.datetime "updated_at", null: false
   end
 
-<<<<<<< HEAD
-=======
   create_table "cd_orders", force: :cascade do |t|
     t.integer "order_id", null: false
     t.integer "cd_id", null: false
@@ -46,7 +40,6 @@ ActiveRecord::Schema.define(version: 2019_12_10_064303) do
     t.datetime "deleted_at", null: false
   end
 
->>>>>>> 959a2d0e488156da01453599ac815fb3dfb094d8
   create_table "cds", force: :cascade do |t|
     t.string "name", null: false
     t.integer "user_id", null: false
@@ -60,6 +53,18 @@ ActiveRecord::Schema.define(version: 2019_12_10_064303) do
     t.integer "stock", null: false
     t.integer "status", null: false
     t.datetime "deleted_at", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "deliver_addresses", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "deliver_post_front", null: false
+    t.string "deliver_post_back", null: false
+    t.string "deliver_prefecture", null: false
+    t.text "deliver_town", null: false
+    t.integer "deliver_post_namber", null: false
+    t.string "deliver_condo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -96,6 +101,33 @@ ActiveRecord::Schema.define(version: 2019_12_10_064303) do
     t.integer "payment", null: false
     t.text "shipping_status", null: false
     t.datetime "deleted_at", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "owners", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_owners_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_owners_on_reset_password_token", unique: true
+  end
+
+  create_table "songs", force: :cascade do |t|
+    t.string "name", null: false
+    t.integer "order", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "user_cds", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "cd_id", null: false
+    t.string "disc_count", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
