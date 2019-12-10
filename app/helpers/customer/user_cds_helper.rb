@@ -1,0 +1,2 @@
+module Customer::UserCdsHelper
+end
