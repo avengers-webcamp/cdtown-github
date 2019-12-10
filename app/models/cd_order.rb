@@ -1,0 +1,2 @@
+class CdOrder < ApplicationRecord
+end
