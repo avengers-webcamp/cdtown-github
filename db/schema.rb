@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_09_115238) do
+ActiveRecord::Schema.define(version: 2019_12_10_044035) do
 
   create_table "artists", force: :cascade do |t|
     t.string "name", null: false
@@ -35,6 +35,18 @@ ActiveRecord::Schema.define(version: 2019_12_09_115238) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "deliver_addresses", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "deliver_post_front", null: false
+    t.string "deliver_post_back", null: false
+    t.string "deliver_prefecture", null: false
+    t.text "deliver_town", null: false
+    t.integer "deliver_post_namber", null: false
+    t.string "deliver_condo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "discs", force: :cascade do |t|
     t.integer "cd_id", null: false
     t.integer "disc_count", null: false
@@ -50,6 +62,30 @@ ActiveRecord::Schema.define(version: 2019_12_09_115238) do
 
   create_table "labels", force: :cascade do |t|
     t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.datetime "shipping_day", null: false
+    t.integer "postage", null: false
+    t.string "post_front", null: false
+    t.string "post_back", null: false
+    t.string "prefecture", null: false
+    t.text "town", null: false
+    t.integer "post_nambar", null: false
+    t.string "condo"
+    t.integer "payment", null: false
+    t.text "shipping_status", null: false
+    t.datetime "deleted_at", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "owners", force: :cascade do |t|
+    t.string "email"
+    t.string "passward"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
