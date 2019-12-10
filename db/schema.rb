@@ -10,7 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2019_12_09_115238) do
+=======
+ActiveRecord::Schema.define(version: 2019_12_10_064303) do
+
+  create_table "arrivals", force: :cascade do |t|
+    t.integer "stock_count", null: false
+    t.datetime "arrive_day", null: false
+    t.integer "arrive_count", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.datetime "deleted_at", null: false
+  end
+>>>>>>> 959a2d0e488156da01453599ac815fb3dfb094d8
 
   create_table "artists", force: :cascade do |t|
     t.string "name", null: false
@@ -18,6 +31,22 @@ ActiveRecord::Schema.define(version: 2019_12_09_115238) do
     t.datetime "updated_at", null: false
   end
 
+<<<<<<< HEAD
+=======
+  create_table "cd_orders", force: :cascade do |t|
+    t.integer "order_id", null: false
+    t.integer "cd_id", null: false
+    t.integer "total_price", null: false
+    t.integer "count", null: false
+    t.integer "price", null: false
+    t.integer "tax", null: false
+    t.integer "disc_count", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.datetime "deleted_at", null: false
+  end
+
+>>>>>>> 959a2d0e488156da01453599ac815fb3dfb094d8
   create_table "cds", force: :cascade do |t|
     t.string "name", null: false
     t.integer "user_id", null: false
@@ -79,6 +108,7 @@ ActiveRecord::Schema.define(version: 2019_12_09_115238) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "deleted_at", null: false
     t.string "last_name"
     t.string "first_name"
     t.string "last_name_kana"
