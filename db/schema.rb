@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2019_12_10_064303) do
     t.integer "arrive_count", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "deleted_at", null: false
   end
 
   create_table "artists", force: :cascade do |t|
@@ -36,6 +37,7 @@ ActiveRecord::Schema.define(version: 2019_12_10_064303) do
     t.integer "disc_count", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "deleted_at", null: false
   end
 
   create_table "cds", force: :cascade do |t|
@@ -138,6 +140,7 @@ ActiveRecord::Schema.define(version: 2019_12_10_064303) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "deleted_at", null: false
     t.string "last_name"
     t.string "first_name"
     t.string "last_name_kana"
