@@ -1,0 +1,2 @@
+class UserCd < ApplicationRecord
+end
