@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_10_064303) do
+ActiveRecord::Schema.define(version: 2019_12_11_055414) do
 
   create_table "arrivals", force: :cascade do |t|
     t.integer "stock_count", null: false
@@ -111,7 +111,6 @@ ActiveRecord::Schema.define(version: 2019_12_10_064303) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_owners_on_email", unique: true
