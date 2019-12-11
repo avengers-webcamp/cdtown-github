@@ -144,6 +144,8 @@ GEM
     nokogiri (1.10.7)
       mini_portile2 (~> 2.4.0)
     orm_adapter (0.5.0)
+    paranoia (2.4.2)
+      activerecord (>= 4.0, < 6.1)
     popper_js (1.14.5)
     public_suffix (4.0.1)
     puma (3.12.2)
@@ -274,6 +276,7 @@ DEPENDENCIES
   jquery-rails
   kaminari (~> 0.17.0)
   listen (>= 3.0.5, < 3.2)
+  paranoia
   puma (~> 3.11)
   rails (~> 5.2.3)
   refile!
