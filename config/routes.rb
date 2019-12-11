@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
   devise_for :owners
-  devise_for :users, controllers: {
-  sessions: 'users/sessions'
-}
+  devise_for :users
   resources :users do
   	resources :deliver_addresses
   end
