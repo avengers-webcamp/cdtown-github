@@ -21,13 +21,11 @@ ActiveRecord::Schema.define(version: 2019_12_10_064303) do
     t.datetime "deleted_at", null: false
   end
 
-
   create_table "artists", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
 
   create_table "cd_orders", force: :cascade do |t|
     t.integer "order_id", null: false
@@ -41,7 +39,6 @@ ActiveRecord::Schema.define(version: 2019_12_10_064303) do
     t.datetime "updated_at", null: false
     t.datetime "deleted_at", null: false
   end
-
 
   create_table "cds", force: :cascade do |t|
     t.string "name", null: false
@@ -143,6 +140,7 @@ ActiveRecord::Schema.define(version: 2019_12_10_064303) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "deleted_at", null: false
     t.string "last_name"
     t.string "first_name"
     t.string "last_name_kana"
