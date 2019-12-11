@@ -1,23 +1,27 @@
 Rails.application.routes.draw do
   devise_for :owners
-  devise_for :users, controllers: {
-  sessions: 'users/sessions'
-}
-  resources :users do
+  devise_for :users
+
+  namespace :admin do
+    resources :arrivals, :artists, :genres, :labels, :sales
+    resources :orders, only: [:index, :show, :edit, :update]
+    resources :cds, only: [:new, :show, :index, :edit, :create, :update]
+    resources :users, only: [:show, :index, :edit, :update]
+  end
+
+  resources :users, only: [:show, :destroy] do
   	resources :deliver_addresses
   end
 
-  resources :cds do
+  resources :cds, only: [:show, :index] do
   	resources :discs do
   end
   		resources :songs
   end
-  resources :orders
+  resources :orders, only: [:new, :complete]
   resources :owners
-  resources :arrivals
-  resources :artists
-  resources :genres
-  resources :labels
+
+
   resources :user_cds
   resources :cd_orders
 
