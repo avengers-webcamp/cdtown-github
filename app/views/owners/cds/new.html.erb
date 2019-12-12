@@ -4,20 +4,35 @@
 
 <%= form_for @cd do |cd| %>
 
-<h2>ジャケット画像</h2>
+<h2></h2>
+<%= cd.label :ジャケット画像 %></br>
 <%= cd.attachment_field :jacket_image, placeholder: "プロフィール画像" %>
 
-<h2>ステータス（販売中・販売停止中）</h2>
+<h2></h2>
+<%= cd.label :ステータス（販売中・販売停止中） %></br>
 <%= cd.select :status, options_for_select(["販売中", "販売停止中"]) %>
 
-<h2>価格（税別）</h2>
-<%= cd.integer_field :price %>
-
-<h2>アーティスト名</h2>
-<%= cd.select :artist_id, artist.all.map{|o| [o.name, o.id]} %>
-
-
-<%= cd.label :price %>
+<h2></h2>
+<%= cd.label :価格（税別） %></br>
 <%= cd.text_field :price %>
+
+<h2></h2>
+<%= cd.label :アーティスト名 %></br>
+<%= cd.select :artist_id, Artist.all.map{|o| [o.name, o.id]} %>
+
+<h2></h2>
+<%= cd.label :シングルアルバム名 %>
+<%= cd.text_field :name %>
+
+<h2></h2>
+<%= cd.label :発売日 %>
+<%= cd.text_field :released_at %>
+
+<h2></h2>
+<%= cd.label :ジャンル名 %>
+<%= cd.select :genre_id, Genre.all.map{|o| [o.name, o.id]} %>
+
+<h2></h2>
+<%= cd.label :Disc %>
 
 <% end %>
