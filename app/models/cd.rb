@@ -6,7 +6,10 @@ class Cd < ApplicationRecord
 	belongs_to :genre
 	belongs_to :label
 	belongs_to :arrival
-	has_many :discs
+
+	has_many :discs, inverse_of: :project
+	accepts_nested_attributes_for :discs, reject_if: :all_blank, allow_destroy: true
+	
 	has_many :user_cds
 	has_many :users, through: :user_cds, source: :user
 	has_many :cd_orders
