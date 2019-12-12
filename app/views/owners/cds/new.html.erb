@@ -29,12 +29,18 @@
 <%= cd.text_field :released_at %>
 
 <h2></h2>
+<%= cd.label :レーベル名 %>
+<%= cd.select :label_id, Label.all.map{|o| [o.name, o.id]} %>
+
+<h2></h2>
 <%= cd.label :ジャンル名 %>
 <%= cd.select :genre_id, Genre.all.map{|o| [o.name, o.id]} %>
 
 <h2></h2>
-<%= cd.label :Disc %>
 <%= render 'form', cd: @cd %>
-<%= link_to 'Back', cds_path %>
+
+<h2></h2>
+<%= cd.submit 'Create'%>
+
 
 <% end %>

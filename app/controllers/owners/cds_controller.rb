@@ -16,6 +16,9 @@ class Owners::CdsController < ApplicationController
 	end
 
 	def create
+		cds = CD.new(cd_params)
+		cds.save
+		redirect_to root_path
 	end
 
 	def update

@@ -1,21 +1,11 @@
 <%= form_for @cd do |f| %>
-  <div class="field">
-    <%= f.label :name, "name" %>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :description, "description" %>
-    <%= f.text_field :description %>
-  </div>
-  <h3>Discs</h3>
+  <h3>Disc</h3>
   <div id="tasks">
     <%= f.fields_for :discs do |disc| %>
       <%= render 'disc_fields', f: disc %>
     <% end %>
     <div id="links">
-
-      <%= link_to_add_association 'add disc',f, :discs %>
+      <%= link_to_add_association 'Disc追加',f, :discs %>
     </div>
-    <%= f.submit %>
   </div>
 <% end %>
