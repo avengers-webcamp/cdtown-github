@@ -13,9 +13,11 @@ class CreateOrders < ActiveRecord::Migration[5.2]
     	t.string :condo
     	t.integer :payment, :null => false
     	t.text :shipping_status, :null => false
-    	t.datetime :deleted_at, :null => false
+    	t.datetime :deleted_at
 
       t.timestamps
     end
+
+      add_index :orders, :deleted_at
   end
 end
