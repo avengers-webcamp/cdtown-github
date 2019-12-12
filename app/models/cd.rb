@@ -1,5 +1,5 @@
 class Cd < ApplicationRecord
-
+    acts_as_paranoid
     attachment :jacket_image
 
 	belongs_to :artist

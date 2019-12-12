@@ -18,7 +18,8 @@ ActiveRecord::Schema.define(version: 2019_12_11_055414) do
     t.integer "arrive_count", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.datetime "deleted_at", null: false
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_arrivals_on_deleted_at"
   end
 
   create_table "artists", force: :cascade do |t|
@@ -37,7 +38,8 @@ ActiveRecord::Schema.define(version: 2019_12_11_055414) do
     t.integer "disc_count", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.datetime "deleted_at", null: false
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_cd_orders_on_deleted_at"
   end
 
   create_table "cds", force: :cascade do |t|
@@ -52,9 +54,10 @@ ActiveRecord::Schema.define(version: 2019_12_11_055414) do
     t.string "price", null: false
     t.integer "stock", null: false
     t.integer "status", null: false
-    t.datetime "deleted_at", null: false
+    t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["deleted_at"], name: "index_cds_on_deleted_at"
   end
 
   create_table "deliver_addresses", force: :cascade do |t|
@@ -100,9 +103,10 @@ ActiveRecord::Schema.define(version: 2019_12_11_055414) do
     t.string "condo"
     t.integer "payment", null: false
     t.text "shipping_status", null: false
-    t.datetime "deleted_at", null: false
+    t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["deleted_at"], name: "index_orders_on_deleted_at"
   end
 
   create_table "owners", force: :cascade do |t|
@@ -151,7 +155,8 @@ ActiveRecord::Schema.define(version: 2019_12_11_055414) do
     t.string "phone_number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.datetime "deleted_at", null: false
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_users_on_deleted_at"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
