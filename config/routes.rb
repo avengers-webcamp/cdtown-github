@@ -1,13 +1,23 @@
 Rails.application.routes.draw do
-  devise_for :owners
+
+  root 'users/cds#index'
+
   devise_for :users
 
-  namespace :admin do
+  devise_for :owners
+
+  namespace :owners do
+    root 'owners/cds#index'
     resources :arrivals, :artists, :genres, :labels, :sales
     resources :orders, only: [:index, :show, :edit, :update]
     resources :cds, only: [:new, :show, :index, :edit, :create, :update]
     resources :users, only: [:show, :index, :edit, :update]
   end
+
+  #devise_scope :admin do
+    #get "sign_up", :to => "owners/registrations#new"
+  #end
+
 
   resources :users, only: [:show, :destroy] do
   	resources :deliver_addresses
@@ -18,13 +28,13 @@ Rails.application.routes.draw do
   end
   		resources :songs
   end
-  resources :orders, only: [:new, :complete]
+  resources :orders, only: [:new]
   resources :owners
 
 
   resources :user_cds
   resources :cd_orders
 
-  get 'complete' => 'customer/orders#complete'
+  get 'complete' => 'users/orders#complete'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
