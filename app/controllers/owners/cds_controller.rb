@@ -1,6 +1,7 @@
-class Admin::CdsController < ApplicationController
+class Owners::CdsController < ApplicationController
 
 	def new
+		@cd = Cd.new
 	end
 
 	def index
