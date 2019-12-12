@@ -1,0 +1,20 @@
+
+
+<h2>入荷履歴</h2>
+
+<dev class="table">
+	<thead>
+		<tr>
+			<th>入荷日時</th>
+			<th>入荷数</th>
+		</tr>
+	</thead>
+	<tbody>
+	  <% each.@arrvals do |arr| %>
+		<tr>
+			<th><%= arr.arrive_day %></th>
+			<th><%= arr.arrive_count %></th>
+		</tr>
+	  <% end %>
+	</tbody>
+</dev>

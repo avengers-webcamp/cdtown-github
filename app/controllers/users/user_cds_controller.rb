@@ -1,6 +1,7 @@
 class Users::UserCdsController < ApplicationController
 
 	def index
+
 	end
 
 	def create
@@ -11,5 +12,7 @@ class Users::UserCdsController < ApplicationController
 
 	def destroy
 	end
+
+	private
 
 end

@@ -1,8 +1,8 @@
 
 
+<h2>Address</h2>
 
-
-<%= form_for @deliver_address do |da| %>
+<%= form_for @deliver_address, url: new_order_path do |da| %>
 
 
   <div class="field">
@@ -12,8 +12,8 @@
         <th>郵便番号</th>
       </tr>
       <tr>
-        <th><%= f.text_field :deliver_post_front, autofocus: true, autocomplete: "deliver_post_front" %></th>
-        <th><%= f.text_field :deliver_post_back, autofocus: true, autocomplete: "deliver_post_back" %></th>
+        <th><%= da.text_field :deliver_post_front, autofocus: true, autocomplete: "deliver_post_front" %></th>
+        <th><%= da.text_field :deliver_post_back, autofocus: true, autocomplete: "deliver_post_back" %></th>
       </tr>
     </table>
 
@@ -22,31 +22,34 @@
         <th>住所</th>
       </tr>
       <tr>
-        <th><%= f.label :都道府県　%></th>
+        <th><%= da.label :都道府県　%></th>
       </tr>
       <tr>
-        <th><%= f.text_field :deliver_prefecture, autofocus: true, autocomplete: "deliver_prefecture" %>
-      </tr>
-    </table>
-
-    <table>
-      <tr>
-        <th><%= f.label :市町村　%></th>
-      </tr>
-      <tr>
-        <th><%= f.text_field :deliver_town, autofocus: true, autocomplete: "deliver_town" %>
+        <th><%= da.text_field :deliver_prefecture, autofocus: true, autocomplete: "deliver_prefecture" %></th>
       </tr>
     </table>
 
     <table>
       <tr>
-        <th><%= f.label :番地　%></th>
-        <th><%= f.label :マンション名 %></th>
+        <th><%= da.label :市町村　%></th>
       </tr>
       <tr>
-        <th><%= f.text_field :deliver_post_number, autofocus: true, autocomplete: "deliver_post_number" %>
-        <th><%= f.text_field :deliver_condo, autofocus: true, autocomplete: "deliver_condo" %>
-      </th>
+        <th><%= da.text_field :deliver_town, autofocus: true, autocomplete: "deliver_town" %></th>
+      </tr>
     </table>
+
+    <table>
+      <tr>
+        <th><%= da.label :番地　%></th>
+        <th><%= da.label :マンション名 %></th>
+      </tr>
+      <tr>
+        <th><%= da.text_field :deliver_post_number, autofocus: true, autocomplete: "deliver_post_number" %></th>
+        <th><%= da.text_field :deliver_condo, autofocus: true, autocomplete: "deliver_condo" %></th>
+      </tr>
+    </table>
+  </div>
+
+<%= da.submit "登録" %>
 
 <% end %>
