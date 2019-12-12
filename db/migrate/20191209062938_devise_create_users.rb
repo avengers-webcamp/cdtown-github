@@ -45,7 +45,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.string :phone_number
 
       t.timestamps null: false
-      t.datetime :deleted_at, :null => false
+      t.datetime :deleted_at, null: false
     end
 
     add_index :users, :email,                unique: true
