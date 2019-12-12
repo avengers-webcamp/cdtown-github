@@ -1,0 +1,52 @@
+
+
+
+
+<%= form_for @deliver_address do |da| %>
+
+
+  <div class="field">
+    <table>
+
+      <tr>
+        <th>郵便番号</th>
+      </tr>
+      <tr>
+        <th><%= f.text_field :deliver_post_front, autofocus: true, autocomplete: "deliver_post_front" %></th>
+        <th><%= f.text_field :deliver_post_back, autofocus: true, autocomplete: "deliver_post_back" %></th>
+      </tr>
+    </table>
+
+    <table>
+      <tr>
+        <th>住所</th>
+      </tr>
+      <tr>
+        <th><%= f.label :都道府県　%></th>
+      </tr>
+      <tr>
+        <th><%= f.text_field :deliver_prefecture, autofocus: true, autocomplete: "deliver_prefecture" %>
+      </tr>
+    </table>
+
+    <table>
+      <tr>
+        <th><%= f.label :市町村　%></th>
+      </tr>
+      <tr>
+        <th><%= f.text_field :deliver_town, autofocus: true, autocomplete: "deliver_town" %>
+      </tr>
+    </table>
+
+    <table>
+      <tr>
+        <th><%= f.label :番地　%></th>
+        <th><%= f.label :マンション名 %></th>
+      </tr>
+      <tr>
+        <th><%= f.text_field :deliver_post_number, autofocus: true, autocomplete: "deliver_post_number" %>
+        <th><%= f.text_field :deliver_condo, autofocus: true, autocomplete: "deliver_condo" %>
+      </th>
+    </table>
+
+<% end %>
