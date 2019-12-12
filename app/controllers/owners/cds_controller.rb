@@ -23,6 +23,7 @@ class Owners::CdsController < ApplicationController
 
 	private
     def project_params
-    params.require(:project).permit(:name, :description, discs_attributes: [:id, :description, :done, :_destroy,
+    params.require(:cd).permit(:name, :description, discs_attributes: [:id, :description, :done, :_destroy,
                                                          songs_attributes: [:id, :description, :_destroy]])
+    end
 end
