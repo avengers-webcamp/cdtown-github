@@ -1,0 +1,16 @@
+
+
+<h1>NEW CD</h1>
+
+<%= form_for @cd do |cd| %>
+
+
+
+<%= cd.attachment_field :jacket_image, placeholder: "プロフィール画像" %>
+
+<%= cd.select :status, options_for_select(["販売中", "販売停止中"]) %>
+
+<%= cd.label :price %>
+<%= cd.text_field :price %>
+
+<% end %>
