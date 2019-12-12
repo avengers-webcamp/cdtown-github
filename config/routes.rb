@@ -18,19 +18,17 @@ Rails.application.routes.draw do
     #get "sign_up", :to => "owners/registrations#new"
   #end
 
-
-  resources :users, only: [:show, :destroy] do
-  	resources :deliver_addresses
+  scope module: :users do
+    resources :users, only: [:show, :destroy] do
+  	  resources :deliver_addresses
+    end
+    resources :cds, only: [:show, :index] do
+  	  resources :discs do
+    end
+  	resources :songs
+    end
+    resources :orders, only: [:new]
   end
-
-  resources :cds, only: [:show, :index] do
-  	resources :discs do
-  end
-  		resources :songs
-  end
-  resources :orders, only: [:new]
-  resources :owners
-
 
   resources :user_cds
   resources :cd_orders
