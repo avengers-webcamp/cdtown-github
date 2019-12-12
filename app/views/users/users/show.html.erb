@@ -1,2 +1,106 @@
-<h2>MyPage</h2>
-<%= @user.last_name %>
+<div class="container">
+ <div class="row">
+  <div class="col-md-8">
+  <h2>MyPage</h2>
+
+  <%= form_for @user do |f| %>
+
+   <div class="row">
+   	<table>
+   	 <tr>
+   	 	<th>名前（姓名）</th>
+   	 </tr>
+   	 <tr>
+        <th><%= f.text_field :last_name %></th>
+        <th><%= f.text_field :first_name %></th>
+     </tr>
+     </table>
+     <table>
+   	 <tr>
+   	 	<th>電話番号</th>
+   	 </tr>
+   	 <tr>
+        <th><%=f.text_field :phone_number %></th>
+     </tr>
+     </table>
+   </div>
+
+   <div class="row">
+     <table>
+   	 <tr>
+   	 	<th>名前（カナ）</th>
+   	 </tr>
+   	 <tr>
+        <th><%= f.text_field :last_name_kana %></th>
+        <th><%= f.text_field :last_name_kana %></th>
+     </tr>
+     </table>
+     <table>
+   	 <tr>
+   	 	<th>Email</th>
+   	 </tr>
+   	 <tr>
+        <th><%= f.text_field :email %></th>
+     </tr>
+     </table>
+   </div>
+
+   <div class="row">
+   	<table>
+   	 <tr>
+   	 	<th>住所</th>
+   	 </tr>
+   	 <tr>
+   	     <th>郵便番号</th>
+   	 </tr>
+     <tr>
+        <th><%=f.text_field :post_front %></th>
+        <th><%=f.text_field :post_back %></th>
+     </tr>
+     </table>
+   </div>
+
+   <div class="row">
+   	<table>
+   	 <tr>
+   	     <th>都道府県</th>
+   	 </tr>
+     <tr>
+        <th><%=f.text_field :prefecture %></th>
+     </tr>
+     </table>
+     <table>
+   	 <tr>
+   	     <th>市町村</th>
+   	 </tr>
+     <tr>
+        <th><%=f.text_field :town %></th>
+     </tr>
+     </table>
+   </div>
+
+   <div class="row">
+   	<table>
+   	 <tr>
+   	     <th>番地</th>
+   	 </tr>
+     <tr>
+        <th><%=f.text_field :post_number %></th>
+     </tr>
+     </table>
+     <table>
+   	 <tr>
+   	     <th>マンション名</th>
+   	 </tr>
+     <tr>
+        <th><%=f.text_field :condo %></th>
+     </tr>
+     </table>
+   </div>
+  <% end %>
+
+  <%= link_to "編集", edit_user_path(@user),class:"btn-sm btn-success Edit btn-lg" %>
+
+  </div>
+ </div>
+</div>

@@ -4,6 +4,10 @@ class Users::UsersController < ApplicationController
 		@user = User.find(params[:id])
 	end
 
+	def edit
+
+	end
+
 	def destroy
 	end
 

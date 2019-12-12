@@ -2,7 +2,9 @@ Rails.application.routes.draw do
 
   root 'users/cds#index'
 
-  devise_for :users
+  devise_for :users, controllers: {
+    registrations: 'users/registrations'
+  }
 
   devise_for :owners
 
@@ -19,7 +21,7 @@ Rails.application.routes.draw do
   #end
 
   scope module: :users do
-    resources :users, only: [:show, :destroy] do
+    resources :users, only: [:show, :edit, :destroy] do
   	  resources :deliver_addresses
     end
     resources :cds, only: [:show, :index] do
