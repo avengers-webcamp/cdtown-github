@@ -12,8 +12,9 @@ class CreateCds < ActiveRecord::Migration[5.2]
      t.string :price, :null => false
      t.integer :stock, :null => false
      t.integer :status, :null => false
-     t.datetime :deleted_at, :null => false
+     t.datetime :deleted_at
       t.timestamps
     end
+     add_index :cds, :deleted_at
   end
 end
