@@ -5,10 +5,19 @@ class Users::UsersController < ApplicationController
 	end
 
 	def edit
+		@user = User.find(params[:id])
 
 	end
 
+	def update
+  	    @user = User.find(params[:id])
+        @user.update(user_params)
+        redirect_to user_path(@user.id)
+
 	def destroy
+		@user = PostImage.find(params[:id])
+        @user.destroy
+        redirect_to cds_path
 	end
 
 

@@ -29,7 +29,8 @@ Rails.application.routes.draw do
     end
   	resources :songs
     end
-    resources :orders, only: [:new]
+    resources :orders, only: [:index, :show, :new]
+    get 'unsubscribe_confirmation' => 'users/users#unsubscribe_confirmation'
   end
 
   resources :user_cds
