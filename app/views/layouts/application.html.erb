@@ -23,7 +23,17 @@
 
      <ul class="nav navbar-nav navbar-right">
       <div class="row">
-      <% if user_signed_in? %>
+
+      <% if owner_signed_in? %>
+   　　　
+   　　　<%= link_to " 顧客一覧", owners_root_path, class: "glyphicon glyphicon-home home" %>
+   　　　<%= link_to " 商品一覧", owners_root_path, class: "glyphicon glyphicon-home home" %>
+   　　　<%= link_to " 入荷履歴", owners_root_path, class: "glyphicon glyphicon-home home" %>
+   　　　<%= link_to " 受注管理", owners_root_path, class: "glyphicon glyphicon-home home" %>
+   　　　<%= link_to " 売上管理", owners_root_path, class: "glyphicon glyphicon-home home" %>
+   　　　<%= link_to " Sign out", destroy_owner_session_path, method: :delete, class: "glyphicon glyphicon-log-out logout" %>
+
+      <% elsif user_signed_in? %>
 
        <%= link_to " Home", root_path, class: "glyphicon glyphicon-home home" %>
 
@@ -45,26 +55,6 @@
       </div>
      </ul>
    </div>
-   　　<div class="row">
-   　　<% if owner_signed_in? %>
-   　　　
-   　　　<%= link_to " 顧客一覧", owners_root_path, class: "glyphicon glyphicon-home home" %>
-   　　　<%= link_to " 商品一覧", owners_root_path, class: "glyphicon glyphicon-home home" %>
-   　　　<%= link_to " 入荷履歴", owners_root_path, class: "glyphicon glyphicon-home home" %>
-   　　　<%= link_to " 受注管理", owners_root_path, class: "glyphicon glyphicon-home home" %>
-   　　　<%= link_to " 売上管理", owners_root_path, class: "glyphicon glyphicon-home home" %>
-   　　　<%= link_to " Sign out", destroy_owner_session_path, method: :delete, class: "glyphicon glyphicon-log-out logout" %>
-
-      <% else %>
-
-       <%= link_to " Home", owners_root_path, class: "glyphicon glyphicon-home home" %>
-
-       <%= link_to " Sign up", new_owner_registration_path, class: "glyphicon glyphicon-edit signup" %>
-
-       <%= link_to " Sign in", new_owner_session_path, class: "glyphicon glyphicon-log-out logout" %>
-
-      <% end %>
-      </div>
   </header>
 
 
