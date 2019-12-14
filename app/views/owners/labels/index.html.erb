@@ -1,0 +1,17 @@
+<div class="container">
+ <div class="row">
+  <div class="col-md-8">
+
+  	<h2>レーベル一覧</h2>
+
+  	<% @labels.each do |label| %>
+  	 <ul>
+      <li><%= label.name %></li>
+      <%= link_to "削除", owners_label_path(label.id), method: :delete, "data-confirm" => "本当に削除しますか？", class:"btn-sm btn-danger destroy_book" %>
+     </ul>
+
+    <% end %>
+
+  </div>
+ </div>
+</div>

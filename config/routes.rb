@@ -30,7 +30,7 @@ Rails.application.routes.draw do
   	resources :songs
     end
     resources :orders, only: [:index, :show, :new]
-    get 'unsubscribe_confirmation' => 'users/users#unsubscribe_confirmation'
+    get 'unsubscribe' => 'users#unsubscribe'
   end
 
   resources :user_cds
