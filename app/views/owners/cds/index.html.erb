@@ -1,3 +1,24 @@
+<div class="container">
+   <h1>商品一覧</h1>
 
+     <table class="table table-striped">
+      <thead>
+          <tr>
+            <th><P>ジャケット画像</P></th>
+            <th><P>商品名</P></th>
+            <th><P>価格（税別）</P></th>
+          </tr>
+      </thead>
+      <tbody>
+        <% @cds.each do |cd| %>
+            <tr class="new-table">
+              <td><span><%= attachment_image_tag @cd, :jacket_image, :fill, 50, 50, format: 'jpeg' %></span></td>
+              <td><span><%= @cd.name %></span></td>
+              <td><span><%= @cd.price %></span></td>
+               <td><h4><span class="label label-success"><%= link_to "詳細", owners_cd_path %></span></h4></td>
+            </tr>
+        <% end %>
+      </tbody>
+     </table>
+</div>
 
-<h1>Item List</h1>

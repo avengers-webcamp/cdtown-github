@@ -1,46 +1,63 @@
 
+  <div class="container">
+   <span class="border">
+    <div class="row">
+     <div class=”form-horizontal” role=”form”>
+     <%= form_for @cd, url: owners_cds_path, method: :post do |cd| %>
 
-<h1>NEW CD</h1>
+       <div class="col-xs-5" style="background-color: white">
 
-<%= form_for @cd do |cd| %>
-
-<h2></h2>
-<%= cd.label :ジャケット画像 %></br>
-<%= cd.attachment_field :jacket_image, placeholder: "プロフィール画像" %>
-
-<h2></h2>
-<%= cd.label :ステータス（販売中・販売停止中） %></br>
-<%= cd.select :status, options_for_select(["販売中", "販売停止中"]) %>
-
-<h2></h2>
-<%= cd.label :価格（税別） %></br>
-<%= cd.text_field :price %>
-
-<h2></h2>
-<%= cd.label :アーティスト名 %></br>
-<%= cd.select :artist_id, Artist.all.map{|o| [o.name, o.id]} %>
-
-<h2></h2>
-<%= cd.label :シングルアルバム名 %>
-<%= cd.text_field :name %>
-
-<h2></h2>
-<%= cd.label :発売日 %>
-<%= cd.text_field :released_at %>
-
-<h2></h2>
-<%= cd.label :レーベル名 %>
-<%= cd.select :label_id, Label.all.map{|o| [o.name, o.id]} %>
-
-<h2></h2>
-<%= cd.label :ジャンル名 %>
-<%= cd.select :genre_id, Genre.all.map{|o| [o.name, o.id]} %>
-
-<h2></h2>
-<%= render 'form', cd: @cd %>
-
-<h2></h2>
-<%= cd.submit 'Create'%>
+          <h1>NEW CD</h1>
 
 
-<% end %>
+          <h2></h2>
+          <%= cd.label :ジャケット画像 %></br>
+          <%= cd.attachment_field :jacket_image, placeholder: "プロフィール画像" %>
+
+          <h2></h2>
+          <%= cd.label :ステータス（販売中・販売停止中） %></br>
+          <%= cd.select :status, options_for_select(["販売中", "販売停止中"]) %>
+
+          <h2></h2>
+          <%= cd.label :価格（税別） %></br>
+          <%= cd.text_field :price %>
+       </div>
+
+       <div class="col-xs-7" style="background-color: white">
+          <h2></h2>
+          <%= cd.label :アーティスト名 %></br>
+          <%= cd.select :artist_id, Artist.all.map{|o| [o.name, o.id]} %>
+
+          <h2></h2>
+          <%= cd.label :シングルアルバム名 %>
+          <%= cd.text_field :name %>
+
+          <h2></h2>
+          <%= cd.label :発売日 %>
+          <%= cd.text_field :released_at %>
+
+          <div class="form-group">
+           <h2></h2>
+           <%= cd.label :ジャンル名 %>
+           <%= cd.select :genre_id, Genre.all.map{|o| [o.name, o.id]} %>
+
+           <h2></h2>
+           <%= cd.label :レーベル名 %>
+           <%= cd.select :label_id, Label.all.map{|o| [o.name, o.id]} %>
+          </div>
+       </div>
+       <div class="container">
+	     <div class="row">
+
+          <h2></h2>
+          <%= render 'form', cd: @cd %>
+
+          <h2></h2>
+          <%= cd.submit "create" %>
+         </div>
+       </div>
+     <% end %>
+    </div>
+    </div>
+   </span>
+  </div>

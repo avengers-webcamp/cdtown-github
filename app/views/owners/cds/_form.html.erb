@@ -1,6 +1,6 @@
 <%= form_for @cd do |f| %>
   <h3>Disc</h3>
-  <div id="tasks">
+  <div id="discs">
     <%= f.fields_for :discs do |disc| %>
       <%= render 'disc_fields', f: disc %>
     <% end %>
