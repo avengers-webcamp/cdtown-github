@@ -75,3 +75,5 @@ gem "refile-mini_magick"
 gem 'paranoia'
 
 gem 'cocoon'
+
+gem 'pry-byebug'

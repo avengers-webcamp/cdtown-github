@@ -7,6 +7,8 @@ class Owners::CdsController < ApplicationController
 	end
 
 	def index
+		@cd = Cd.new
+		@cds = Cd.all
 	end
 
 	def show
@@ -16,17 +18,21 @@ class Owners::CdsController < ApplicationController
 	end
 
 	def create
-		cds = CD.new(cd_params)
-		cds.save
-		redirect_to root_path
+		@cd = Cd.new(cd_params)
+		 if@cd.save!
+			redirect_to owners_cds_path
+	     else
+	     	render :new
+	     end
+
 	end
 
 	def update
 	end
 
 	private
-    def project_params
-    params.require(:cd).permit(:name, :description, discs_attributes: [:id, :description, :done, :_destroy,
+    def cd_params
+    params.require(:cd).permit(:name, :jacket_image, :status, :price, :artist_id, :released_at, :label_id, :genre_id, discs_attributes: [:id, :description, :done, :_destroy,
                                                          songs_attributes: [:id, :description, :_destroy]])
     end
 end
