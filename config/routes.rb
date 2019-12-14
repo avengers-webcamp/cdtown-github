@@ -14,6 +14,8 @@ Rails.application.routes.draw do
     resources :orders, only: [:index, :show, :edit, :update]
     resources :cds, only: [:new, :show, :index, :edit, :create, :update]
     resources :users, only: [:show, :index, :edit, :update]
+    get 'create' => 'creates#new'
+    post 'create' => 'creates#new'
   end
 
   #devise_scope :admin do
