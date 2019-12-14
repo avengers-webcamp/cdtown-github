@@ -2,8 +2,28 @@
 
 <h1>Payment</h1>
 
+<%= form_for @order do |o| %>
 
 
+
+
+<P><%= o.hidden_field :postage, value: "500" %>送料    ¥500</P>
+
+
+<% ["クレジットカード払い","銀行振り込み","代引き"].each do |payment| %>
+
+<P><%= o.check_box :payment,{},checked_value = payment,unchecked_value = nil %><%= payment %></P>
+
+<% end %>
+
+
+<% @adress.each do |a| %>
+<%= a %>
+<% end %>
+
+<%= o.submit %>
+
+<% end %>
 
 
 

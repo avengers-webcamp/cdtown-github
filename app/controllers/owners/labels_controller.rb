@@ -3,9 +3,9 @@ class Owners::LabelsController < ApplicationController
 	def create
 		@label = Label.new(label_params)
       if  @label.save
-          redirect_to owners_create_path
+          redirect_to new_owners_create_path
       else
-          redirect_to owners_create_path
+          redirect_to new_owners_create_path
       end
 	end
 
