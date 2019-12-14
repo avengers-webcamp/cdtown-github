@@ -1,14 +1,14 @@
 <div class="container">
  <div class="row">
   <div class="col-md-8">
-  	<h2>Genre</h2>
 
-  	<%= form_for ([:owners, @genre]) do |f| %>
+
+  	<%= form_for @artist, url: owners_create_path do |f| %>
 
   	<div class="row">
   	  <table>
   	  	<tr>
-  	  	  <th>ジャンル</th>
+  	  	  <th>アーティスト名</th>
   	  	</tr>
   	  	<tr>
   	  	  <th><%= f.text_field :name %></th>

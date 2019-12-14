@@ -6,9 +6,9 @@ class Owners::LabelsController < ApplicationController
 	def create
 		@label = Label.new(label_params)
       if  @label.save
-          redirect_back(fallback_location: root_path)
+          redirect_to owners_create_path
       else
-          redirect_back(fallback_location: root_path)
+          redirect_to owners_create_path
       end
 	end
 

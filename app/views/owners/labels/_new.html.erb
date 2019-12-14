@@ -1,20 +1,20 @@
 <div class="container">
  <div class="row">
   <div class="col-md-8">
-  	<h2>Artist</h2>
 
-  	<%= form_for ([:owners, @artist]) do |f| %>
+  	<%= form_for @label, url: owners_create_path do |f| %>
 
   	<div class="row">
   	  <table>
   	  	<tr>
-  	  	  <th>アーティスト名</th>
+  	  	  <th>レーベル名</th>
   	  	</tr>
   	  	<tr>
   	  	  <th><%= f.text_field :name %></th>
   	  	</tr>
   	  </table>
   	</div>
+
 
 
   	<div class="row">

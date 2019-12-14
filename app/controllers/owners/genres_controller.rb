@@ -6,9 +6,9 @@ class Owners::GenresController < ApplicationController
 	def create
         @genre = Genre.new(genre_params)
       if  @genre.save
-          redirect_back(fallback_location: root_path)
+          redirect_to owners_create_path
       else
-          redirect_back(fallback_location: root_path)
+          redirect_to owners_create_path
       end
 	end
 
