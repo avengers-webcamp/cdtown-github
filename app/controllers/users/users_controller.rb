@@ -13,9 +13,15 @@ class Users::UsersController < ApplicationController
   	    @user = User.find(params[:id])
         @user.update(user_params)
         redirect_to user_path(@user.id)
+    end
+
+    def unsubscribe
+    	@user = User.find(params[:id])
+
+    end
 
 	def destroy
-		@user = PostImage.find(params[:id])
+		@user = User.find(params[:id])
         @user.destroy
         redirect_to cds_path
 	end
