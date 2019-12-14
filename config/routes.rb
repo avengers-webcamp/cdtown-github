@@ -9,12 +9,11 @@ Rails.application.routes.draw do
   devise_for :owners
 
   namespace :owners do
-    root 'owners/cds#index'
     resources :arrivals, :artists, :genres, :labels, :sales
     resources :orders, only: [:index, :show, :edit, :update]
     resources :cds, only: [:new, :show, :index, :edit, :create, :update, :destroy]
     resources :users, only: [:show, :index, :edit, :update]
-    get 'create' => 'creates#new'
+    resources :creates, only: [:new]
   end
 
   #devise_scope :admin do

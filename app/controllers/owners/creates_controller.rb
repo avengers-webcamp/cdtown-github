@@ -3,6 +3,5 @@ class Owners::CreatesController < ApplicationController
         @label = Label.new
 		@artist = Artist.new
 		@genre = Genre.new
-		render "owners/create"
     end
 end
