@@ -44,15 +44,14 @@ ActiveRecord::Schema.define(version: 2019_12_11_055414) do
 
   create_table "cds", force: :cascade do |t|
     t.string "name", null: false
-    t.integer "user_id", null: false
     t.integer "artist_id", null: false
     t.integer "genre_id", null: false
     t.integer "label_id", null: false
-    t.integer "arrive_id", null: false
+    t.integer "arrive_id"
     t.string "jacket_image_id"
     t.datetime "released_at", null: false
     t.string "price", null: false
-    t.integer "stock", null: false
+    t.integer "stock"
     t.integer "status", null: false
     t.datetime "deleted_at"
     t.datetime "created_at", null: false
@@ -66,7 +65,7 @@ ActiveRecord::Schema.define(version: 2019_12_11_055414) do
     t.string "deliver_post_back", null: false
     t.string "deliver_prefecture", null: false
     t.text "deliver_town", null: false
-    t.integer "deliver_post_namber", null: false
+    t.integer "deliver_post_number", null: false
     t.string "deliver_condo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -124,6 +123,7 @@ ActiveRecord::Schema.define(version: 2019_12_11_055414) do
   create_table "songs", force: :cascade do |t|
     t.string "name", null: false
     t.integer "order", null: false
+    t.integer "disc_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -3,7 +3,8 @@
     <div class="row">
      <div class=”form-horizontal” role=”form”>
      <%= form_for @cd, url: owners_cds_path, method: :post do |cd| %>
-     <div class="col-xs-5" style="background-color: white">
+
+       <div class="col-xs-5" style="background-color: white">
 
           <h1>NEW CD</h1>
 
@@ -33,7 +34,7 @@
 
           <h2></h2>
           <%= cd.label :発売日 %>
-          <%= cd.datetime_field :released_at %>
+          <%= cd.text_field :released_at %>
 
           <div class="form-group">
            <h2></h2>
@@ -52,7 +53,7 @@
           <%= render 'form', cd: @cd %>
 
           <h2></h2>
-          <%= cd.submit "create" %>
+          <%= cd.submit "update" %>
          </div>
        </div>
      <% end %>

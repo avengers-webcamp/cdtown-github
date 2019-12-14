@@ -10,15 +10,18 @@
           </tr>
       </thead>
       <tbody>
-        <% @cds.each do |cd| %>
+      	  <h1></h1>
+      	   <%=link_to '新規登録', new_owners_cd_path %>
+      	   <tbody>
+           <% @cds.each do |cd| %>
             <tr class="new-table">
-              <td><span><%= attachment_image_tag @cd, :jacket_image, :fill, 50, 50, format: 'jpeg' %></span></td>
-              <td><span><%= @cd.name %></span></td>
-              <td><span><%= @cd.price %></span></td>
-               <td><h4><span class="label label-success"><%= link_to "詳細", owners_cd_path %></span></h4></td>
+              <td><span><%= attachment_image_tag cd, :jacket_image, :fill, 50, 50, format: 'jpeg' %></span></td>
+              <td><span><%= cd.name %></span></td>
+              <td><span><%= cd.price %></span></td>
             </tr>
-        <% end %>
-      </tbody>
+          <% end %>
+          </tbody>
+       </tbody>
      </table>
 </div>
 

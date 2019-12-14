@@ -5,7 +5,7 @@ class Cd < ApplicationRecord
 	belongs_to :artist
 	belongs_to :genre
 	belongs_to :label
-	belongs_to :arrival
+	belongs_to :arrival, optional: true
 
 	has_many :discs, inverse_of: :cd
 	accepts_nested_attributes_for :discs, reject_if: :all_blank, allow_destroy: true
