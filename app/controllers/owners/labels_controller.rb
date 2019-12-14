@@ -1,7 +1,4 @@
 class Owners::LabelsController < ApplicationController
-	def new
-		@label = Label.new
-	end
 
 	def create
 		@label = Label.new(label_params)
