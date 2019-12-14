@@ -1,0 +1,53 @@
+<div class="container">
+ <div class="row">
+ 	     <div class="col-xs-5" style="background-color: white">
+
+          <h1>NEW CD</h1>
+
+
+          <h2></h2>
+          <%= cd.label :ジャケット画像 %></br>
+           <%= attachment_image_tag @cd, :jacket_image, fallback: "no_cd_image.jpg", size:"100x100" %>
+
+          <h2></h2>
+          <%= @cd.status %></br>
+
+          <h2></h2>
+          <%= @cd.price %></br>
+       </div>
+
+       <div class="col-xs-7" style="background-color: white">
+          <h2></h2>
+          <%= @cd.artist_id %></br>
+
+          <h2></h2>
+          <%= @cd.name %>
+
+          <h2></h2>
+          <%= @cd.released_at %>
+
+          <div class="form-group">
+           <h2></h2>
+           <%= @cd.genre_id %>
+
+           <h2></h2>
+           <%= @cd.label_id %>
+          </div>
+       </div>
+       <div class="container">
+	     <div class="row">
+
+          <h2></h2>
+          <%= @cd.disc_id %>
+
+          <h2></h2>
+          <%= @cd.song_id %>
+
+          <h2></h2>
+          <%= button_to('詳細',edit_owners_cd_path) %>
+          <%= button_to('削除',owners_cd_path(@cd.id)), method: :delete %>
+
+          <h2></h2>
+          <%= button_to('この商品の入荷登録画面へ',new_owners_arrival_path) %>
+         </div>
+       </div>
