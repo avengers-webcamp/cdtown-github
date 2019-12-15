@@ -1,53 +1,66 @@
 <div class="container">
  <div class="row">
  	     <div class="col-xs-5" style="background-color: white">
+ 	     	<div class="label">ジャケット画像</div>
+            <%= attachment_image_tag @cd, :jacket_image, fallback: "no_cd_image.jpg", size:"200x200" %>
 
-          <h1>NEW CD</h1>
+            <h2></h2>
+            <div class="label">ステータス（販売中・販売停止中）</div>
+            <%= @cd.status %>
 
-
-          <h2></h2>
-          <%= cd.label :ジャケット画像 %></br>
-           <%= attachment_image_tag @cd, :jacket_image, fallback: "no_cd_image.jpg", size:"100x100" %>
-
-          <h2></h2>
-          <%= @cd.status %></br>
-
-          <h2></h2>
-          <%= @cd.price %></br>
-       </div>
+            <h2></h2>
+            <div class="label">価格（税別）</div>
+            <%= @cd.price %>
+         </div>
 
        <div class="col-xs-7" style="background-color: white">
           <h2></h2>
-          <%= @cd.artist_id %></br>
+          <div class="label">アーティスト名</div>
+          <%= @artists[0]['name'] %>
 
           <h2></h2>
+          <div class="label">シングル／アルバム名</div>
           <%= @cd.name %>
 
           <h2></h2>
+          <div class="label">発売日</div>
           <%= @cd.released_at %>
 
           <div class="form-group">
-           <h2></h2>
-           <%= @cd.genre_id %>
+          <h2></h2>
+          <div class="label">ジャンル名</div>
+          <%= @genres[0]['name'] %>
 
-           <h2></h2>
-           <%= @cd.label_id %>
-          </div>
+          <h2></h2>
+          <div class="label">レーベル名</div>
+          <%= @labels[0]['name'] %>
        </div>
+  </div>
+ </div>
+
        <div class="container">
 	     <div class="row">
-
-          <h2></h2>
-          <%= @cd.disc_id %>
-
-          <h2></h2>
-          <%= @cd.song_id %>
-
-          <h2></h2>
-          <%= button_to('詳細',edit_owners_cd_path) %>
-          <%= button_to('削除',owners_cd_path(@cd.id)), method: :delete %>
+	     	<table>
+		      <tbody>
+	            <% @cd.discs.order(:disc_count).each do |disc| %>
+	             <td><span><%= disc.disc_count %></span></td>
+	            	<% disc.songs.order(:order).each do |song| %>
+	             		<tr class="table table-striped">
+	              			<td><span><%= song.name %></span></td>
+	             		</tr>
+	            	<% end %>
+	            <% end %>
+	           </tbody>
+	       </table>
+         </div>
+       </div>
 
           <h2></h2>
           <%= button_to('この商品の入荷登録画面へ',new_owners_arrival_path) %>
+
+          <h2></h2>
+          <%= button_to('編集',edit_owners_cd_path(@cd.id)) %>
+          <%= button_to('削除',owners_cd_path(@cd.id), method: :delete) %>
+
          </div>
        </div>
