@@ -1,10 +1,20 @@
 
 
-<%= form_for @arrival, url: owners_arrivals_path, method: :post do |arr| %>
+<%= form_for @arrival, url: owners_cd_arrivals_path, method: :post do |arr| %>
 
 
 <div class="field">
-<table>
+  <table>
+
+
+    <tr>
+        <th>
+            <%= arr.label :シングル_アルバム名 %>
+        </th>
+        <th>
+            <%= @cd.name %>
+        </th>
+    </tr>
 	<tr>
 		<th>
             <%= arr.label :入荷日 %>
@@ -13,17 +23,15 @@
             <%= arr.datetime_select :arrive_day %>
         </th>
     </tr>
-
     <tr>
     	<th>
             <%= arr.label :入荷数 %>
         </th>
         <th>
             <%= arr.number_field :arrive_count %>
-            <%　:stock_count = :stock_count + :arrive_count %>
         </th>
     </tr>
-</table>
+  </table>
 </div>
 
 <%= arr.submit "登録" %>

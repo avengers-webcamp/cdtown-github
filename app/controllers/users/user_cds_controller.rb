@@ -1,7 +1,7 @@
 class Users::UserCdsController < ApplicationController
 
 	def index
-		@user_cds = User.find(params[:user_cd])
+		@user_cds = UserCd.all
 	end
 
 	def create
@@ -23,5 +23,6 @@ class Users::UserCdsController < ApplicationController
 
 	def user_cd_params
 		params.require(:user_cd).permit(:user_id, :cd_id)
+	end
 
 end
