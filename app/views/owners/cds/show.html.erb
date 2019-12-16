@@ -4,7 +4,7 @@
  	     	<div class="label">ジャケット画像</div>
             <%= attachment_image_tag @cd, :jacket_image, fallback: "no_cd_image.jpg", size:"200x200" %>
 
-            <h2></h2>
+            <div></div>
             <div class="label">ステータス（販売中・販売停止中）</div>
             <% if @cd.status = 0 %>
              <div class="label">販売中</div>
@@ -14,39 +14,38 @@
 
             <% end %>
 
-            <h2></h2>
+            <div></div>
             <div class="label">価格（税別）</div>
             <%= @cd.price %>
          </div>
 
-       <div class="col-xs-7" style="background-color: white">
-          <h2></h2>
-          <div class="label">アーティスト名</div>
-          <%= @artists[0]['name'] %>
+         <div class="col-xs-7" style="background-color: white">
+	          <div></div>
+	          <div class="label">アーティスト名</div>
+	          <%= @artists[0]['name'] %>
 
-          <h2></h2>
-          <div class="label">シングル／アルバム名</div>
-          <%= @cd.name %>
+	          <div></div>
+	          <div class="label">シングル／アルバム名</div>
+	          <%= @cd.name %>
 
-          <h2></h2>
-          <div class="label">発売日</div>
-          <%= @cd.released_at %>
+	          <div></div>
+	          <div class="label">発売日</div>
+	          <%= @cd.released_at %>
 
-          <div class="form-group">
-          <h2></h2>
-          <div class="label">ジャンル名</div>
-          <%= @genres[0]['name'] %>
+	          <div></div>
+	          <div class="label">ジャンル名</div>
+	          <%= @genres[0]['name'] %>
 
-          <h2></h2>
-          <div class="label">レーベル名</div>
-          <%= @labels[0]['name'] %>
-       </div>
+	          <div></div>
+	          <div class="label">レーベル名</div>
+	          <%= @labels[0]['name'] %>
+	     </div>
   </div>
  </div>
 
-       <div class="container">
-	     <div class="row">
-	     	<table>
+ <div class="container">
+	 <div class="row">
+	     <table>
 		      <tbody>
 	            <% @cd.discs.order(:disc_count).each do |disc| %>
 	             <td><span><%= disc.disc_count %></span></td>
@@ -56,11 +55,13 @@
 	             		</tr>
 	            	<% end %>
 	            <% end %>
-	           </tbody>
+	          </tbody>
 	       </table>
-         </div>
-       </div>
+     </div>
+ </div>
 
+<div class="container">
+	 <div class="row">
           <h2></h2>
           <%= button_to('この商品の入荷登録画面へ', new_owners_arrival_path) %>
 
@@ -68,5 +69,5 @@
           <%= button_to('編集',edit_owners_cd_path(@cd.id), method: :get) %>
           <%= button_to('削除',owners_cd_path(@cd.id), method: :delete) %>
 
-         </div>
-       </div>
+     </div>
+</div>
