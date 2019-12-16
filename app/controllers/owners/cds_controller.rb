@@ -43,6 +43,12 @@ class Owners::CdsController < ApplicationController
 		end
 	end
 
+	def destroy
+		@cd = Cd.find(params[:id])
+		@cd.destroy
+		redirect_to owners_cds_path
+	end
+
 	private
     def cd_params
     params.require(:cd).permit(:name, :jacket_image, :status, :price, :artist_id, :released_at, :label_id, :genre_id, discs_attributes: [:id, :disc_count, :description, :done, :_destroy,
