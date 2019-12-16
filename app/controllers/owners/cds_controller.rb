@@ -26,7 +26,7 @@ class Owners::CdsController < ApplicationController
 
 	def create
 		@cd = Cd.new(cd_params)
-		 if @cd.save!
+		 if @cd.save
 			redirect_to owners_cds_path
 	     else
 	     	render :new
@@ -39,7 +39,6 @@ class Owners::CdsController < ApplicationController
 		if @cd.update(cd_params)
 			redirect_to owners_cd_path(@cd.id)
 		else
-		  @cds = Cd.all
 		  rebder :edit
 		end
 	end

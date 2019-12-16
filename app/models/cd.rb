@@ -14,4 +14,6 @@ class Cd < ApplicationRecord
 	has_many :users, through: :user_cds, source: :user
 	has_many :cd_orders
 	has_many :orders, through: :cd_orders, source: :order
+
+
 end
