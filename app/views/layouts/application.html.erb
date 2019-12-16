@@ -11,56 +11,83 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+ <body>
 
 
 <header class="navbar navbar-fixed-top navbar-inverse">
    <div class="container">
 
     <nav class="nav navbar-nav navbar-left">
-      <strong>CDTOWN</strong>
+      <h1>CDTOWN</h1>
     </nav>
 
-     <ul class="nav navbar-nav navbar-right">
-      <div class="row">
+     <nav class="nav navbar-nav navbar-right">
+      <ul class="nav navbar-nav navbar-inverse">
 
-      <% if owner_signed_in? %>
-   　　　
-   　　　<%= link_to " 顧客一覧", owners_root_path, class: "glyphicon glyphicon-home home" %>
-   　　　<%= link_to " 商品一覧", owners_root_path, class: "glyphicon glyphicon-home home" %>
-   　　　<%= link_to " 入荷履歴", owners_root_path, class: "glyphicon glyphicon-home home" %>
-   　　　<%= link_to " 受注管理", owners_root_path, class: "glyphicon glyphicon-home home" %>
-   　　　<%= link_to " 売上管理", owners_root_path, class: "glyphicon glyphicon-home home" %>
-   　　　<%= link_to " Sign out", destroy_owner_session_path, method: :delete, class: "glyphicon glyphicon-log-out logout" %>
+        <% if owner_signed_in? %>
+         <li class="">
+          <li>
+     　　　 <%= link_to "顧客一覧", owners_root_path, class:"glyphicon glyphicon-home home" %>
+          </li>
+          <li>
+     　　　 <%= link_to "商品一覧", owners_root_path, class:"glyphicon glyphicon-home home" %>
+          </li>
+          <li>
+     　　　 <%= link_to "入荷履歴", owners_root_path, class:"glyphicon glyphicon-home home" %>
+          </li>
+          <li>
+     　　　 <%= link_to "受注管理", owners_root_path, class:"glyphicon glyphicon-home home" %>
+          </li>
+          <li>
+     　　　 <%= link_to "売上管理", owners_root_path, class:"glyphicon glyphicon-home home" %>
+          </li>
+          <li>
+     　　　<%= link_to "Sign out", destroy_owner_session_path, method: :delete, class:"glyphicon glyphicon-log-out logout" %></li>
 
-      <% elsif user_signed_in? %>
+        <% elsif user_signed_in? %>
+         <li class="">
+          <li>
+           <%= link_to " Home", root_path, class:"glyphicon glyphicon-home home" %>
+          </li>
+          <li>
+           <%= link_to " My page", root_path, class:"glyphicon glyphicon-user users" %>
+          </li>
+          <li>
+           <%= link_to " Sign out" ,destroy_user_session_path, method: :delete, class:"glyphicon glyphicon-log-out logout" %></li>
 
-       <%= link_to " Home", root_path, class: "glyphicon glyphicon-home home" %>
+         <a class="fas fa-search"></a>
 
-       <%= link_to " My page", root_path, class: "glyphicon glyphicon-user users" %>
+        <% else %>
+         <li class="">
+          <li>
+           <%= link_to " Home", root_path, class:"glyphicon glyphicon-home home" %>
+          </li>
+          <li>
+           <%= link_to " Sign up", new_user_registration_path, class:"glyphicon glyphicon-edit signup" %>
+          </li>
+          <li>
+           <%= link_to " Sign in", new_user_session_path, class:"glyphicon glyphicon-log-out logout" %>
+          </li>
 
-       <%= link_to " Sign out" ,destroy_user_session_path, method: :delete, class: "glyphicon glyphicon-log-out logout" %>
+        <% end %>
 
-       <a class="fas fa-search"></a>
-
-      <% else %>
-
-       <%= link_to " Home", root_path, class: "glyphicon glyphicon-home home" %>
-
-       <%= link_to " Sign up", new_user_registration_path, class: "glyphicon glyphicon-edit signup" %>
-
-       <%= link_to " Sign in", new_user_session_path, class: "glyphicon glyphicon-log-out logout" %>
-
-      <% end %>
-      </div>
-     </ul>
+      </ul>
+     </nav>
    </div>
   </header>
 
 
     <%= yield %>
-  </body>
+
   <footer>
-    fooooooooooooter
+     <div class='container'>
+      <div class='row'>
+       <div class='col-xs-3 col-xs-offset-9'>
+        <p>cdtown.inc</p>
+       </div>
+      </div>
+     </div>
+
   </footer>
+ </body>
 </html>
