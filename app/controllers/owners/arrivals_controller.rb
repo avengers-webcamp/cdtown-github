@@ -5,20 +5,29 @@ class Owners::ArrivalsController < ApplicationController
 		@cd = Cd.find(params[:cd_id])
 	end
 
+	def show
+
+    end
+
 	def index
 		@arrivals = Arrival.all
 	end
 
 	def create
-		arrival = Arrival.new(arrival_params)
-		arrival.save
-		redirect_to owners_cds_path
+		@arrival = Arrival.new(arrival_params)
+        @cd = Cd.find(params[:cd_id])
+        @arrival.cd_id=params[:cd_id]
+		if  @arrival.save
+		    redirect_to owners_cd_arrivals_path(@cd)
+		else
+			render :new
+		end
 	end
 
 	private
 
 	def arrival_params
-		params.require(:arrival).permit(:arrive_day, :arrive_count, :stock_count)
+		params.require(:arrival).permit(:arrive_day, :arrive_count, :cd_id)
 	end
 
 end

@@ -1,4 +1,4 @@
 class Arrival < ApplicationRecord
 	acts_as_paranoid
-	has_many :cds
+	belongs_to :cd, optional: true
 end

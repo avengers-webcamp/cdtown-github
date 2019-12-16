@@ -9,9 +9,11 @@ Rails.application.routes.draw do
   devise_for :owners
 
   namespace :owners do
-    resources :arrivals, :artists, :genres, :labels, :sales
+    resources :artists, :genres, :labels, :sales
     resources :orders, only: [:index, :show, :edit, :update]
-    resources :cds, only: [:new, :show, :index, :edit, :create, :update, :destroy]
+    resources :cds do
+       resources :arrivals
+    end
     resources :users, only: [:show, :index, :edit, :update]
     resources :creates, only: [:new]
   end
@@ -29,12 +31,12 @@ Rails.application.routes.draw do
     end
   	resources :songs
     end
-    resources :orders, only: [:index, :show, :new]
+    resources :orders, only: [:index, :show, :new ,:create]
     get 'unsubscribe' => 'users#unsubscribe'
-  end
 
-  resources :user_cds
-  resources :cd_orders
+    resources :user_cds
+    resources :cd_orders
+  end
 
   get 'complete' => 'users/orders#complete'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
