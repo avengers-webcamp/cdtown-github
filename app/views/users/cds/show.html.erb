@@ -1,0 +1,67 @@
+<div class="container">
+ <div class="row">
+ 	     <div class="col-xs-5" style="background-color: white">
+ 	     	<div class="label">ジャケット画像</div>
+            <%= attachment_image_tag @cd, :jacket_image, fallback: "no_cd_image.jpg", size:"200x200" %>
+
+            <h2></h2>
+            <div class="label">ステータス（販売中・販売停止中）</div>
+            <% if @cd.status = 0 %>
+             <div class="label">販売中</div>
+
+            <% else %>
+             <div class="label">販売停止中</div>
+
+            <% end %>
+
+            <h2></h2>
+            <div class="label">価格（税別）</div>
+            <%= @cd.price %>
+         </div>
+
+       <div class="col-xs-7" style="background-color: white">
+          <h2></h2>
+          <div class="label">アーティスト名</div>
+          <%= @artists[0]['name'] %>
+
+          <h2></h2>
+          <div class="label">シングル／アルバム名</div>
+          <%= @cd.name %>
+
+          <h2></h2>
+          <div class="label">発売日</div>
+          <%= @cd.released_at %>
+
+          <div class="form-group">
+          <h2></h2>
+          <div class="label">ジャンル名</div>
+          <%= @genres[0]['name'] %>
+
+          <h2></h2>
+          <div class="label">レーベル名</div>
+          <%= @labels[0]['name'] %>
+       </div>
+  </div>
+ </div>
+
+       <div class="container">
+	     <div class="row">
+	     	<table>
+		      <tbody>
+	            <% @cd.discs.order(:disc_count).each do |disc| %>
+	             <td><span><%= disc.disc_count %></span></td>
+	            	<% disc.songs.order(:order).each do |song| %>
+	             		<tr class="table table-striped">
+	              			<td><span><%= song.name %></span></td>
+	             		</tr>
+	            	<% end %>
+	            <% end %>
+	           </tbody>
+	       </table>
+        <p></p>
+          <%= button_to('カートに入れる') %>
+       </div>
+       </div>
+
+         </div>
+       </div>
