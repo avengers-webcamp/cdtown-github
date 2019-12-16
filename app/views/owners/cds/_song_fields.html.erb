@@ -2,7 +2,7 @@
   <div class="form-group">
   	<%= f.label :曲名
   	 %>
-    <%= f.number_field :order %>
+    <%= f.number_field :order, :size => 4 %>
     <%= f.text_field :name %>
   </div>
      <%= link_to_remove_association "曲の削除", f %>

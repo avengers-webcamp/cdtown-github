@@ -1,13 +1,7 @@
-
+<%= form_for @cd, url: owners_cds_path, method: :post do |cd| %>
   <div class="container">
     <div class="row">
-     <div class=”form-horizontal” role=”form”>
-     <%= form_for @cd, url: owners_cds_path, method: :post do |cd| %>
-
-       <div class="col-xs-5" style="background-color: white">
-
-          <h1>NEW CD</h1>
-
+     <div class="col-xs-5" style="background-color: white">
 
           <h2></h2>
           <%= cd.label :ジャケット画像 %></br>
@@ -21,9 +15,9 @@
           <h2></h2>
           <%= cd.label :価格（税別） %></br>
           <%= cd.text_field :price %>
-       </div>
+     </div>
 
-       <div class="col-xs-7" style="background-color: white">
+     <div class="col-xs-7" style="background-color: white">
           <h2></h2>
           <%= cd.label :アーティスト名 %></br>
           <%= cd.select :artist_id, Artist.all.map{|o| [o.name, o.id]} %>
@@ -34,7 +28,7 @@
 
           <h2></h2>
           <%= cd.label :発売日 %>
-          <%= cd.text_field :released_at %>
+          <%= cd.date_field :released_at %>
 
           <div class="form-group">
            <h2></h2>
@@ -45,18 +39,19 @@
            <%= cd.label :レーベル名 %>
            <%= cd.select :label_id, Label.all.map{|o| [o.name, o.id]} %>
           </div>
-       </div>
-       <div class="container">
-	     <div class="row">
+     </div>
+   </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
 
           <h2></h2>
           <%= render 'form', cd: @cd %>
 
           <h2></h2>
-          <%= cd.submit "update" %>
-         </div>
-       </div>
-     <% end %>
-    </div>
+          <%= cd.submit "update" %><br>
+
     </div>
   </div>
+<% end %>

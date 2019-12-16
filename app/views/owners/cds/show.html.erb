@@ -6,7 +6,13 @@
 
             <h2></h2>
             <div class="label">ステータス（販売中・販売停止中）</div>
-            <%= @cd.status %>
+            <% if @cd.status = 0 %>
+             <div class="label">販売中</div>
+
+            <% else %>
+             <div class="label">販売停止中</div>
+
+            <% end %>
 
             <h2></h2>
             <div class="label">価格（税別）</div>
@@ -56,10 +62,10 @@
        </div>
 
           <h2></h2>
-          <%= button_to('この商品の入荷登録画面へ',new_owners_arrival_path) %>
+          <%= button_to('この商品の入荷登録画面へ', new_owners_arrival_path) %>
 
           <h2></h2>
-          <%= button_to('編集',edit_owners_cd_path(@cd.id)) %>
+          <%= button_to('編集',edit_owners_cd_path(@cd.id), method: :get) %>
           <%= button_to('削除',owners_cd_path(@cd.id), method: :delete) %>
 
          </div>
