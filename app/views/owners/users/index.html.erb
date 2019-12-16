@@ -1,0 +1,29 @@
+<div class='container'>
+     <h2>顧客一覧</h2>
+</div>
+
+<div class='container'>
+  <div class='row'>
+     <table class='table table-hover table-inverse'>
+      <thead>
+	   <tr>
+		<th><p>顧客名</p></th>
+		<th><p>電話番号</p></th>
+		<th><p>Email</p></th>
+		<th><p>詳細情報</p></th>
+	   </tr>
+      </thead>
+      <tbody>
+       	<% @users.each do |user| %>
+       <tr class="new-table">
+       	<td><span><%= user.last_name_kana %><%= user.first_name_kana %></span></td>
+       	<td><span><%= user.phone_number %></span></td>
+       	<td><span><%= user.email %></span></td>
+       	<td><span><%= link_to '詳細', owners_user_path(user.id) %></span></td>
+       </tr>
+        <% end %>
+      </tbody>
+      </table>
+
+  </div>
+</div>
