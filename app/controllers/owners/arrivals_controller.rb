@@ -2,17 +2,19 @@ class Owners::ArrivalsController < ApplicationController
 
 	def new
 		@arrival = Arrival.new
+		@cd = Cd.find(params[:cd_id])
 	end
 
 	def index
-		@arrivals = Arrival.find(params[:id])
+		@arrivals = Arrival.all
 	end
 
 	def create
 		arrival = Arrival.new(arrival_params)
 		arrival.save
-		redirect_to owners_cd_path
+		redirect_to owners_cds_path
 	end
+
 	private
 
 	def arrival_params

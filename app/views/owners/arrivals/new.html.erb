@@ -1,6 +1,6 @@
 
 
-<%= form_for @arrival, url: root_path do |arr| %>
+<%= form_for @arrival, url: owners_arrivals_path, method: :post do |arr| %>
 
 
 <div class="field">
@@ -20,6 +20,7 @@
         </th>
         <th>
             <%= arr.number_field :arrive_count %>
+            <%　:stock_count = :stock_count + :arrive_count %>
         </th>
     </tr>
 </table>
