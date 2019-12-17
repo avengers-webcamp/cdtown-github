@@ -2,25 +2,33 @@ class Users::OrdersController < ApplicationController
 
 	def new
 		@order = Order.new
+		@user = User.find(params[:user_id])
 		@adress = Order.includes(:user,params[:user_id]).order("users.last_name desc")
-
+		@deliver_addresses = DeliverAddress.all
 	end
 
 	def show
 		@order = Order.find(params[:id])
 		@cd = Cd.find(params[:cd_id])
 		@cd_order = @cd.user
-		@current_order = @oredr.@cd_order
 	end
 
 	def index
 		@orders = Order.all
 		@cds = Cd.all
 		@cd_orders = @cds.user
-		@current_orders = @oredrs.@cd_orders
 	end
 
 	def complete
+	end
+
+	def create
+		@order = Order.new(order_params)
+		if @order.save
+			redirect_to user_complete
+		else
+			render :new
+		end
 	end
 
     private

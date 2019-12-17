@@ -2,28 +2,40 @@
 
 <h1>Payment</h1>
 
-<%= form_for @order do |o| %>
+<%= form_for @order, url: user_orders_path, method: :post do |o| %>
 
 
 
 
-<P><%= o.hidden_field :postage, value: "500" %>送料    ¥500</P>
+    <P><%= o.hidden_field :postage, value: "500" %>送料    ¥500</P>
 
 
-<% ["クレジットカード払い","銀行振り込み","代引き"].each do |payment| %>
+        <% ["クレジットカード払い","銀行振り込み","代引き"].each do |payment| %>
+            <p><label><%=o.radio_button :payment, payment%><%= payment %></label></p>
+        <% end %>
 
-<P><%= o.check_box :payment,{},checked_value = payment,unchecked_value = nil %><%= payment %></P>
+
+    <p><%= @user.last_name %><%= @user.first_name %></p>
+
+    <p><%= @user.post_front %><%= @user.post_back %></p>
+
+    <p><%= @user.prefecture %><%= @user.town %><%= @user.post_number %><%= @user.condo %></p>
+
+
+
+<% @deliver_addresses.each do |address| %>
+
+    <p><%= address.deliver_post_front %><%= address.deliver_post_back %></p>
+
+    <p><%= address.deliver_prefecture %><%= address.deliver_town %><%= address.deliver_post_number %><%= address.deliver_condo %></p>
 
 <% end %>
 
-
-<% @adress.each do |a| %>
-<%= a %>
-<% end %>
 
 <%= o.submit %>
 
 <% end %>
 
+<%= button_to('新しく配送先を登録する',new_user_deliver_address_path) %>
 
 
