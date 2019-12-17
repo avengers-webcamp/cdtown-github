@@ -12,14 +12,6 @@ class Users::UserCdsController < ApplicationController
 		cart.user_id = current_user.id
         cart.cd_id = cd.id
 
-
-		puts"-------1-------"
-		puts params[:cd_id]
-		puts"-------2-------"
-		puts params[:user_id]
-		puts"-------3-------"
-
-
 		if cart.save!
 		    session[:user_cd] = [] unless session[:user_cd]
             session[:user_cd] << params[:cd_id]
