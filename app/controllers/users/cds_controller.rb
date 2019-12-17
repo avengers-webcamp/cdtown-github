@@ -8,9 +8,9 @@ class Users::CdsController < ApplicationController
 	end
 
 	def index
-	    @cd = Cd.new
 		@cds = Cd.all
 	end
+
 
 	private
     def cd_params

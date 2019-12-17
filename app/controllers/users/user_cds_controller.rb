@@ -1,28 +1,30 @@
 class Users::UserCdsController < ApplicationController
+      before_action :logged_in_user
 
 	def index
-		@user_cds = UserCd.all
 	end
 
 	def create
-		user_cd = UserCd.new(user_cd_params)
-		user_cd.save
-		session[:user_cd] = [] unless session[:user_cd]
-        session[:user_cd] << params[:cd_id]
-        flash[:success] = "カートに追加できました！"
-        redirect_to root_path
-	end
-
-	def update
+		@cd = Cd.find(params[:cd_id])
+        unless @cd.incart?(current_user)
+         @cd.incart(current_user)
+         respond_to do |format|
+           format.html { redirect_to request.referrer || root_url }
+           format.js
+        end
+        end
 	end
 
 	def destroy
+		@cd = UserCd.find(params[:id]).cd
+		if @cd.incart?(current_user)
+         @cart.outcart(current_user)
+         respond_to do |format|
+           format.html { redirect_to request.referrer || root_url }
+           format.js
+        end
+        end
 	end
 
-	private
-
-	def user_cd_params
-		params.require(:user_cd).permit(:user_id, :cd_id)
-	end
 
 end

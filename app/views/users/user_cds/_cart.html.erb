@@ -1,0 +1,18 @@
+<% if !current_user?(cd.user) %>
+    <span class="user_cd">
+    <% if cd.incart?(current_user) %>
+      <%= form_for(cd.user_cds.find_by(user_id: current_user.id), method: :delete, remote: true) do |f| %>
+        <%= button_tag(class: "btn btn-default btn-lg") do %>
+          <%= content_tag :span, "カートに入れる" %>
+        <% end %>
+      <% end %>
+    <% else %>
+      <%= form_for(cd.user_cds.build, remote: true) do |f| %>
+        <div><%= hidden_field_tag :cd_id, cd.id %></div>
+        <%= button_tag(class: "btn btn-default btn-lg") do %>
+          <%= content_tag :span, "カートから出す" %>
+        <% end %>
+      <% end %>
+    <% end %>
+  </span>
+<% end %>
