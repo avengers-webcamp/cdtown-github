@@ -7,6 +7,6 @@ class User < ApplicationRecord
 
   has_many :deliver_addresses, dependent: :destroy
   has_many :orders
-  has_many :user_cds
+  has_many :user_cds,dependent: :destroy
   has_many :cds , through: :user_cds, source: :cd
 end

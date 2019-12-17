@@ -16,5 +16,11 @@ class Cd < ApplicationRecord
 	has_many :cd_orders
 	has_many :orders, through: :cd_orders, source: :order
 
+    def incart(user)
+        user_cds.create(user_id: user.id)
+    end
 
+    def uniine(user)
+        user_cds.find_by(user_id: user.id).destroy
+    end
 end
