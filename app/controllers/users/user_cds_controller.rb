@@ -2,7 +2,7 @@ class Users::UserCdsController < ApplicationController
 
 	def index
 		@user = current_user.id
-		@cart = current_user_cd
+		@cart = UserCd.all
 	end
 
 	def create
@@ -13,8 +13,6 @@ class Users::UserCdsController < ApplicationController
         cart.cd_id = cd.id
 
 		if cart.save!
-		    session[:user_cd] = [] unless session[:user_cd]
-            session[:user_cd] << params[:cd_id]
             flash[:success] = "カートに追加できました！"
             redirect_to user_cds_path
         else
