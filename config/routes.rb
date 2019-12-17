@@ -36,6 +36,10 @@ Rails.application.routes.draw do
 
     resources :user_cds
     resources :cd_orders
+
+     #post '/add_item' => 'user_cds#add_item'
+     #post '/update_item' => 'user_cds#update_item'
+     #delete '/delete_item' => 'user_cds#delete_item'
   end
 
   get 'complete' => 'users/orders#complete'
