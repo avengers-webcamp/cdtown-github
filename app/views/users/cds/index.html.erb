@@ -23,7 +23,7 @@
               <td><span><%= link_to '詳細', cd_path(cd.id) %></span></td>
               <%= form_for @user_cd, url: user_cds_path(cd_id: cd.id), method: :post do |cart| %>
               <td><span><%= cart.number_field :disc_count %></span></td>
-              <td><span><%= cart.submit "登録" %></span></td>
+              <td><span><%= cart.submit "カートに入れる" %></span></td>
               <% end %>
             </tr>
            <% end %>
