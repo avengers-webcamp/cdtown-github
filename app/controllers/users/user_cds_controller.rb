@@ -47,3 +47,5 @@ class Users::UserCdsController < ApplicationController
 	end
 
 end
+
+end
