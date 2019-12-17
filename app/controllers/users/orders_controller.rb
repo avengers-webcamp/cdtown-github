@@ -10,13 +10,19 @@ class Users::OrdersController < ApplicationController
 	def show
 		@order = Order.find(params[:id])
 		@cd = Cd.find(params[:cd_id])
+<<<<<<< HEAD
 		@cd_order = @cd.user
+=======
+>>>>>>> d64a457e2235bf95b87cb2eca90d1e648afb71ce
 	end
 
 	def index
 		@orders = Order.all
 		@cds = Cd.all
+<<<<<<< HEAD
 		@cd_orders = @cds.user
+=======
+>>>>>>> d64a457e2235bf95b87cb2eca90d1e648afb71ce
 	end
 
 	def complete
