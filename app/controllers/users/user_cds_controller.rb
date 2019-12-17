@@ -1,30 +1,45 @@
 class Users::UserCdsController < ApplicationController
-      before_action :logged_in_user
 
 	def index
+		@user = current_user.id
+		@cart = current_user_cd
 	end
 
 	def create
-		@cd = Cd.find(params[:cd_id])
-        unless @cd.incart?(current_user)
-         @cd.incart(current_user)
-         respond_to do |format|
-           format.html { redirect_to request.referrer || root_url }
-           format.js
+        cd = Cd.find(params[:cd_id])
+        @cart = current_user_cd
+		cart = UserCd.new(user_cd_params)
+		cart.user_id = current_user.id
+        cart.cd_id = cd.id
+
+
+		puts"-------1-------"
+		puts params[:cd_id]
+		puts"-------2-------"
+		puts params[:user_id]
+		puts"-------3-------"
+
+
+		if cart.save!
+		    session[:user_cd] = [] unless session[:user_cd]
+            session[:user_cd] << params[:cd_id]
+            flash[:success] = "カートに追加できました！"
+            redirect_to user_cds_path
+        else
+            redirect_to root_path
         end
-        end
+	end
+
+	def update
 	end
 
 	def destroy
-		@cd = UserCd.find(params[:id]).cd
-		if @cd.incart?(current_user)
-         @cart.outcart(current_user)
-         respond_to do |format|
-           format.html { redirect_to request.referrer || root_url }
-           format.js
-        end
-        end
 	end
 
+	private
+
+	def user_cd_params
+		params.require(:user_cd).permit(:user_id, :cd_id ,:disc_count)
+	end
 
 end
