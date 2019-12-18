@@ -25,13 +25,14 @@ Rails.application.routes.draw do
   scope module: :users do
     resources :users, only: [:show, :edit, :destroy] do
   	  resources :deliver_addresses
+      resources :orders, only: [:index, :show, :new ,:create]
+      get 'complete' => 'users/orders#complete'
     end
     resources :cds, only: [:show, :index] do
   	  resources :discs do
     end
   	resources :songs
     end
-    resources :orders, only: [:index, :show, :new ,:create]
     get 'unsubscribe' => 'users#unsubscribe'
 
     resources :user_cds
@@ -42,6 +43,5 @@ Rails.application.routes.draw do
      #delete '/delete_item' => 'user_cds#delete_item'
   end
 
-  get 'complete' => 'users/orders#complete'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
