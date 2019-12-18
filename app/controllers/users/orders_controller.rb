@@ -4,25 +4,20 @@ class Users::OrdersController < ApplicationController
 		@order = Order.new
 		@user = User.find(params[:user_id])
 		@adress = Order.includes(:user,params[:user_id]).order("users.last_name desc")
+		@cart = UserCd.where(user_id: current_user.id)
 		@deliver_addresses = DeliverAddress.all
 	end
 
 	def show
 		@order = Order.find(params[:id])
 		@cd = Cd.find(params[:cd_id])
-<<<<<<< HEAD
 		@cd_order = @cd.user
-=======
->>>>>>> d64a457e2235bf95b87cb2eca90d1e648afb71ce
 	end
 
 	def index
 		@orders = Order.all
 		@cds = Cd.all
-<<<<<<< HEAD
 		@cd_orders = @cds.user
-=======
->>>>>>> d64a457e2235bf95b87cb2eca90d1e648afb71ce
 	end
 
 	def complete
