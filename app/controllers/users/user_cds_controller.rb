@@ -6,7 +6,6 @@ class Users::UserCdsController < ApplicationController
 
 	def show
 	  	@user = User.find(params[:id])
-	  	@cart = UserCd.all
     end
 
 	def create
@@ -48,4 +47,4 @@ class Users::UserCdsController < ApplicationController
 
 end
 
-end
+
