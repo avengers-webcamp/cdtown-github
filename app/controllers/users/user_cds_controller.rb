@@ -1,12 +1,11 @@
 class Users::UserCdsController < ApplicationController
 
 	def index
-		@cart = UserCd.all
 	end
 
 	def show
 	  	@user = User.find(params[:id])
-	  	@cart = UserCd.all
+	  	@cart = UserCd.where(user_id: current_user.id)
     end
 
 	def create
@@ -45,7 +44,5 @@ class Users::UserCdsController < ApplicationController
 	def user_cd_params
 		params.require(:user_cd).permit(:user_id, :cd_id ,:disc_count)
 	end
-
-end
 
 end
