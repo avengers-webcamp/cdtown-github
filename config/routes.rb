@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   #end
 
   scope module: :users do
-    resources :users, only: [:show, :edit, :destroy] do
+    resources :users, only: [:show, :edit, :update, :destroy] do
   	  resources :deliver_addresses
       resources :orders, only: [:index, :show, :new ,:create]
       get 'complete' => 'users/orders#complete'
