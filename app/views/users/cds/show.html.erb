@@ -1,6 +1,6 @@
 <div class="container">
  <div class="row">
- 	     <div class="col-xs-5" style="background-color: white">
+ 	     <div class="col-lg-5" style="background-color: white">
  	     	<div class="label">ジャケット画像</div>
             <%= attachment_image_tag @cd, :jacket_image, fallback: "no_cd_image.jpg", size:"200x200" %>
 
@@ -19,7 +19,7 @@
             <%= @cd.price %>
          </div>
 
-       <div class="col-xs-7" style="background-color: white">
+       <div class="col-lg-7" style="background-color: white">
           <h2></h2>
           <div class="label">アーティスト名</div>
           <%= @artists[0]['name'] %>

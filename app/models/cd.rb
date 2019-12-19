@@ -17,4 +17,10 @@ class Cd < ApplicationRecord
 	has_many :orders, through: :cd_orders, source: :order
 
 
+	enum status: {
+		sold: 0,
+		soldout: 1
+		 }
+
+
 end
