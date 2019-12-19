@@ -1,6 +1,7 @@
 <div class="container clearfix">
 
     <%= form_for @cd, url: owners_cd_path(@cd.id) do |cd| %>
+    <%= render 'layouts/error_messages', cd: cd.object %>
       <div class="row">
 
               <div class="col-md-4">

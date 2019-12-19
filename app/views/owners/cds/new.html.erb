@@ -5,6 +5,8 @@
             
 
         <%= form_for @cd, url: owners_cds_path, method: :post do |cd| %>
+        <%= render 'layouts/error_messages', model: cd.object %>
+
 
         <div class="row">
 
