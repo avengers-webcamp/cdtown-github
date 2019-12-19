@@ -7,7 +7,6 @@
 
           <h1>NEW CD</h1>
 
-
           <h2></h2>
           <%= cd.label :ジャケット画像 %></br>
            <%= attachment_image_tag @cd, :jacket_image, fallback: "no_cd_image.jpg", size:"100x100" %>
@@ -15,8 +14,7 @@
 
           <h2></h2>
           <%= cd.label :ステータス（販売中・販売停止中） %></br>
-          <%= select :status, :name, Cd.statuses.keys.to_a, include_blank: true %>
-          <%= cd.select :status, options_for_select(["販売中", "販売停止中"]) %>
+          <%= cd.select :status,Cd.statuses.keys.to_a %>
 
           <h2></h2>
           <%= cd.label :価格（税別） %></br>

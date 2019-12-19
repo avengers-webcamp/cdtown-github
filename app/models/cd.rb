@@ -25,6 +25,14 @@ class Cd < ApplicationRecord
 		販売停止中: 1
 		 }
 
+    validates :price, presence: true
+    validates :released_at, presence: true
+    validates :name, presence: true
+    validates :genre_id, presence: true
+    validates :label_id, presence: true
+    validates :artist_id, presence: true
+
+
 
 
     def uniine(user)
