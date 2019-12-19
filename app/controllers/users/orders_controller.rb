@@ -1,7 +1,6 @@
 class Users::OrdersController < ApplicationController
 
 	def new
-		@cart = UserCd.all
 		@order = Order.new
 		@user = User.find(params[:user_id])
 		@adress = Order.includes(:user,params[:user_id]).order("users.last_name desc")

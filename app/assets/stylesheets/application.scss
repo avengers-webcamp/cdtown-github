@@ -14,3 +14,252 @@
  */
 // Custom bootstrap variables must be set or imported *before* bootstrap.
 @import "bootstrap";
+
+.clearfix::after {
+	content:"";
+	display: block;
+	clear: both;
+}
+
+.app_nav_home{
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+.app_nav_sign_up{
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+.app_nav_sign_in{
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+.app_nav_mypage{
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+.app_nav_sign_out{
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+.user_cd_index{
+	margin-left: 60px;
+}
+
+.cd{
+	float: left;
+	border: 2px solid whitesmoke;
+	margin: 10px;
+	padding: 3px;
+}
+
+.incart{
+	text-align: right;
+	width: 30px;
+}
+
+.user_index_count{
+	text-align: right;
+	margin-left: 13px;
+}
+
+.user_index_cart_count{
+	margin-bottom: 10px;
+}
+
+.cart_show{
+	padding-bottom: 5px;
+	padding-left: 13px;
+	margin-left: 8px;
+}
+
+.user_cd_index{
+	padding-left: 13px;
+	padding-right: 1px;
+	margin-top: 10px;
+}
+
+.user_cd_index_title{
+	margin-top: 20px;
+	margin-left: 15px;
+	background-color: lightgray;
+	width: 120px;
+	border-radius: 10px;
+	text-align: center;
+}
+
+
+.user_cd_index_cdname{
+	margin-top: 210px;
+	margin-left: 20px;
+	margin-bottom: 10px;
+	border: 2px solid whitesmoke;
+	height: 30px;
+	width: 170px;
+}
+
+.user_cd_index_cdprice{
+	border: 2px solid whitesmoke;
+	height: 30px;
+	width: 170px;
+	text-align: left;
+	margin-top: 10px;
+	margin-left: 20px;
+	margin-bottom: 10px;
+}
+
+.user_cd_show_top{
+	margin-left: 20px;
+}
+
+.user_cd_show_top_status{
+	margin-left: 20px;
+	margin-bottom: 15px;
+	width: 320px;
+	text-align: center;
+}
+
+.user_cd_show_down{
+	margin-top: 30px;
+	margin-left: 20px;
+}
+
+.user_cd_show_single_name{
+	border-bottom: 2px solid whitesmoke;
+	margin-top: 20px;
+}
+
+.user_cd_show_single_name_name{
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.user_cd_show_artist_name{
+	border-bottom: 2px solid whitesmoke;
+	margin-top: 30px;
+}
+
+.user_cd_show_artist_name_name{
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.user_cd_show_release{
+	border-bottom: 2px solid whitesmoke;
+}
+
+.user_cd_show_release_day{
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.user_cd_show_genre{
+	border-bottom: 2px solid whitesmoke;
+}
+
+.user_cd_show_genre_name{
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.user_cd_show_label{
+	border-bottom: 2px solid whitesmoke;
+}
+
+.user_cd_show_label_name{
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.user_cd_show_price{
+	border-bottom: 2px solid whitesmoke;
+}
+
+.user_cd_show_price_price{
+	margin-top: 5px;
+	margin-bottom: 10px;
+}
+
+.user_cd_show_incart{
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-left: 20px;
+}
+
+.user_cd_show_disc_count{
+	border-bottom: 2px solid whitesmoke;
+}
+
+.user_cd_show_disc{
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.user_cd_show_song_name{
+	border-bottom: 2px solid whitesmoke;
+}
+
+.user_cd_show_song{
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.user_cd_show_last{
+	margin-left: 10px;
+}
+
+.cart_show_index{
+	margin-top: 20px;
+	font-size: 70px;
+	text-align: center;
+	width: 100%;
+
+}
+
+.cart_buy{
+	text-align: right;
+	margin-bottom: 10px;
+	width: 150px;
+	font-size: 40px;
+	float: right;
+}
+
+.users_user_show_top{
+	margin-top: 20px;
+}
+
+.users_user_show_mypage{
+	margin-bottom: 20px;
+}
+
+.users_user_show_down{
+	margin-top: 25px;
+}
+
+.users_user_show_edit{
+	padding-left: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+input[type="number"] {
+        width: 60px;
+        height: 30px;
+    }

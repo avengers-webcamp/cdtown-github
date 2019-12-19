@@ -5,10 +5,7 @@ class Users::UserCdsController < ApplicationController
 
 	def show
 	  	@user = User.find(params[:id])
-<<<<<<< HEAD
-=======
 	  	@cart = UserCd.where(user_id: current_user.id)
->>>>>>> 9d50e7918d2235525130322f72f3c831234006fd
     end
 
 	def create
@@ -49,8 +46,3 @@ class Users::UserCdsController < ApplicationController
 	end
 
 end
-<<<<<<< HEAD
-
-
-=======
->>>>>>> 9d50e7918d2235525130322f72f3c831234006fd
