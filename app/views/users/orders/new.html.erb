@@ -41,14 +41,14 @@
            <% end %>
 
 
-
+:total_price, :count, :price, :tax, :disc_count
 
        </tbody>
      </table>
 
     <p>合計枚数　<%= x %></p>
     <P><%= o.hidden_field :postage, value: "500" %>送料    ¥500</P>
-    <p>合計金額　　　　¥<%= y %></p>
+    <p><%= o.hidden_field :total_price, value: y %>合計金額　　　　¥<%= y %></p>
 
   <div class="row">
     <div class="col-xs-5">

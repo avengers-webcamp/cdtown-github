@@ -52,7 +52,7 @@ class Users::OrdersController < ApplicationController
 		@order.user_id = current_user.id
 
 		if @order.save!
-			redirect_to user_complete_path(@user)
+			redirect_to cd_orders_path, method: :post
 		else
 			render :new
 		end
