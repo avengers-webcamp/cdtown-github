@@ -25,11 +25,11 @@ class Users::OrdersController < ApplicationController
 	end
 
 	def create
+		@cart = UserCd.where(user_id: current_user.id)
+		@deliver_addresses = DeliverAddress.where(user_id: current_user.id)
+		@user = User.find(params[:user_id])
+		@order = Order.new(order_params)
 		if params[:deli] = "user"
-		    @cart = UserCd.where(user_id: current_user.id)
-		    @deliver_addresses = DeliverAddress.where(user_id: current_user.id)
-		    @user = User.find(params[:user_id])
-		    @order = Order.new(order_params)
 		    @order.post_front = @user.post_front
 		    @order.post_back = @user.post_back
 		    @order.prefecture = @user.prefecture
@@ -37,11 +37,7 @@ class Users::OrdersController < ApplicationController
 		    @order.post_nambar = @user.post_number
 		    @order.condo = @user.condo
 		else
-			@cart = UserCd.where(user_id: current_user.id)
-		    @deliver_addresses = DeliverAddress.where(user_id: current_user.id)
 		    @deliver_addresses = DeliverAddress.find(params[:deli])
-		    @user = User.find(params[:user_id])
-		    @order = Order.new(order_params)
 		    @order.post_front = @deliver_addresses.deliver_post_front
 		    @order.post_back = @deliver_addresses.deliver_post_back
 		    @order.prefecture = @deliver_addresses.deliver_prefecture
@@ -52,7 +48,18 @@ class Users::OrdersController < ApplicationController
 		@order.user_id = current_user.id
 
 		if @order.save!
-			redirect_to user_complete_path(@user)
+		    @cart = UserCd.where(user_id: current_user.id)
+
+		    @cart.each do |cart|
+
+			cd_order = CdOrder.new(cd_order_params)
+		    cd_order.cd_id = cart.cd.id
+		    cd_order.order_id = @order.id
+		    cd_order.save!
+            cart.destroy
+		    end
+			    redirect_to user_complete_path(@user)
+
 		else
 			render :new
 		end
@@ -63,5 +70,9 @@ class Users::OrdersController < ApplicationController
     def order_params
     	params.require(:order).permit(:user_id, :shipping_day, :postage, :post_front, :post_back, :prefecture, :town, :post_nambar, :condo, :payment, :shipping_status)
     end
+
+    def cd_order_params
+		params.require(:order).permit(:cd_id, :order_id, :total_price, :count, :price, :tax, :disc_count)
+	end
 
 end

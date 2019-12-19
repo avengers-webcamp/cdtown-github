@@ -1,6 +1,6 @@
 
 
-
+<%= form_for @order, url: user_orders_path(@user), method: :post do |o| %>
 
 <div class="container">
    <h2>Payment</h2>
@@ -36,17 +36,23 @@
             <% x = x.to_i + cart.disc_count.to_i %>
             <% y = y.to_i + cart.cd.price.to_i %>
 
-           <% end %>
+            <%= o.hidden_field :price, value: cart.cd.price %>
+            <%= o.hidden_field :disc_count, value: cart.disc_count %>
 
+           <% end %>
 
 
 
        </tbody>
      </table>
 
-    <p>合計枚数　<%= x %></p>
+    <% tax = 1.1 %>
+    <%= o.hidden_field :tax, value: tax %>
+    <% z = y.to_i * tax.to_i %>
+
+    <p><%= o.hidden_field :count, value: x %>合計枚数　<%= x %></p>
     <P><%= o.hidden_field :postage, value: "500" %>送料    ¥500</P>
-    <p>合計金額　　　　¥<%= y %></p>
+    <p><%= o.hidden_field :total_price, value: z %>合計金額　　　　¥<%= z %></p>
 
   <div class="row">
     <div class="col-xs-5">

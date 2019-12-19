@@ -36,8 +36,8 @@ Rails.application.routes.draw do
     get '/unsubscribe/:id' => 'users#unsubscribe'
 
     resources :user_cds
-    resources :cd_orders
-    resources :cd_orders
+    resources :cd_orders, only: [:create]
+
   end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
