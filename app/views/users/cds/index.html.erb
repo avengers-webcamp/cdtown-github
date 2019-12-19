@@ -19,7 +19,7 @@
               <div class="user_index_cart_count">
                 <div class="row">
                   <div class="col-md-4">
-                    <div class="user_index_count"><span><%= cart.number_field :disc_count, value: 1 , class:"form-control"%></span></div>
+                    <div class="user_index_count"><span><%= cart.number_field :disc_count, value: 1 , min: 1, max:10,  class:"form-control"%></span></div>
                   </div>
                     <div class="col-md-8">
                       <div class="incart"><span><%= cart.submit "カートに入れる", class:"btn-sm btn-primary " %></span></div>
