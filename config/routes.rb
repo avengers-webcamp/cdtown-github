@@ -26,7 +26,7 @@ Rails.application.routes.draw do
     resources :users, only: [:show, :edit, :update, :destroy] do
   	  resources :deliver_addresses
       resources :orders, only: [:index, :show, :new ,:create]
-      get 'complete' => 'users/orders#complete'
+      get 'complete' => 'orders#complete'
     end
     resources :cds, only: [:show, :index] do
   	  resources :discs do
@@ -37,10 +37,7 @@ Rails.application.routes.draw do
 
     resources :user_cds
     resources :cd_orders
-
-     #post '/add_item' => 'user_cds#add_item'
-     #post '/update_item' => 'user_cds#update_item'
-     #delete '/delete_item' => 'user_cds#delete_item'
+    resources :cd_orders
   end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
