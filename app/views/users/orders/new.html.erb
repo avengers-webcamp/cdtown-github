@@ -1,11 +1,11 @@
 
 
-<h2>Payment</h2>
+
 
 <%= form_for @order, url: user_orders_path, method: :post do |o| %>
 
 <div class="container">
-   <h2>カートの中身</h2>
+   <h2>Payment</h2>
 
      <table class="table table-striped">
       <thead>
@@ -23,6 +23,8 @@
       <tbody>
 
 
+           <% x = 0 %>
+           <% y = 0 %>
            <% @cart.each do |cart| %>
             <tr class="new-table">
               <td><span><%= attachment_image_tag cart.cd, :jacket_image, :fill, 50, 50, format: 'jpeg' %></span></td>
@@ -30,31 +32,38 @@
               <td><span><%= cart.cd.price %></span></td>
               <td><span><%= cart.cd.stock %></span></td>
               <td><span><%= link_to '詳細', cd_path(cart.cd.id), class:"btn-sm btn-light Destroy_book btn-lg" %></span></td>
-              <%= form_for cart, url:"/user_cds/#{cart.id}" do |carting| %>
-              <td><span><%= carting.number_field :disc_count, class:"form-control" %></span></td>
-              <td><span><%= carting.submit "更新", class:"btn-sm btn-light Destroy_book btn-lg" %></span></td>
-              <% end %>
-              <td><span><%= link_to "カートから出す", user_cd_path(cart.id), method: :delete, "data-confirm" => "本当にカートから出しますか？", class:"btn-sm btn-danger Destroy_book btn-lg" %></span></td>
+              <td><span><%= cart.disc_count%></span></td>
             </tr>
+
+            <% x = x.to_i + cart.disc_count.to_i %>
+            <% y = y.to_i + cart.cd.price.to_i %>
+
            <% end %>
+
 
 
 
        </tbody>
      </table>
-     <%= link_to "購入へ", new_user_order_path(@user) %>
-</div>
 
+    <p>合計枚数　<%= x %></p>
+    <P><%= o.hidden_field :postage, value: "500" %>送料    ¥500</P>
+    <p>合計金額　　　　¥<%= y %></p>
 
-    <P><%= o.hidden_field :postage, value: "500" %>送料    ¥5000</P>
+  <div class="row">
+    <div class="col-xs-5">
 
-
-        <% ["クレジットカード払い","銀行振り込み","代引き"].each do |payment| %>
-            <p><label><%=o.radio_button :payment, payment%><%= payment %></label></p>
+        <% ["クレジットカード払い","銀行振り込み","代引き"].each do |pay| %>
+            <p><label><%=o.radio_button :payment, pay %><%= pay %></label></p>
         <% end %>
+    </div>
+
+    <div class="col-xs-7">
+
+    <p><%= radio_button_tag :deli, "user" %>
 
 
-    <p><%= @user.last_name %><%= @user.first_name %></p>
+       <%= @user.last_name %><%= @user.first_name %></p>
 
     <p><%= @user.post_front %><%= @user.post_back %></p>
 
@@ -62,14 +71,29 @@
 
 
 
-<% @deliver_addresses.each do |address| %>
+    <% @deliver_addresses.each do |address| %>
 
-    <p><%= address.deliver_post_front %><%= address.deliver_post_back %></p>
+        <p><%= radio_button_tag :deli, address.id %>
 
-    <p><%= address.deliver_prefecture %><%= address.deliver_town %><%= address.deliver_post_number %><%= address.deliver_condo %></p>
+           <%= address.deliver_post_front %><%= address.deliver_post_back %></p>
 
-<% end %>
+        <p><%= address.deliver_prefecture %><%= address.deliver_town %><%= address.deliver_post_number %><%= address.deliver_condo %></p>
 
+    <% end %>
+
+    </div>
+  </div>
+
+    <tr>
+		<th>
+            <%= o.label :配達日 %>
+        </th>
+        <th>
+            <%= o.datetime_select :shipping_day %>
+        </th>
+    </tr>
+
+<%= o.hidden_field :shipping_status, value: 1 %>
 
 <%= o.submit %>
 
@@ -77,4 +101,5 @@
 
 <%= button_to('新しく配送先を登録する',new_user_deliver_address_path) %>
 
+</div>
 
