@@ -16,11 +16,20 @@ class Cd < ApplicationRecord
 	has_many :cd_orders
 	has_many :orders, through: :cd_orders, source: :order
 
+    def incart(user)
+        user_cds.create(user_id: user.id)
+    end
 
+<<<<<<< HEAD
 	enum status: {
 		sold: 0,
 		soldout: 1
 		 }
 
 
+=======
+    def uniine(user)
+        user_cds.find_by(user_id: user.id).destroy
+    end
+>>>>>>> a5e9173dba6b725591d2b99e0d84e8bd5e2c17b1
 end

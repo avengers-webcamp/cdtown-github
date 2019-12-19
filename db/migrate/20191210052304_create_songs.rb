@@ -4,7 +4,6 @@ class CreateSongs < ActiveRecord::Migration[5.2]
       t.string :name, :null => false
       t.integer :order, :null => false
       t.integer :disc_id, :null => false
-
       t.timestamps
     end
   end

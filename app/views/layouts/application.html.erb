@@ -14,11 +14,11 @@
  <body>
 
 
-<header class="navbar navbar-fixed-top navbar-inverse">
+<header class="navbar navbar-dark" style="background-color:#000000;">
    <div class="container">
 
     <nav class="nav navbar-nav navbar-left">
-      <h1>CDTOWN</h1>
+      <h1 class="text-white">CDTOWN</h1>
     </nav>
 
      <nav class="nav navbar-nav navbar-right">
@@ -50,7 +50,7 @@
            <%= link_to " Home", root_path, class:"glyphicon glyphicon-home home" %>
           </li>
           <li>
-           <%= link_to " My page", root_path, class:"glyphicon glyphicon-user users" %>
+           <%= link_to " My page", user_path(current_user.id), class:"glyphicon glyphicon-user users" %>
           </li>
           <li>
            <%= link_to " Sign out" ,destroy_user_session_path, method: :delete, class:"glyphicon glyphicon-log-out logout" %></li>
@@ -79,11 +79,11 @@
 
     <%= yield %>
 
-  <footer>
+  <footer class="navbar navbar-dark" style="background-color:#000000;">
      <div class='container'>
       <div class='row'>
        <div class='col-xs-3 col-xs-offset-9'>
-        <p>cdtown.inc</p>
+         <p class="text-muted">cdtown-inc</p>
        </div>
       </div>
      </div>

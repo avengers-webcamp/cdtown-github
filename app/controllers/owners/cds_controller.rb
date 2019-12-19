@@ -3,8 +3,8 @@ class Owners::CdsController < ApplicationController
 
 	def new
 		@cd = Cd.new
-		@disc = @cd.discs.build
-		@song = @disc.songs.build
+		@disc = Disc.new
+		@song = Song.new
 	end
 
 	def index
