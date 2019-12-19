@@ -10,14 +10,17 @@ class Owners::ArrivalsController < ApplicationController
     end
 
 	def index
-		@arrivals = Arrival.all
+		@cd = Cd.find(params[:cd_id])
+		@arrivals = Arrival.where(cd_id: @cd.id)
 	end
 
 	def create
 		@arrival = Arrival.new(arrival_params)
         @cd = Cd.find(params[:cd_id])
-        @arrival.cd_id=params[:cd_id]
+        @arrival.cd_id = params[:cd_id]
 		if  @arrival.save
+			@cd.stock = @cd.stock.to_i + @arrival.arrive_count.to_i
+			@cd.update(stock: @cd.stock)
 		    redirect_to owners_cd_arrivals_path(@cd)
 		else
 			render :new

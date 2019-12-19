@@ -1,5 +1,5 @@
 class Owners::CdsController < ApplicationController
-		protect_from_forgery except: :create
+
 
 	def new
 		@cd = Cd.new
@@ -10,7 +10,7 @@ class Owners::CdsController < ApplicationController
 	def index
 		@cd = Cd.new
 		@cds = Cd.all
-
+		arrival = Arrival.all
 	end
 
 	def show
@@ -26,6 +26,7 @@ class Owners::CdsController < ApplicationController
 
 	def create
 		@cd = Cd.new(cd_params)
+		@cd.stock = 0
 		 if @cd.save
 			redirect_to owners_cds_path
 	     else
@@ -39,7 +40,7 @@ class Owners::CdsController < ApplicationController
 		if @cd.update(cd_params)
 			redirect_to owners_cd_path(@cd.id)
 		else
-		  rebder :edit
+		  render :edit
 		end
 	end
 
