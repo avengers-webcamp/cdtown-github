@@ -33,7 +33,7 @@ Rails.application.routes.draw do
     end
   	resources :songs
     end
-    get 'unsubscribe' => 'users#unsubscribe'
+    get '/unsubscribe/:id' => 'users#unsubscribe'
 
     resources :user_cds
     resources :cd_orders

@@ -2,22 +2,25 @@
  <div class="row">
   <div class="col-md-8">
 
-  	<h2>退会フォーム</h2>
+      <div class="users_unsubscribe_title">
+      	<h3>退会フォーム</h3>
 
-  	<div class="row">
-  	  <table>
-  	   <tr>
-  	  	 <th>登録したデータは全て消えてしまいます</th>
-  	   </tr>
-  	   <tr>
-  	     <th><%=check_box_tag :unsubscribe%></th>
-         <th><%=label_tag :unsubscribe, "本当に削除しますか？" %></th>
-       </tr>
-       <tr>
-      	 <th><%= link_to "退会する", user_path(user.id), :method => :delete %></th>
-       </tr>
-      </table>
-    </div>
+
+      	<div class="row">
+      	  <table>
+      	   <tr>
+      	  	 <th>登録したデータは全て消えてしまいます</th>
+      	   </tr>
+      	   <tr>
+      	     <th><%=check_box_tag :unsubscribe%></th>
+           </tr>
+           <tr>
+          	 <div class="users_unsubscribe_destroy"><th><%= link_to "退会する", user_path(@user.id), :method => :delete, "data-confirm" => "本当に退会しますか？", class:"btn-sm btn-danger Destroy_book btn-lg" %></th></div>
+           </tr>
+          </table>
+        </div>
+
+      </div>
 
   </div>
  </div>

@@ -1,10 +1,10 @@
 <div class="nested-fields well well-compact">
   <div class="form-group">
-    <%= f.label :ディスク %>
-    <%= f.number_field :disc_count, :size => 10 %><br>
-      <%= link_to_remove_association "Disc削除", f %>
+    <%= f.label :Disc枚数 %>
+    <%= f.number_field :disc_count, :size => 10 , value: 1 %><br>
+      <%= link_to_remove_association "削除", f %>
   </div>
-  <h4>song</h4>
+  <div class="owner_cd_new_single"><%= f.label :Song %><br></div>
   <div class="songs">
     <%= f.fields_for :songs do |song| %>
       <%= render 'song_fields', f: song %>

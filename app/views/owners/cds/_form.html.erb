@@ -1,6 +1,6 @@
 <%= form_for @cd do |f| %>
-  <h3>Disc</h3>
   <div id="discs">
+  	<div class="owner_cd_new_single"><%= f.label :Disc %><br></div>
     <%= f.fields_for :discs do |disc| %>
       <%= render 'disc_fields', f: disc %>
     <% end %>
