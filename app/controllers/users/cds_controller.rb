@@ -5,6 +5,7 @@ class Users::CdsController < ApplicationController
 		@artists = Artist.select("name")
 		@genres = Genre.select("name")
 		@labels = Label.select("name")
+		@user_cd = UserCd.new
 	end
 
 	def index
