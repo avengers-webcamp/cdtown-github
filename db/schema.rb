@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(version: 2019_12_17_050406) do
 
   create_table "arrivals", force: :cascade do |t|
-    t.integer "cd_id", null: false
+    t.integer "stock_count", null: false
     t.datetime "arrive_day", null: false
     t.integer "arrive_count", null: false
     t.datetime "created_at", null: false
@@ -47,11 +47,12 @@ ActiveRecord::Schema.define(version: 2019_12_17_050406) do
     t.integer "artist_id", null: false
     t.integer "genre_id", null: false
     t.integer "label_id", null: false
+    t.integer "arrive_id"
     t.string "jacket_image_id"
     t.datetime "released_at", null: false
     t.string "price", null: false
     t.integer "stock"
-    t.integer "status", limit: 1, null: false
+    t.integer "status", null: false
     t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

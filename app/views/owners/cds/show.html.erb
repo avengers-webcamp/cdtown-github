@@ -1,25 +1,19 @@
 <div class="container">
  <div class="row">
- 	     <div class="col-xs-5" style="background-color: white">
+ 	     <div class="col-lg-5" style="background-color: white">
  	     	<div class="label">ジャケット画像</div>
             <%= attachment_image_tag @cd, :jacket_image, fallback: "no_cd_image.jpg", size:"200x200" %>
 
             <div></div>
             <div class="label">ステータス（販売中・販売停止中）</div>
-            <% if @cd.status = 0 %>
-             <div class="label">販売中</div>
-
-            <% else %>
-             <div class="label">販売停止中</div>
-
-            <% end %>
+            <%= @cd.status %>
 
             <div></div>
             <div class="label">価格（税別）</div>
             <%= @cd.price %>
          </div>
 
-         <div class="col-xs-7" style="background-color: white">
+         <div class="col-lg-7" style="background-color: white">
 	          <div></div>
 	          <div class="label">アーティスト名</div>
 	          <%= @artists[0]['name'] %>
@@ -43,6 +37,8 @@
   </div>
  </div>
 
+<div>
+</div>
  <div class="container">
 	 <div class="row">
 	     <table>
@@ -63,7 +59,7 @@
 <div class="container">
 	 <div class="row">
           <h2></h2>
-          <%= button_to('この商品の入荷登録画面へ', new_owners_arrival_path) %>
+          <%= button_to('この商品の入荷登録画面へ', new_owners_cd_arrival_path(@cd.id), method: :get) %>
 
           <h2></h2>
           <%= button_to('編集',edit_owners_cd_path(@cd.id), method: :get) %>

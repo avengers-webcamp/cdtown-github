@@ -15,6 +15,7 @@
 
           <h2></h2>
           <%= cd.label :ステータス（販売中・販売停止中） %></br>
+          <%= select :status, :name, Cd.statuses.keys.to_a, include_blank: true %>
           <%= cd.select :status, options_for_select(["販売中", "販売停止中"]) %>
 
           <h2></h2>
