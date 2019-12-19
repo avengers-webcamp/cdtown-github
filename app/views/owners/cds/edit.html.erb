@@ -7,7 +7,7 @@
                 <%= attachment_image_tag @cd, :jacket_image, fallback: "no_cd_image.jpg", size:"300x300" %>
                 <div class="owner_cd_new_image"><%= cd.attachment_field :jacket_image, placeholder: "プロフィール画像" %></div>
                 <div class="owner_cd_new_status"><%= cd.label :ステータス（販売中・販売停止中） %></div>
-                <div class="owner_cd_new_status_name"><%= select :status, :name, Cd.statuses.keys.to_a, include_blank: true %></div>
+                <div class="owner_cd_new_status_name"><%= cd.select :status, Cd.statuses.keys.to_a %></div>
               </div>
 
               <div class="col-md-4">

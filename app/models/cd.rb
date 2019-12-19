@@ -33,6 +33,7 @@ class Cd < ApplicationRecord
     validates :genre_id, presence: true
     validates :label_id, presence: true
     validates :artist_id, presence: true
+    validates :status, presence: true
 
 
 
