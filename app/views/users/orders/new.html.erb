@@ -1,6 +1,7 @@
 
 
 <%= form_for @order, url: user_orders_path(@user), method: :post do |o| %>
+<%= render 'layouts/error_messages', model: o.object %>
 
 <div class="container">
    <h2>Payment</h2>
@@ -93,17 +94,17 @@
             <%= o.label :配達日 %>
         </th>
         <th>
-            <%= o.datetime_select :shipping_day %>
+            <%= o.date_select :shipping_day %>
         </th>
     </tr>
 
-<%= o.hidden_field :shipping_status, value: 1 %>
+<%= o.hidden_field :shipping_status, value: 0 %>
 
 <%= o.submit %>
 
 <% end %>
 
-<%= button_to('新しく配送先を登録する',new_user_deliver_address_path) %>
+<%= button_to('新しく配送先を登録する',new_user_deliver_address_path, method: :get) %>
 
 </div>
 
