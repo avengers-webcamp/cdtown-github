@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   #end
 
   scope module: :users do
-    resources :users, only: [:show, :edit, :destroy] do
+    resources :users, only: [:show, :edit, :update, :destroy] do
   	  resources :deliver_addresses
       resources :orders, only: [:index, :show, :new ,:create]
       get 'complete' => 'orders#complete'
@@ -33,7 +33,7 @@ Rails.application.routes.draw do
     end
   	resources :songs
     end
-    get 'unsubscribe' => 'users#unsubscribe'
+    get '/unsubscribe/:id' => 'users#unsubscribe'
 
     resources :user_cds
     resources :cd_orders, only: [:create]

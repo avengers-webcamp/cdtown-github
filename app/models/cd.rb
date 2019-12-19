@@ -16,6 +16,8 @@ class Cd < ApplicationRecord
 	has_many :cd_orders
 	has_many :orders, through: :cd_orders, source: :order
 
+	default_scope -> { order(created_at: :desc) }
+
     def incart(user)
         user_cds.create(user_id: user.id)
     end

@@ -23,43 +23,43 @@
 
                 <% if owner_signed_in? %>
               <li>
-         　　　 <%= link_to "顧客一覧", owners_root_path, class:"btn btn-primary rounded-pill" %>
+         　　　 <%= link_to "顧客一覧", owners_root_path, class:"btn btn-secondary rounded-pill" %>
               </li>
               <li>
-         　　　 <%= link_to "商品一覧", owners_root_path, class:"btn btn-primary rounded-pill" %>
+         　　　 <%= link_to "商品一覧", owners_root_path, class:"btn btn-secondary rounded-pill" %>
               </li>
               <li>
-         　　　 <%= link_to "入荷履歴", owners_root_path, class:"btn btn-primary rounded-pill" %>
+         　　　 <%= link_to "入荷履歴", owners_root_path, class:"btn btn-secondary rounded-pill" %>
               </li>
               <li>
-         　　　 <%= link_to "受注管理", owners_root_path, class:"btn btn-primary rounded-pill" %>
+         　　　 <%= link_to "受注管理", owners_root_path, class:"btn btn-secondary rounded-pill" %>
               </li>
               <li>
-         　　　 <%= link_to "売上管理", owners_root_path, class:"btn btn-primary rounded-pill" %>
+         　　　 <%= link_to "売上管理", owners_root_path, class:"btn btn-secondary rounded-pill" %>
               </li>
               <li>
-         　　　<%= link_to "Sign out", destroy_owner_session_path, method: :delete, class:"btn btn-primary rounded-pill" %></li>
+         　　　<%= link_to "Sign out", destroy_owner_session_path, method: :delete, class:"btn btn-secondary rounded-pill" %></li>
 
             <% elsif user_signed_in? %>
               <li>
-               <div class="app_nav_home"><%= link_to " Home", root_path, class:"btn btn-primary rounded-pill" %></div>
+               <div class="app_nav_home"><%= link_to " Home", root_path, class:"btn btn-secondary rounded-pill" %></div>
               </li>
               <li>
-               <div class="app_nav_mypage"><%= link_to " My page", user_path(current_user.id), class:"btn btn-primary rounded-pill" %></div>
+               <div class="app_nav_mypage"><%= link_to " My page", user_path(current_user.id), class:"btn btn-secondary rounded-pill" %></div>
               </li>
               <li>
-               <div class="app_nav_sign_out"><%= link_to " Sign out" ,destroy_user_session_path, method: :delete, class:"btn btn-primary rounded-pill" %></div>
+               <div class="app_nav_sign_out"><%= link_to " Sign out" ,destroy_user_session_path, method: :delete, class:"btn btn-secondary rounded-pill" %></div>
                </li>
 
             <% else %>
               <li>
-               <div class="app_nav_home"><%= link_to " Home", root_path, class:"btn btn-primary rounded-pill" %></div>
+               <div class="app_nav_home"><%= link_to " Home", root_path, class:"btn btn-secondary rounded-pill" %></div>
               </li>
               <li>
-               <div class="app_nav_sign_up"><%= link_to " Sign up", new_user_registration_path, class:"btn btn-primary rounded-pill" %></div>
+               <div class="app_nav_sign_up"><%= link_to " Sign up", new_user_registration_path, class:"btn btn-secondary rounded-pill" %></div>
               </li>
               <li>
-               <div class="app_nav_sign_in"><%= link_to " Sign in", new_user_session_path, type:"button", class:"btn btn-primary rounded-pill" %></div>
+               <div class="app_nav_sign_in"><%= link_to " Log in", new_user_session_path, type:"button", class:"btn btn-secondary rounded-pill" %></div>
               </li>
 
             <% end %>

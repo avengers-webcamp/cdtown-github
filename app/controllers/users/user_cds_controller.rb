@@ -5,7 +5,7 @@ class Users::UserCdsController < ApplicationController
 
 	def show
 	  	@user = User.find(params[:id])
-	  	@cart = UserCd.where(user_id: current_user.id)
+	  	@cart = UserCd.where(user_id: current_user.id).order(created_at: :desc)
     end
 
 	def create
