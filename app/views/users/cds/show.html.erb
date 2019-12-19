@@ -1,67 +1,63 @@
-<div class="container">
- <div class="row">
- 	     <div class="col-xs-5" style="background-color: white">
- 	     	<div class="label">ジャケット画像</div>
-            <%= attachment_image_tag @cd, :jacket_image, fallback: "no_cd_image.jpg", size:"200x200" %>
+<div class="container clearfix">
 
-            <h2></h2>
-            <div class="label">ステータス（販売中・販売停止中）</div>
-            <% if @cd.status = 0 %>
-             <div class="label">販売中</div>
+  <div class="row">
+    <div class="col-xs-4">
+      <div class="user_cd_show_top">
+           <p><%= attachment_image_tag @cd, :jacket_image, fallback: "no_cd_image.jpg", size:"300x300" %></p>
+      </div>
 
-            <% else %>
-             <div class="label">販売停止中</div>
+        <div class="user_cd_show_top_status">
 
-            <% end %>
+          <div class="btn-sm btn-dark">
+           <% if @cd.status = 0 %>
+             <p>販売中</p>
+           <% else %>
+             <p>販売停止中</p>
+           <% end %>
+          </div>
 
-            <h2></h2>
-            <div class="label">価格（税別）</div>
-            <%= @cd.price %>
-         </div>
+        </div>
 
-       <div class="col-xs-7" style="background-color: white">
-          <h2></h2>
-          <div class="label">アーティスト名</div>
-          <%= @artists[0]['name'] %>
+        <%= form_for @user_cd, url: user_cds_path(@cd.id), method: :post do |cart| %>
+           <div class="user_cd_show_incart">
+            <%= cart.submit "カートに入れる", class:"btn-sm btn-primary " %>
+           </div>
+           <% end %>
+    </div>
 
-          <h2></h2>
-          <div class="label">シングル／アルバム名</div>
-          <%= @cd.name %>
+    <div class="col-xs-4">
+      <div class="user_cd_show_down">
+        <div class="user_cd_show_single">
+           <div class="user_cd_show_single_name">シングル／アルバム名</div>
+             <div class="user_cd_show_single_name_name"><%= @cd.name %></div>
+           <div class="user_cd_show_genre">ジャンル名</div>
+             <div class="user_cd_show_genre_name"><%= @genres[0]['name'] %></div>
+           <% @cd.discs.order(:disc_count).each do |disc| %>
+             <div class="user_cd_show_disc_count">Disc枚数</div>
+              <div class="user_cd_show_disc"><%= disc.disc_count %></div>
+           <div class="user_cd_show_release">発売日</div>
+             <div class="user_cd_show_release_day"><%= @cd.released_at.strftime('%Y/%m/%d') %></div>
+        </div>
+      </div>
+    </div>
 
-          <h2></h2>
-          <div class="label">発売日</div>
-          <%= @cd.released_at %>
+    <div class="col-xs-4">
+      <div class="user_cd_show_last">
+        <div class="user_cd_show_artist_name">アーティスト名</div>
+          <div class="user_cd_show_artist_name_name"><%= @artists[0]['name'] %></div>
+        <div class="user_cd_show_label">レーベル名</div>
+          <div class="user_cd_show_label_name"><%= @labels[0]['name'] %></div>
+        <% disc.songs.order(:order).each do |song| %>
+        <div class="user_cd_show_song_name">曲名</div>
+          <div class="user_cd_show_song"><%= song.name %></div>
+        <% end %>
+        <% end %>
+        <div class="user_cd_show_price">価格（税別）</div>
+          <div class="user_cd_show_price_price"><%= @cd.price %></div>
+      </div>
+    </div>
 
-          <div class="form-group">
-          <h2></h2>
-          <div class="label">ジャンル名</div>
-          <%= @genres[0]['name'] %>
-
-          <h2></h2>
-          <div class="label">レーベル名</div>
-          <%= @labels[0]['name'] %>
-       </div>
   </div>
- </div>
 
-       <div class="container">
-	     <div class="row">
-	     	<table>
-		      <tbody>
-	            <% @cd.discs.order(:disc_count).each do |disc| %>
-	             <td><span><%= disc.disc_count %></span></td>
-	            	<% disc.songs.order(:order).each do |song| %>
-	             		<tr class="table table-striped">
-	              			<td><span><%= song.name %></span></td>
-	             		</tr>
-	            	<% end %>
-	            <% end %>
-	           </tbody>
-	       </table>
-        <p></p>
-          <%= button_to('カートに入れる') %>
-       </div>
-       </div>
 
-         </div>
-       </div>
+</div>

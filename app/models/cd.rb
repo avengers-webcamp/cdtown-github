@@ -20,6 +20,13 @@ class Cd < ApplicationRecord
         user_cds.create(user_id: user.id)
     end
 
+	enum status: {
+		販売中: 0,
+		販売停止中: 1
+		 }
+
+
+
     def uniine(user)
         user_cds.find_by(user_id: user.id).destroy
     end

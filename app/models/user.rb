@@ -9,4 +9,27 @@ class User < ApplicationRecord
   has_many :orders
   has_many :user_cds,dependent: :destroy
   has_many :cds , through: :user_cds, source: :cd
+
+  validates :last_name, presence: true, uniqueness: true
+
+  validates :first_name, presence: true, uniqueness: true
+
+  validates :post_front, presence: true
+
+  validates :post_back, presence: true
+
+  validates :prefecture, presence: true
+
+  validates :town, presence: true
+
+  validates :post_number, presence: true
+
+  validates :phone_number, presence: true, uniqueness: true
+
+  validates :encrypted_password, presence: true, uniqueness: true, confirmation: true, length: { minimum: 6 }
+
+  validates :email,presence: true
+
+
+
 end
