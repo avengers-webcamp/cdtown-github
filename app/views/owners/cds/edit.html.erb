@@ -10,7 +10,7 @@
 
           <h2></h2>
           <%= cd.label :ステータス（販売中・販売停止中） %></br>
-          <%= select :status,:name,Cd.statuses.keys.to_a %>
+          <%= cd.select :status,Cd.statuses.keys.to_a %>
 
           <h2></h2>
           <%= cd.label :価格（税別） %></br>
