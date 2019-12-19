@@ -76,3 +76,5 @@ gem 'paranoia'
 
 gem 'cocoon'
 
+gem 'pry-byebug'
+
