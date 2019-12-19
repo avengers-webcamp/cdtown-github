@@ -1,63 +1,42 @@
-<%= form_for @cd, url: owners_cds_path, method: :post do |cd| %>
-  <div class="container">
-    <div class="row">
-     <!-- <div class=”form-horizontal” role=”form”> -->
+<div class="container clearfix">
 
-     <div class="col-xs-5" style="background-color: white">
-
-          <h1>NEW CD</h1>
+      <div class="owner_cd_new_title">
+            <h2>NEW CD</h2>
 
 
-          <h2></h2>
-          <%= cd.label :ジャケット画像 %></br>
-           <%= attachment_image_tag @cd, :jacket_image, fallback: "no_cd_image.jpg", size:"100x100" %>
-          <%= cd.attachment_field :jacket_image, placeholder: "プロフィール画像" %>
+        <%= form_for @cd, url: owners_cds_path, method: :post do |cd| %>
 
-          <h2></h2>
-          <%= cd.label :ステータス（販売中・販売停止中） %></br>
-          <%= select :status, :name, Cd.statuses.keys.to_a, include_blank: true %>
-          <%= cd.select :status, options_for_select(["販売中", "販売停止中"]) %>
+        <div class="row">
 
-          <h2></h2>
-          <%= cd.label :価格（税別） %></br>
-          <%= cd.text_field :price %>
-       </div>
-
-       <div class="col-xs-7" style="background-color: white">
-          <h2></h2>
-          <%= cd.label :アーティスト名 %></br>
-          <%= cd.select :artist_id, Artist.all.map{|o| [o.name, o.id]} %>
-
-          <h2></h2>
-          <%= cd.label :シングルアルバム名 %>
-          <%= cd.text_field :name %>
-
-          <h2></h2>
-          <%= cd.label :発売日 %>
-          <%= cd.date_field :released_at %>
-
-          <div class="form-group">
-           <h2></h2>
-           <%= cd.label :ジャンル名 %>
-           <%= cd.select :genre_id, Genre.all.map{|o| [o.name, o.id]} %>
-
-           <h2></h2>
-           <%= cd.label :レーベル名 %>
-           <%= cd.select :label_id, Label.all.map{|o| [o.name, o.id]} %>
+          <div class="col-md-4">
+            <%= attachment_image_tag @cd, :jacket_image, fallback: "no_cd_image.jpg", size:"300x300" %>
+            <div class="owner_cd_new_image"><%= cd.attachment_field :jacket_image, placeholder: "プロフィール画像" %></div>
+            <div class="owner_cd_new_status"><%= cd.label :ステータス（販売中・販売停止中） %></div>
+            <div class="owner_cd_new_status_name"><%= select :status, :name, Cd.statuses.keys.to_a, include_blank: true %></div>
           </div>
-       </div>
-   </div>
-  </div>
 
-       <div class="container">
-	     <div class="row">
+          <div class="col-md-4">
+            <div class="owner_cd_new_single"><%= cd.label :シングルアルバム名 %><br></div>
+            <div class="owner_cd_new_single_name"><%= cd.text_field :name %><br></div>
+            <div class="owner_cd_new_artist"><%= cd.label :アーティスト名 %><br></div>
+            <div class="owner_cd_new_artist_name"><%= cd.select :artist_id, Artist.all.map{|o| [o.name, o.id]} %><br></div>
+            <div class="owner_cd_new_genre"><%= cd.label :ジャンル名 %><br></div>
+            <div class="owner_cd_new_genre_name"><%= cd.select :genre_id, Genre.all.map{|o| [o.name, o.id]} %><br></div>
+            <div class="owner_cd_new_label"><%= cd.label :レーベル名 %><br></div>
+            <div class="owner_cd_new_label_name"><%= cd.select :label_id, Label.all.map{|o| [o.name, o.id]} %><br></div>
+            <div class="owner_cd_new_release"><%= cd.label :発売日 %><br></div>
+            <div class="owner_cd_new_release_day"><%= cd.date_field :released_at %><br></div>
+            <div class="owner_cd_new_price"><%= cd.label :価格（税別） %><br></div>
+            <div class="owner_cd_new_price_price"><%= cd.text_field :price %><br></div>
+          </div>
 
-          <h2></h2>
-          <%= render 'form', cd: @cd %>
+          <div class="col-md-4">
+            <div class="owner_cd_new_form"><%= render 'form', cd: @cd %><br></div>
+            <div class="owner_cd_new_create"><%= cd.submit "商品登録", class:"btn-lg btn-primary " %></div>
+          </div>
 
-          <h2></h2>
-          <%= cd.submit "create" %>
-         </div>
-       </div>
-     <% end %>
-    <!-- </div> -->
+             <% end %>
+        </div>
+
+      </div>
+</div>

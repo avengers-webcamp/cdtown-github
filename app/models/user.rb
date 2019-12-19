@@ -10,9 +10,9 @@ class User < ApplicationRecord
   has_many :user_cds,dependent: :destroy
   has_many :cds , through: :user_cds, source: :cd
 
-  validates :last_name, presence: true, uniqueness: true
+  validates :last_name, presence: true
 
-  validates :first_name, presence: true, uniqueness: true
+  validates :first_name, presence: true
 
   validates :post_front, presence: true
 
@@ -33,3 +33,4 @@ class User < ApplicationRecord
 
 
 end
+
