@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container ">
  <div class="users_user_show_top">
   <h4>MyPage</h4>
  </div>
@@ -9,10 +9,9 @@
   <div class='col-lg-5'>
     <div class="users_user_show_mypage">
 
-      <%= form_for @user do |f| %>
 
        <div class="row">
-        <table>
+        <table class="users_user_show_name">
          <thead>
          <tr>
           <th>名前（姓名）</th>
@@ -20,15 +19,15 @@
          </thead>
          <tbody>
          <tr>
-            <td><%= f.text_field :last_name, class:"form-control" %></td>
-            <td><%= f.text_field :first_name, class:"form-control" %></td>
+            <td ><%= @user.last_name %></td>
+            <td><%= @user.first_name %></td>
          </tr>
          </tbody>
         </table>
        </div>
 
         <div class="row">
-         <table>
+         <table class="users_user_show_name_kana">
           <thead>
           <tr>
           <th>名前（カナ）</th>
@@ -36,8 +35,8 @@
           </thead>
           <tbody>
           <tr>
-            <td><%= f.text_field :last_name_kana, class:"form-control" %></td>
-            <td><%= f.text_field :last_name_kana, class:"form-control" %></td>
+            <td><%= @user.last_name_kana %></td>
+            <td><%= @user.first_name_kana %></td>
           </tr>
           </tbody>
          </table>
@@ -45,7 +44,7 @@
 
 
        <div class="row">
-        <table>
+        <table class="users_user_show_phone_number">
          <thead>
          <tr>
           <th>電話番号</th>
@@ -53,22 +52,22 @@
          </thead>
          <tbody>
          <tr>
-            <td><%=f.text_field :phone_number, class:"form-control" %></td>
+            <td><%=@user.phone_number %></td>
          </tr>
          </tbody>
         </table>
-         <table>
+         <table class="users_user_show_email">
          <tr>
           <th>Email</th>
          </tr>
          <tr>
-            <th><%= f.text_field :email, class:"form-control" %></th>
+            <th><%= @user.email %></th>
          </tr>
          </table>
        </div>
 
        <div class="row">
-        <table>
+        <table class="users_user_show_address">
          <tr>
           <th>住所</th>
          </tr>
@@ -76,50 +75,49 @@
              <th>郵便番号</th>
          </tr>
          <tr>
-            <th><%=f.text_field :post_front, class:"form-control" %></th>
-            <th><%=f.text_field :post_back, class:"form-control" %></th>
+            <th><%= @user.post_front %></th>
+            <th><%= @user.post_back %></th>
          </tr>
          </table>
        </div>
 
        <div class="row">
-        <table>
+        <table class="users_user_show_prefecture">
          <tr>
              <th>都道府県</th>
          </tr>
          <tr>
-            <th><%=f.text_field :prefecture, class:"form-control" %></th>
+            <th><%= @user.prefecture %></th>
          </tr>
          </table>
-         <table>
+         <table class="users_user_show_town">
          <tr>
              <th>市町村</th>
          </tr>
          <tr>
-            <th><%=f.text_field :town, class:"form-control" %></th>
+            <th><%= @user.town %></th>
          </tr>
          </table>
        </div>
 
        <div class="row">
-        <table>
+        <table class="users_user_show_post_number">
          <tr>
              <th>番地</th>
          </tr>
          <tr>
-            <th><%=f.text_field :post_number, class:"form-control" %></th>
+            <th><%= @user.post_number %></th>
          </tr>
          </table>
-         <table>
+         <table class="users_user_show_condo">
          <tr>
              <th>マンション名</th>
          </tr>
          <tr>
-            <th><%=f.text_field :condo, class:"form-control" %></th>
+            <th><%= @user.condo %></th>
          </tr>
          </table>
        </div>
-      <% end %>
     </div>
  </div>
 
