@@ -47,7 +47,7 @@ class Users::OrdersController < ApplicationController
 		end
 		@order.user_id = current_user.id
 
-		if @order.save!
+		if @order.save
 		    @cart = UserCd.where(user_id: current_user.id)
 
 		    @cart.each do |cart|
@@ -55,7 +55,7 @@ class Users::OrdersController < ApplicationController
 			cd_order = CdOrder.new(cd_order_params)
 		    cd_order.cd_id = cart.cd.id
 		    cd_order.order_id = @order.id
-		    cd_order.save!
+		    cd_order.save
 
 		    cart.cd.stock = cart.cd.stock.to_i - cd_order.disc_count.to_i
 			cart.cd.update(stock: cart.cd.stock)
