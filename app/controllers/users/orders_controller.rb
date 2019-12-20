@@ -29,7 +29,7 @@ class Users::OrdersController < ApplicationController
 		@deliver_addresses = DeliverAddress.where(user_id: current_user.id)
 		@user = User.find(params[:user_id])
 		@order = Order.new(order_params)
-		if params[:deli] = "user"
+		if params[:deli] == "user"
 		    @order.post_front = @user.post_front
 		    @order.post_back = @user.post_back
 		    @order.prefecture = @user.prefecture
@@ -42,7 +42,7 @@ class Users::OrdersController < ApplicationController
 		    @order.post_back = @deliver_addresses.deliver_post_back
 		    @order.prefecture = @deliver_addresses.deliver_prefecture
 		    @order.town = @deliver_addresses.deliver_town
-		    @order.post_nambar = @user.deliver_post_number
+		    @order.post_nambar = @deliver_addresses.deliver_post_number
 		    @order.condo = @deliver_addresses.deliver_condo
 		end
 		@order.user_id = current_user.id
@@ -72,7 +72,7 @@ class Users::OrdersController < ApplicationController
     private
 
     def order_params
-    	params.require(:order).permit(:user_id, :shipping_day, :postage, :post_front, :post_back, :prefecture, :town, :post_nambar, :condo, :payment, :shipping_status)
+    	params.require(:order).permit(:user_id, :user_cd_id, :deliver_address_id, :shipping_day, :postage, :post_front, :post_back, :prefecture, :town, :post_nambar, :condo, :payment, :shipping_status)
     end
 
     def cd_order_params

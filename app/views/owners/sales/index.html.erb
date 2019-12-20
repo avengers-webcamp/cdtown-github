@@ -1,0 +1,11 @@
+ <% x = 0 %>
+
+<% @cdorder.each do |cd| %>
+
+
+ <% x += cd.total_price.to_i %>
+
+
+<% end %>
+
+ <%= x %>
