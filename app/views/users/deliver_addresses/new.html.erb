@@ -1,55 +1,57 @@
+<div class="container">
+
+      <h2>Address</h2>
+
+      <%= form_for @deliver_address, url: user_deliver_addresses_path, method: :post do |da| %>
+       <%= render 'layouts/error_messages', model: da.object %>
 
 
-<h2>Address</h2>
+        <div class="field">
+          <table>
 
-<%= form_for @deliver_address, url: user_deliver_addresses_path, method: :post do |da| %>
+            <tr>
+              <th>郵便番号</th>
+            </tr>
+            <tr>
+              <th><%= da.text_field :deliver_post_front, autofocus: true, autocomplete: "deliver_post_front" %></th>
+              <th><%= da.text_field :deliver_post_back, autofocus: true, autocomplete: "deliver_post_back" %></th>
+            </tr>
+          </table>
 
+          <table>
+            <tr>
+              <th>住所</th>
+            </tr>
+            <tr>
+              <th><%= da.label :都道府県　%></th>
+            </tr>
+            <tr>
+              <th><%= da.text_field :deliver_prefecture, autofocus: true, autocomplete: "deliver_prefecture" %></th>
+            </tr>
+          </table>
 
-  <div class="field">
-    <table>
+          <table>
+            <tr>
+              <th><%= da.label :市町村　%></th>
+            </tr>
+            <tr>
+              <th><%= da.text_field :deliver_town, autofocus: true, autocomplete: "deliver_town" %></th>
+            </tr>
+          </table>
 
-      <tr>
-        <th>郵便番号</th>
-      </tr>
-      <tr>
-        <th><%= da.text_field :deliver_post_front, autofocus: true, autocomplete: "deliver_post_front" %></th>
-        <th><%= da.text_field :deliver_post_back, autofocus: true, autocomplete: "deliver_post_back" %></th>
-      </tr>
-    </table>
+          <table>
+            <tr>
+              <th><%= da.label :番地　%></th>
+              <th><%= da.label :マンション名 %></th>
+            </tr>
+            <tr>
+              <th><%= da.text_field :deliver_post_number, autofocus: true, autocomplete: "deliver_post_number" %></th>
+              <th><%= da.text_field :deliver_condo, autofocus: true, autocomplete: "deliver_condo" %></th>
+            </tr>
+          </table>
+        </div>
 
-    <table>
-      <tr>
-        <th>住所</th>
-      </tr>
-      <tr>
-        <th><%= da.label :都道府県　%></th>
-      </tr>
-      <tr>
-        <th><%= da.text_field :deliver_prefecture, autofocus: true, autocomplete: "deliver_prefecture" %></th>
-      </tr>
-    </table>
+      <%= da.submit "登録" %>
 
-    <table>
-      <tr>
-        <th><%= da.label :市町村　%></th>
-      </tr>
-      <tr>
-        <th><%= da.text_field :deliver_town, autofocus: true, autocomplete: "deliver_town" %></th>
-      </tr>
-    </table>
-
-    <table>
-      <tr>
-        <th><%= da.label :番地　%></th>
-        <th><%= da.label :マンション名 %></th>
-      </tr>
-      <tr>
-        <th><%= da.text_field :deliver_post_number, autofocus: true, autocomplete: "deliver_post_number" %></th>
-        <th><%= da.text_field :deliver_condo, autofocus: true, autocomplete: "deliver_condo" %></th>
-      </tr>
-    </table>
-  </div>
-
-<%= da.submit "登録" %>
-
-<% end %>
+      <% end %>
+</div>

@@ -8,7 +8,7 @@ class Users::DeliverAddressesController < ApplicationController
 		@deliver_address = DeliverAddress.new(deliver_address_params)
 		@deliver_address.user_id = current_user.id
 		user = User.find(params[:user_id])
-		if  @deliver_address.save!
+		if  @deliver_address.save
 		    redirect_to new_user_order_path
 		else
 			render :new
