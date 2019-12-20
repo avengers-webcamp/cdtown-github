@@ -26,7 +26,7 @@
            <% y = 0 %>
            <% @cart.each do |cart| %>
             <tr class="new-table">
-              <td><span><%= attachment_image_tag cart.cd, :jacket_image, :fill, 50, 50, format: 'jpeg' %></span></td>
+              <td><span><%= attachment_image_tag cart.cd, :jacket_image, :fill, 100, 100, format: 'jpeg' %></span></td>
               <td><span><%= cart.cd.name %></span></td>
               <td><span><%= cart.cd.price %></span></td>
               <td><span><%= cart.cd.stock %></span></td>
@@ -34,8 +34,8 @@
               <td><span><%= cart.disc_count%></span></td>
             </tr>
 
-            <% x = x.to_i + cart.disc_count.to_i %>
-            <% y = y.to_i + cart.cd.price.to_i %>
+            <% x += cart.disc_count.to_i %>
+            <% y += cart.cd.price.to_i %>
 
             <%= o.hidden_field :price, value: cart.cd.price %>
             <%= o.hidden_field :disc_count, value: cart.disc_count %>
@@ -49,7 +49,7 @@
 
     <% tax = 1.1 %>
     <%= o.hidden_field :tax, value: tax %>
-    <% z = y.to_i * tax.to_i %>
+    <% z = (y * tax).to_i %>
 
     <p><%= o.hidden_field :count, value: x %>合計枚数　<%= x %></p>
     <P><%= o.hidden_field :postage, value: "500" %>送料    ¥500</P>
