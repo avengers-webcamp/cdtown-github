@@ -2,13 +2,18 @@
  <div class="row">
   <div class="col-md-8">
 
-  	<h2>登録フォーム</h2>
+     <div class="create_form">
+	  	<h3>登録フォーム</h3>
 
-    <%= render :partial => "owners/artists/new" %>
-    <%= render :partial => "owners/genres/new" %>
-    <%= render :partial => "owners/labels/new" %>
+	    <%= render :partial => "owners/artists/new" %>
+	    <%= render :partial => "owners/genres/new" %>
+	    <%= render :partial => "owners/labels/new" %>
 
-    <%= link_to 'Topに戻る', owners_cds_path %>
+      <div class="create_form_link">
+	    <%= link_to '新規登録画面に戻る', new_owners_cd_path %>
+	  </div>
+
+	 </div>
   </div>
  </div>
 </div>

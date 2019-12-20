@@ -1,9 +1,6 @@
 <div class="container clearfix">
  <div class="user_cd_index">
-          <%= form_tag(search_path,:method => 'get') do %>
-            <%= text_field_tag :search %>
-            <%= submit_tag 'Search', :name => nil %>
-　　　　　　<% end %>
+
 
           <% @cds.each do |cd| %>
 
