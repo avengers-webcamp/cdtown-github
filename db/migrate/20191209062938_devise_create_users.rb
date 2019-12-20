@@ -43,6 +43,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.integer :post_number
       t.string :condo, default: ""
       t.string :phone_number
+      t.integer :deliver_address_id
 
       t.timestamps null: false
       t.datetime :deleted_at

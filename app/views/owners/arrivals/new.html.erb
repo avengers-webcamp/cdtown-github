@@ -1,39 +1,43 @@
+<div class="container clearfix">
+  <div class="row">
+    <%= form_for @arrival, url: owners_cd_arrivals_path, method: :post do |arr| %>
+      <%= render 'layouts/error_messages', model: arr.object %>
 
 
-<%= form_for @arrival, url: owners_cd_arrivals_path, method: :post do |arr| %>
+
+        <div class="field">
+          <table>
 
 
-<div class="field">
-  <table>
+            <tr>
+                <th>
+                    <%= arr.label :シングル_アルバム名 %>
+                </th>
+                <th>
+                    <%= @cd.name %>
+                </th>
+            </tr>
+        	<tr>
+        		<th>
+                    <%= arr.label :入荷日 %>
+                </th>
+                <th>
+                    <%= arr.date_select :arrive_day %>
+                </th>
+            </tr>
+            <tr>
+            	<th>
+                    <%= arr.label :入荷数 %>
+                </th>
+                <th>
+                    <%= arr.number_field :arrive_count %>
+                </th>
+            </tr>
+          </table>
+        </div>
 
+        <%= arr.submit "登録" %>
 
-    <tr>
-        <th>
-            <%= arr.label :シングル_アルバム名 %>
-        </th>
-        <th>
-            <%= @cd.name %>
-        </th>
-    </tr>
-	<tr>
-		<th>
-            <%= arr.label :入荷日 %>
-        </th>
-        <th>
-            <%= arr.datetime_select :arrive_day %>
-        </th>
-    </tr>
-    <tr>
-    	<th>
-            <%= arr.label :入荷数 %>
-        </th>
-        <th>
-            <%= arr.number_field :arrive_count %>
-        </th>
-    </tr>
-  </table>
+    <% end %>
+ </div>
 </div>
-
-<%= arr.submit "登録" %>
-
-<% end %>

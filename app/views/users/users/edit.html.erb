@@ -1,5 +1,8 @@
 <div class="container">
  <div class="users_user_show_top">
+  <%= form_for @user do |f| %>
+   <%= render 'layouts/error_messages', model: f.object %>
+
   <h4>MyPage</h4>
  </div>
 </div>
@@ -8,8 +11,6 @@
  <div class="row">
   <div class='col-lg-5'>
     <div class="users_user_show_mypage">
-
-      <%= form_for @user do |f| %>
 
        <div class="row">
         <table>
