@@ -12,5 +12,4 @@ class Order < ApplicationRecord
    validates :user_id, presence: true
    validates :shipping_day, presence: true
    validates :payment, presence: true
-   validates :deliver_address_id, presence: true
 end

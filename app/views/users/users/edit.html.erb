@@ -1,12 +1,12 @@
 <div class="container">
  <div class="users_user_show_top">
-  <%= form_for @user do |f| %>
-   <%= render 'layouts/error_messages', model: f.object %>
+
 
   <h4>MyPage</h4>
  </div>
 </div>
-
+ <%= form_for @user do |f| %>
+   <%= render 'layouts/error_messages', model: f.object %>
 <div class="container">
  <div class="row">
   <div class='col-lg-5'>
@@ -131,10 +131,7 @@
       </div>
     </div>
 
-
      <% end %>
-
-
 
  </div>
 </div>
