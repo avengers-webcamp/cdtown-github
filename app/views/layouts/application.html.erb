@@ -17,6 +17,22 @@
   <nav class="nav navbar-nav navbar-left">
         <h3 class="text-white" href="#">CDTOWN</h3>
   </nav>
+
+    <nav class="nav navbar-nav navbar-center">
+
+       <div class="input-group input-group-sm ">
+
+          <%= form_tag cds_path, :method => 'get' do %>
+          <table>
+            <th><%= text_field_tag :search, params[:search], class:"form-control" %></th>
+            <th><%= submit_tag "Search", :name => nil, class:"btn-sm btn-secondary rounded-pill" %></th>
+          </table>
+          <% end %>
+       </div>
+
+    </nav>
+
+
       <nav>
         <div class="navbar-nav w-100">
           <ul class="nav navbar-expand-lg navbar-right">

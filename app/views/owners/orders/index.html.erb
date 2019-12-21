@@ -1,0 +1,32 @@
+<div class="container clearfix">
+ <div class="user_cd_index">
+
+
+ 	<table class="table table-striped">
+          <thead>
+              <tr>
+                <th><P></P></th>
+                <th><P></P></th>
+                <th><P></P></th>
+                <th><P></P></th>
+              </tr>
+          </thead>
+          <tbody>
+
+		          <% @order.each do |o| %>
+		  <tr class="new-table">
+
+		          <th><%= o.user.id %></th>
+
+		          <th><%= o.payment %></th>
+
+		          <th><%= o.shipping_day %></th>
+
+          </tr>
+		          <% end %>
+
+           </tbody>
+    </table>
+ </div>
+</div>
+
