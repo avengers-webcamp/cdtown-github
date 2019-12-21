@@ -1,12 +1,12 @@
 <div class="container">
  <div class="users_user_show_top">
-  <%= form_for @user do |f| %>
-   <%= render 'layouts/error_messages', model: f.object %>
+
 
   <h4>MyPage</h4>
  </div>
 </div>
-
+ <%= form_for @user do |f| %>
+   <%= render 'layouts/error_messages', model: f.object %>
 <div class="container">
  <div class="row">
   <div class='col-lg-5'>
@@ -38,7 +38,7 @@
           <tbody>
           <tr>
             <td><%= f.text_field :last_name_kana, class:"form-control" %></td>
-            <td><%= f.text_field :last_name_kana, class:"form-control" %></td>
+            <td><%= f.text_field :first_name_kana, class:"form-control" %></td>
           </tr>
           </tbody>
          </table>
@@ -63,7 +63,7 @@
           <th>Email</th>
          </tr>
          <tr>
-            <th><%= f.text_field :email, class:"form-control" %></th>
+            <th><%= f.email_field :email, class:"form-control" %></th>
          </tr>
          </table>
        </div>
@@ -131,10 +131,7 @@
       </div>
     </div>
 
-
      <% end %>
-
-
 
  </div>
 </div>

@@ -1,5 +1,3 @@
-
-
 <%= form_for @order, url: user_orders_path(@user), method: :post do |o| %>
 <%= render 'layouts/error_messages', model: o.object %>
 
@@ -103,7 +101,7 @@
   </div>
 
     <tr>
-		<th>
+    <th>
             <%= o.label :配達日 %>
         </th>
         <th>
@@ -120,4 +118,3 @@
 <%= button_to('新しく配送先を登録する',new_user_deliver_address_path, method: :get) %>
 
 </div>
-
