@@ -1,6 +1,8 @@
 class Owners::OrdersController < ApplicationController
 
 	def index
+		@order = Order.all
+		@cdorder = CdOrder.all
 	end
 
 	def show

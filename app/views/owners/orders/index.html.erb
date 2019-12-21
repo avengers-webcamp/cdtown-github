@@ -1,0 +1,38 @@
+<div class="container clearfix">
+ <div class="user_cd_index">
+
+
+ 	<table class="table table-striped">
+          <thead>
+              <tr>
+                <th><P>商品名</P></th>
+                <th><P>購入数</P></th>
+                <th><P></P></th>
+                <th><P></P></th>
+              </tr>
+          </thead>
+          <tbody>
+
+		          <% @order.each do |o| %>
+		  <tr class="new-table">
+
+		          <th><%= o.user.id %></th>
+
+		          <th><%= o.payment %></th>
+
+		          <th><%= o.shipping_day %></th>
+
+		          <% @cdorder.each do |c| %>
+
+		          <th><%= c.count %></th>
+
+		          <th><%= c.total_price %></th>
+          </tr>
+		          <% end %>
+		           <% end %>
+
+           </tbody>
+    </table>
+ </div>
+</div>
+
