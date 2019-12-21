@@ -4,7 +4,7 @@
 <%= render 'layouts/error_messages', model: o.object %>
 
 <div class="container">
-   <h2>Paymentt</h2>
+   <h2>Payment</h2>
 
      <table class="table table-striped">
       <thead>
@@ -23,6 +23,7 @@
 
                        <% x = 0 %>
                        <% y = 0 %>
+                       <% t = 0 %>
            <% @cart.each do |cart| %>
             <tr class="new-table">
               <td><span><%= attachment_image_tag cart.cd, :jacket_image, :fill, 100, 100, format: 'jpeg' %></span></td>
@@ -33,16 +34,12 @@
               <td><span><%= cart.disc_count%></span></td>
               <td><span></span></td>
               <td><span>
-                      <% a = 0 %>
-                      <% b = 0 %>
-                      <% c = 0 %>
-                      <% a += cart.disc_count.to_i %>
-                      <% b += cart.cd.price.to_i %>
-                      <%= c = a.to_i * b.to_i %>
-
+                       <% x = 0 %>
+                       <% y = 0 %>
+                       <% t = 0 %>
                       <% x += cart.disc_count.to_i %>
-                      <% y += c.to_i %>
-
+                      <% y += cart.cd.price.to_i %>
+                      <%= t = (x * y).to_i %>
                       </span></td>
             </tr>
 
@@ -55,17 +52,15 @@
 
        </tbody>
      </table>
-
+    <% x = UserCd.all.sum(:disc_count) %>
     <% tax = 1.1 %>
-    <% deli = 500 %>
+    <% t =  %>
     <%= o.hidden_field :tax, value: tax %>
-    <% z = ( y * tax).to_i %>
-    <% k = ( z + deli).to_i %>
+    <% z = ( t * tax).to_i %>
 
     <p><%= o.hidden_field :count, value: x %>合計枚数　<%= x %></p>
-    <P><%= o.hidden_field :postage, value: deli %>送料    ¥500</P>
+    <P><%= o.hidden_field :postage, value: "500" %>送料    ¥500</P>
     <p><%= o.hidden_field :total_price, value: z %>合計金額　　　　¥<%= z %></p>
-    <p>総額　　　　¥<%= k %></p>
 
   <div class="row">
     <div class="col-xs-5">
