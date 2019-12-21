@@ -17,8 +17,9 @@ class Users::OrdersController < ApplicationController
 	end
 
 	def index
-		@orders = Order.all
-		@cds = Cd.all
+		@orders = Order.where(user_id: current_user.id)
+
+		@cd_orders = CdOrder.all
 	end
 
 	def complete
