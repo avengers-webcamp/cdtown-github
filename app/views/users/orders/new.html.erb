@@ -33,7 +33,12 @@
               <td><span><%= cart.disc_count%></span></td>
               <td><span></span></td>
               <td><span>
-
+                      <% a = 0 %>
+                      <% b = 0 %>
+                      <% c = 0 %>
+                      <% a += cart.disc_count.to_i %>
+                      <% b += cart.cd.price.to_i %>
+                      <%= c = a.to_i * b.to_i %>
                       <% x += cart.disc_count.to_i %>
                       <% y += c.to_i %>
 
