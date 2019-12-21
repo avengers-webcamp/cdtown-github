@@ -22,6 +22,14 @@ class Cd < ApplicationRecord
         user_cds.create(user_id: user.id)
     end
 
+    def self.search(search)
+    if search
+      Cd.where(['name LIKE ?', "%#{search}%"])
+    else
+      Cd.all
+    end
+    end
+
 	enum status: {
 		販売中: 0,
 		販売停止中: 1

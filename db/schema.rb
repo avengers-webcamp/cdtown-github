@@ -10,11 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_11_055414) do
+ActiveRecord::Schema.define(version: 2019_12_21_022348) do
 
   create_table "arrivals", force: :cascade do |t|
     t.integer "cd_id", null: false
-    t.datetime "arrive_day", null: false
+    t.date "arrive_day", null: false
     t.integer "arrive_count", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 2019_12_11_055414) do
     t.integer "genre_id", null: false
     t.integer "label_id", null: false
     t.string "jacket_image_id"
-    t.datetime "released_at", null: false
+    t.date "released_at", null: false
     t.string "price", null: false
     t.integer "stock"
     t.integer "status", limit: 1, null: false
@@ -60,6 +60,8 @@ ActiveRecord::Schema.define(version: 2019_12_11_055414) do
 
   create_table "deliver_addresses", force: :cascade do |t|
     t.integer "user_id", null: false
+    t.string "deliver_last_name", null: false
+    t.string "deliver_first_name", null: false
     t.string "deliver_post_front", null: false
     t.string "deliver_post_back", null: false
     t.string "deliver_prefecture", null: false
@@ -91,15 +93,17 @@ ActiveRecord::Schema.define(version: 2019_12_11_055414) do
 
   create_table "orders", force: :cascade do |t|
     t.integer "user_id", null: false
-    t.datetime "shipping_day", null: false
+    t.date "shipping_day", null: false
     t.integer "postage", null: false
+    t.string "last_name"
+    t.string "first_name"
     t.string "post_front", null: false
     t.string "post_back", null: false
     t.string "prefecture", null: false
     t.text "town", null: false
-    t.integer "post_nambar", null: false
+    t.integer "post_number", null: false
     t.string "condo"
-    t.integer "payment", null: false
+    t.text "payment", null: false
     t.text "shipping_status", null: false
     t.datetime "deleted_at"
     t.datetime "created_at", null: false
@@ -152,6 +156,7 @@ ActiveRecord::Schema.define(version: 2019_12_11_055414) do
     t.integer "post_number"
     t.string "condo", default: ""
     t.string "phone_number"
+    t.integer "deliver_address_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "deleted_at"
