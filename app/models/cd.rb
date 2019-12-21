@@ -44,8 +44,6 @@ class Cd < ApplicationRecord
     validates :status, presence: true
 
 
-
-
     def uniine(user)
         user_cds.find_by(user_id: user.id).destroy
     end
