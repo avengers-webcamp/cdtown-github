@@ -91,7 +91,9 @@
 
         <p><%= radio_button_tag :deli, address.id %>
 
-           <%= address.deliver_post_front %><%= address.deliver_post_back %></p>
+           <%= address.deliver_last_name %><%= address.deliver_first_name %></p>
+
+        <p><%= address.deliver_post_front %><%= address.deliver_post_back %></p>
 
         <p><%= address.deliver_prefecture %><%= address.deliver_town %><%= address.deliver_post_number %><%= address.deliver_condo %></p>
 

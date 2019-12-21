@@ -18,6 +18,6 @@ class Users::DeliverAddressesController < ApplicationController
 	private
 
 	def deliver_address_params
-		params.require(:deliver_address).permit(:user_id, :deliver_post_front, :deliver_post_back, :deliver_prefecture, :deliver_town, :deliver_post_number, :deliver_condo)
+		params.require(:deliver_address).permit(:user_id, :deliver_last_name, :deliver_first_name, :deliver_post_front, :deliver_post_back, :deliver_prefecture, :deliver_town, :deliver_post_number, :deliver_condo)
 	end
 end
