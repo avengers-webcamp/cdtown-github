@@ -1,0 +1,42 @@
+
+
+<div class="container">
+
+<h2>Buying Item LIst</h2>
+
+<% @orders.each do |o| %>
+
+<P>配送日<%= o.shipping_day %><%= o.shipping_status %>
+	配送先<%= o.post_front %>-<%= o.post_back %>
+	<%= o.prefecture %><%= o.town %><%= o.post_nambar %><%= o.condo %></P>
+
+     <table class="table table-striped">
+      <thead>
+          <tr>
+            <th><P>ジャケット画像</P></th>
+            <th><P>商品名</P></th>
+            <th><P>価格（税別）</P></th>
+            <th><P>購入数</P></th>
+            <th><P></P></th>
+          </tr>
+      </thead>
+      <tbody>
+
+
+           <% @cd_orders.each do |buy| %>
+            <tr class="new-table">
+              <td><span><%= attachment_image_tag buy.cd, :jacket_image, :fill, 50, 50, format: 'jpeg' %></span></td>
+              <td><span><%= buy.cd.name %></span></td>
+              <td><span><%= buy.cd.price %></span></td>
+              <td><span><%= buy.disc_count%></span></td>
+              <td><span><%= link_to 'この商品の詳細へ', cd_path(buy.cd.id), class:"btn-sm btn-light Destroy_book btn-lg" %></span></td>
+            </tr>
+           <% end %>
+
+       </tbody>
+     </table>
+<% end %>
+</div>
+
+
+
