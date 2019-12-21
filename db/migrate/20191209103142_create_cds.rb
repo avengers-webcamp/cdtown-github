@@ -6,7 +6,7 @@ class CreateCds < ActiveRecord::Migration[5.2]
      t.integer :genre_id, :null => false
      t.integer :label_id, :null => false
      t.string :jacket_image_id
-     t.datetime :released_at, :null => false
+     t.date :released_at, :null => false
      t.string :price, :null => false
      t.integer :stock
      t.integer :status, :null => false, limit: 1
