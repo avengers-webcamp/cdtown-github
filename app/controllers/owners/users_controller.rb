@@ -21,7 +21,7 @@ class Owners::UsersController < ApplicationController
 	private
     def user_params
         params.require(:user).permit(:last_name, :first_name, :last_name_kana, :first_name_kana,
-        	:post_front, :post_back, :email, :prefecture, :town, :post_number, :condo, :phone_number)
+        	:post_front, :post_back, :prefecture, :town, :post_number, :condo, :phone_number, :email)
     end
 
 end

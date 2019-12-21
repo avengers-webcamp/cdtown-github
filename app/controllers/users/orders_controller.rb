@@ -31,20 +31,25 @@ class Users::OrdersController < ApplicationController
 		@user = User.find(params[:user_id])
 		@order = Order.new(order_params)
 		if params[:deli] == "user"
+			@order.last_name = @user.last_name
+		    @order.first_name = @user.first_name
 		    @order.post_front = @user.post_front
 		    @order.post_back = @user.post_back
 		    @order.prefecture = @user.prefecture
 		    @order.town = @user.town
-		    @order.post_nambar = @user.post_number
+		    @order.post_number = @user.post_number
 		    @order.condo = @user.condo
-		else
+		elsif params[:deli].present?
 		    @deliver_addresses = DeliverAddress.find(params[:deli])
+		    @order.last_name = @deliver_addresses.deliver_last_name
+		    @order.first_name = @deliver_addresses.deliver_first_name
 		    @order.post_front = @deliver_addresses.deliver_post_front
 		    @order.post_back = @deliver_addresses.deliver_post_back
 		    @order.prefecture = @deliver_addresses.deliver_prefecture
 		    @order.town = @deliver_addresses.deliver_town
-		    @order.post_nambar = @deliver_addresses.deliver_post_number
+		    @order.post_number = @deliver_addresses.deliver_post_number
 		    @order.condo = @deliver_addresses.deliver_condo
+		else
 		end
 		@order.user_id = current_user.id
 
@@ -53,15 +58,15 @@ class Users::OrdersController < ApplicationController
 
 		    @cart.each do |cart|
 
-			cd_order = CdOrder.new(cd_order_params)
-		    cd_order.cd_id = cart.cd.id
-		    cd_order.order_id = @order.id
-		    cd_order.save
+			    cd_order = CdOrder.new(cd_order_params)
+		        cd_order.cd_id = cart.cd.id
+		        cd_order.order_id = @order.id
+		        cd_order.save
 
-		    cart.cd.stock = cart.cd.stock.to_i - cd_order.disc_count.to_i
-			cart.cd.update(stock: cart.cd.stock)
+		        cart.cd.stock = cart.cd.stock.to_i - cd_order.disc_count.to_i
+			    cart.cd.update(stock: cart.cd.stock)
 
-            cart.destroy
+                cart.destroy
 		    end
 			    redirect_to user_complete_path(@user)
 
@@ -73,7 +78,7 @@ class Users::OrdersController < ApplicationController
     private
 
     def order_params
-    	params.require(:order).permit(:user_id, :user_cd_id, :deliver_address_id, :shipping_day, :postage, :post_front, :post_back, :prefecture, :town, :post_nambar, :condo, :payment, :shipping_status)
+    	params.require(:order).permit(:user_id, :user_cd_id, :deliver_address_id, :shipping_day, :postage, :last_name, :first_name, :post_front, :post_back, :prefecture, :town, :post_number, :condo, :payment, :shipping_status)
     end
 
     def cd_order_params
