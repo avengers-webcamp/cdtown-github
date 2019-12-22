@@ -1,41 +1,70 @@
 
 
-<h1>エラーです。この画面は現在使用していません。showのページに移動しました。</h1>
+<% if current_user.user_cds.exists? %>
+
 
 <div class="container">
-   <h2>カートの中身</h2>
-
-     <table class="table table-striped">
-      <thead>
-          <tr>
-            <th><P>ジャケット画像</P></th>
-            <th><P>商品名</P></th>
-            <th><P>価格（税別）</P></th>
-            <th><P></P></th>
-            <th><P></P></th>
-            <th><P>購入数</P></th>
-            <th><P></P></th>
-            <th><P></P></th>
-          </tr>
-      </thead>
-      <tbody>
 
 
-           <% @cart.each do |cart| %>
-            <tr class="new-table">
-              <td><span><%= attachment_image_tag cart.cd, :jacket_image, :fill, 50, 50, format: 'jpeg' %></span></td>
-              <td><span><%= cart.cd.name %></span></td>
-              <td><span><%= cart.cd.price %></span></td>
-              <td><span><%= cart.cd.stock %></span></td>
-              <td><span><%= link_to '詳細', cd_path(cart.cd.id), class:"btn-sm btn-light Destroy_book btn-lg" %></span></td>
-              <%= form_for cart, url:"/user_cds/#{cart.id}" do |carting| %>
-              <td><span><%= carting.number_field :disc_count, class:"form-control" %></span></td>
-              <td><span><%= carting.submit "更新", class:"btn-sm btn-light Destroy_book btn-lg" %></span></td>
-              <% end %>
-              <td><span><%= link_to "カートから出す", user_cd_path(cart.id), method: :delete, "data-confirm" => "本当にカートから出しますか？", class:"btn-sm btn-danger Destroy_book btn-lg" %></span></td>
-            </tr>
-           <% end %>
+      <div class="cart_show_index">
+       <i class="fas fa-shopping-cart"></i>
+        <div class="cart_buy">
+       <%= link_to "購入する", new_user_order_path(current_user.id), class:"btn-lg btn-primary bt-lg" %>
+      </div>
+      </div>
 
-       </tbody>
-     </table>
+
+         <table class="table table-striped">
+          <thead>
+              <tr>
+                <th><P></P></th>
+                <th><P>商品名</P></th>
+                <th><P>価格（税別）</P></th>
+                <th><P></P></th>
+                <th><P></P></th>
+                <th><P>購入数</P></th>
+                <th><P></P></th>
+                <th><P></P></th>
+              </tr>
+          </thead>
+          <tbody>
+
+
+               <% current_user.user_cds.each do |cart| %>
+                <tr class="new-table">
+                  <td><span><%= attachment_image_tag cart.cd, :jacket_image, :fill, 50, 50, format: 'jpeg' %></span></td>
+                  <td><span><%= cart.cd.name %></span></td>
+                  <td><span><%= cart.cd.price %></span></td>
+                  <td><span><%= link_to '詳細', cd_path(cart.cd.id), class:"btn-sm btn-light Destroy_book btn-lg" %></span></td>
+                  <%= form_for cart, url:user_cd_path(cart.id), method: :patch do |carting| %>
+                  <td><span><%= carting.number_field :disc_count,min: 1, max:10, class:"form-control" %></span></td>
+                  <td><span><%= carting.submit "更新", class:"btn-sm btn-light Destroy_book btn-lg" %></span></td>
+                  <% end %>
+                  <td><span><%= link_to "カートから出す", user_cd_path(cart.id), method: :delete, "data-confirm" => "本当にカートから出しますか？", class:"btn-sm btn-danger Destroy_book btn-lg" %></span></td>
+                </tr>
+               <% end %>
+
+
+
+           </tbody>
+         </table>
 </div>
+
+<% else %>
+
+<div class="container">
+
+
+      <div class="cart_show_index">
+       <i class="fas fa-shopping-cart"></i>
+        <div class="cart_buy">
+       <%= link_to "商品の一覧へ", root_path, class:"btn-lg btn-primary bt-lg" %>
+        </div>
+      </div>
+
+      <strong><p>カートの中身はありません。</p>
+      <p><%= link_to "商品", root_path %>をお選びいただき、カートに入れてください。</p></strong>
+
+</div>
+
+<% end %>

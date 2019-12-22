@@ -14,11 +14,12 @@
             <div class="cart_show">
               <p><span><%= link_to '詳細', cd_path(cd.id),class:"btn-sm btn-light btn-lg" %></span></p>
             </div>
-              <%= form_for @user_cd, url: user_cds_path(cd_id: cd.id), method: :post do |cart| %>
+              <%= form_for @user_cd, url: user_cds_path, method: :post do |cart| %>
               <div class="user_index_cart_count">
                 <div class="row">
                   <div class="col-md-4">
                     <div class="user_index_count"><span><%= cart.number_field :disc_count, value: 1 , min: 1, max:10,  class:"form-control"%></span></div>
+                    <%= cart.hidden_field :cd_id, value: cd.id %>
                   </div>
                     <div class="col-md-8">
                       <div class="incart"><span><%= cart.submit "カートに入れる", class:"btn-sm btn-primary " %></span></div>
