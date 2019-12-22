@@ -21,5 +21,4 @@ class Order < ApplicationRecord
    validates :prefecture, presence: true
    validates :town, presence: true
    validates :post_number, presence: true
-   validates :condo, presence: true
 end

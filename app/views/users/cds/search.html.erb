@@ -1,0 +1,36 @@
+<div class="container clearfix">
+ <div class="user_cd_index">
+
+          <% @cd.each do |scd| %>
+
+          <div class="cd">
+              <p><span><%= attachment_image_tag scd, :jacket_image, :fill, 180, 180, format: 'jpeg' %></span></p>
+            <div class="user_cd_index_cdname">
+              <p><span><%= scd.name %></span></p>
+            </div>
+            <div class="user_cd_index_cdprice">
+              <p><span>¥ <%= scd.price %> (税抜)</span></p>
+            </div>
+            <div class="cart_show">
+              <p><span><%= link_to '詳細', cd_path(scd.id),class:"btn-sm btn-light btn-lg" %></span></p>
+            </div>
+              <%= form_for @user_cd, url: user_cds_path(cd_id: scd.id), method: :post do |cart| %>
+              <div class="user_index_cart_count">
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="user_index_count"><span><%= cart.number_field :disc_count, value: 1 , min: 1, max:10,  class:"form-control"%></span></div>
+                  </div>
+                    <div class="col-md-8">
+                      <div class="incart"><span><%= cart.submit "カートに入れる", class:"btn-sm btn-primary " %></span></div>
+                    </div>
+                </div>
+              </div>
+          </div>
+              <% end %>
+
+          <% end %>
+
+
+
+ </div>
+</div>
