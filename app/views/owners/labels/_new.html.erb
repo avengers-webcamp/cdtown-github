@@ -3,6 +3,7 @@
   <div class="col-md-8">
 
   	<%= form_for @label, url: owners_labels_path, method: :post do |f| %>
+    <%= render 'layouts/error_messages', model: f.object %>
 
   	<div class="row">
   	  <table>
