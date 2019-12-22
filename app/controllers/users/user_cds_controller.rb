@@ -1,5 +1,7 @@
 class Users::UserCdsController < ApplicationController
 
+	before_action :authenticate_user!
+
 	def index
 	end
 

@@ -4,6 +4,7 @@
 
 
   	<%= form_for @artist, url: owners_artists_path, method: :post do |f| %>
+    <%= render 'layouts/error_messages', model: f.object %>
 
   	<div class="row">
   	  <table>

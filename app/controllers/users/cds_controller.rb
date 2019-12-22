@@ -1,5 +1,6 @@
 class Users::CdsController < ApplicationController
 
+
 	def show
 		@cd = Cd.find(params[:id])
 		@artists = Artist.select("name")

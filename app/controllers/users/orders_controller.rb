@@ -1,5 +1,7 @@
 class Users::OrdersController < ApplicationController
 
+	before_action :authenticate_user!
+
 	def new
 		@order = Order.new
 		@user = User.find(params[:user_id])
@@ -30,6 +32,7 @@ class Users::OrdersController < ApplicationController
 		@deliver_addresses = DeliverAddress.where(user_id: current_user.id)
 		@user = User.find(params[:user_id])
 		@order = Order.new(order_params)
+		@order.user_id = current_user.id
 		if params[:deli] == "user"
 			@order.last_name = @user.last_name
 		    @order.first_name = @user.first_name
@@ -40,18 +43,23 @@ class Users::OrdersController < ApplicationController
 		    @order.post_number = @user.post_number
 		    @order.condo = @user.condo
 		elsif params[:deli].present?
-		    @deliver_addresses = DeliverAddress.find(params[:deli])
-		    @order.last_name = @deliver_addresses.deliver_last_name
-		    @order.first_name = @deliver_addresses.deliver_first_name
-		    @order.post_front = @deliver_addresses.deliver_post_front
-		    @order.post_back = @deliver_addresses.deliver_post_back
-		    @order.prefecture = @deliver_addresses.deliver_prefecture
-		    @order.town = @deliver_addresses.deliver_town
-		    @order.post_number = @deliver_addresses.deliver_post_number
-		    @order.condo = @deliver_addresses.deliver_condo
+		    @deliver_address = DeliverAddress.find(params[:deli])
+		    @order.last_name = @deliver_address.deliver_last_name
+		    @order.first_name = @deliver_address.deliver_first_name
+		    @order.post_front = @deliver_address.deliver_post_front
+		    @order.post_back = @deliver_address.deliver_post_back
+		    @order.prefecture = @deliver_address.deliver_prefecture
+		    @order.town = @deliver_address.deliver_town
+		    @order.post_number = @deliver_address.deliver_post_number
+		    @order.condo = @deliver_address.deliver_condo
 		else
 		end
-		@order.user_id = current_user.id
+
+		#@cart.each do |cart|
+	        #if cart.cd.stock < cart.disc_count
+	        	#redirect_to user_cd_path(@cart),notice:'申し訳ございません。ただ今品切れ中です。'
+	        #end
+	    #end
 
 		if @order.save
 		    @cart = UserCd.where(user_id: current_user.id)
