@@ -12,4 +12,13 @@ class Order < ApplicationRecord
    validates :user_id, presence: true
    validates :shipping_day, presence: true
    validates :payment, presence: true
+
+   validates :last_name, presence: true
+   validates :first_name, presence: true
+   validates :post_front, presence: true
+   validates :post_back, presence: true
+   validates :prefecture, presence: true
+   validates :town, presence: true
+   validates :post_number, presence: true
+   validates :condo, presence: true
 end

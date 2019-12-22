@@ -23,7 +23,7 @@
       <tbody>
 
 
-           <% @cd_orders.each do |buy| %>
+           <% o.cd_orders.each do |buy| %>
             <tr class="new-table">
               <td><span><%= attachment_image_tag buy.cd, :jacket_image, :fill, 50, 50, format: 'jpeg' %></span></td>
               <td><span><%= buy.cd.name %></span></td>
