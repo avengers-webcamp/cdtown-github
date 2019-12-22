@@ -82,6 +82,7 @@ class Users::OrdersController < ApplicationController
 		else
 			render :new
 		end
+		@submit = "注文する"
 	end
 
     private

@@ -104,13 +104,14 @@
 	border: 2px solid whitesmoke;
 	height: 30px;
 	width: 170px;
+	text-align: center;
 }
 
 .user_cd_index_cdprice{
 	border: 2px solid whitesmoke;
 	height: 30px;
 	width: 170px;
-	text-align: left;
+	text-align: center;
 	margin-top: 10px;
 	margin-left: 20px;
 	margin-bottom: 10px;
@@ -244,50 +245,50 @@
 
 .users_user_show_name{
     margin-top: 10px;
-	border-bottom: solid 1px ;
+	border-bottom: 2px solid whitesmoke;
 }
 
 .users_user_show_name_kana{
     margin-top: 10px;
-	border-bottom: solid 1px ;
+	border-bottom: 2px solid whitesmoke;
 }
 
 .users_user_show_phone_number{
     margin-top: 10px;
-	border-bottom: solid 1px ;
+	border-bottom: 2px solid whitesmoke;
 }
 
 .users_user_show_email{
     margin-top: 10px;
     margin-left: 10px;
-	border-bottom: solid 1px ;
+	border-bottom: 2px solid whitesmoke;
 }
 
 .users_user_show_address{
     margin-top: 10px;
-	border-bottom: solid 1px ;
+	border-bottom: 2px solid whitesmoke;
 }
 
 .users_user_show_prefecture{
     margin-top: 10px;
-	border-bottom: solid 1px ;
+	border-bottom: 2px solid whitesmoke;
 }
 
 .users_user_show_town{
     margin-top: 10px;
     margin-left: 10px;
-	border-bottom: solid 1px ;
+	border-bottom: 2px solid whitesmoke;
 }
 
 .users_user_show_post_number{
     margin-top: 10px;
-	border-bottom: solid 1px ;
+	border-bottom: 2px solid whitesmoke;
 }
 
 .users_user_show_condo{
     margin-top: 10px;
     margin-left: 10px;
-	border-bottom: solid 1px ;
+	border-bottom: 2px solid whitesmoke;
 }
 
 .users_user_show_down{
@@ -413,8 +414,11 @@
 
 .owner_cds_index{
 	margin-top: 20px;
-	margin-bottom: 20px;
 	margin-left: 30px;
+}
+
+.owner_cds_index_destroy{
+	margin-bottom: 30px;
 }
 
 .create_form{
@@ -431,11 +435,139 @@
 	margin-left: 2px;
 }
 
+.payment_all{
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
 
+.payment_money{
+	margin-left: 30px;
+	margin-right: 30px;
+}
 
+.payment_summoney{
+	border-bottom: 2px solid whitesmoke;
+	margin-bottom: 10px;
+	width: 100%;
+	text-align: center;
+}
 
+.payment_cd_count{
+	border-bottom: 2px solid whitesmoke;
+	margin-bottom: 10px;
+	width: 100%;
 
+}
 
+.payment_deli_money{
+	border-bottom: 2px solid whitesmoke;
+	margin-bottom: 10px;
+	width: 100%;
+}
+
+.payment_deli_money_money{
+	margin-left: 40px;
+}
+
+.payment_cd_count_money{
+	border-bottom: 2px solid whitesmoke;
+	margin-bottom: 10px;
+	width: 100%;
+}
+
+.payment_sum_money{
+	border-bottom: 2px solid whitesmoke;
+	margin-bottom: 10px;
+	width: 100%;
+}
+
+.payment_address_way{
+	margin:auto;
+}
+
+.payment_way{
+	margin-top: 20px;
+	margin-bottom: 20px;
+	margin-left: 330px;
+	border: 2px solid whitesmoke;
+	padding: 20px;
+	padding-bottom: 0px;
+}
+
+.payment_address{
+	margin-top: 20px;
+	margin-bottom: 20px;
+	margin-left: 30px;
+	border: 2px solid whitesmoke;
+	padding: 20px;
+	padding-top: 19px;
+	padding-bottom: 0px;
+}
+
+.payment_deli_address{
+	margin-top: 20px;
+	margin-bottom: 20px;
+	margin-left: 30px;
+}
+
+.payment_deli_dey{
+	margin-top: 20px;
+	margin-bottom: 20px;
+	margin-left: 70px;
+}
+
+.payment_button{
+	margin:auto;
+}
+
+.submit_btn-sm{
+	font-size: 30px;
+	width: 1038px;
+	border-radius: 10px 10px 10px 10px;
+
+}
+
+.payment_way_name{
+	margin-bottom: 5px;
+	text-align: center;
+	height: 30px;
+	border: 2px solid whitesmoke;
+}
+
+.cp_cssslider {
+	width: 300px;
+	height: 200px;
+	overflow: hidden;
+	margin: 2em auto;
+	border: 10px solid #ffffff;
+	box-shadow:0px 0px 5px 0px rgba(0,0,0,0.5);
+}
+.cp_slide_item {
+	width: 300px;
+	height: 200px;
+	float: left;
+	position: relative;
+}
+.cp_slidewrapper {
+	width: 500%;/* slideの枚数×100% */
+	position: relative;
+	left: 0;
+	animation: slider 20s infinite ease;/* スピード */
+}
+
+.cd_stock_index{
+	margin-left: 50px;
+}
+
+.user_buying_title{
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.user_buying_deli_deli{
+	text-align: right;
+	margin-right: 10px;
+}
 
 
 

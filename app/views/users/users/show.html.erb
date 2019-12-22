@@ -19,8 +19,7 @@
          </thead>
          <tbody>
          <tr>
-            <td ><%= @user.last_name %></td>
-            <td><%= @user.first_name %></td>
+            <td ><%= @user.last_name %> <%= @user.first_name %></td>
          </tr>
          </tbody>
         </table>
@@ -35,8 +34,7 @@
           </thead>
           <tbody>
           <tr>
-            <td><%= @user.last_name_kana %></td>
-            <td><%= @user.first_name_kana %></td>
+            <td><%= @user.last_name_kana %> <%= @user.first_name_kana %></td>
           </tr>
           </tbody>
          </table>
@@ -75,8 +73,7 @@
              <th>郵便番号</th>
          </tr>
          <tr>
-            <th><%= @user.post_front %></th>
-            <th><%= @user.post_back %></th>
+            <th><%= @user.post_front %> - <%= @user.post_back %></th>
          </tr>
          </table>
        </div>

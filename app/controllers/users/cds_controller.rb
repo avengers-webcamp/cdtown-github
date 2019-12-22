@@ -12,7 +12,11 @@ class Users::CdsController < ApplicationController
 	def index
 		@cds = Cd.all
 		@user_cd = UserCd.new
+	end
+
+	def search
 		@cd = Cd.search(params[:search])
+		@user_cd = UserCd.new
 	end
 
 

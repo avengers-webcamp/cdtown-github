@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   namespace :owners do
     resources :artists, :genres, :labels, :sales
-    resources :orders, only: [:index, :show, :edit, :update]
+    resources :orders, only: [:index, :show, :edit, :update, :destroy] 
     resources :cds do
        resources :arrivals
     end
@@ -25,7 +25,7 @@ Rails.application.routes.draw do
   scope module: :users do
     resources :users, only: [:show, :edit, :update, :destroy] do
   	  resources :deliver_addresses
-      resources :orders, only: [:index, :show, :new ,:create]
+      resources :orders, only: [:index, :show, :new ,:create ,:destroy]
       get 'complete' => 'orders#complete'
     end
     resources :cds, only: [:show, :index] do
@@ -34,6 +34,7 @@ Rails.application.routes.draw do
   	resources :songs
     end
     get '/unsubscribe/:id' => 'users#unsubscribe'
+    get "search" => "cds#search"
 
     resources :user_cds
     resources :cd_orders, only: [:create]

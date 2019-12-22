@@ -6,7 +6,8 @@ class Order < ApplicationRecord
 
 	enum status: {
 		発送中: 0,
-		発送済み: 1
+		発送済み: 1,
+		発送準備中: 2
 		 }
 
    validates :user_id, presence: true
@@ -20,5 +21,4 @@ class Order < ApplicationRecord
    validates :prefecture, presence: true
    validates :town, presence: true
    validates :post_number, presence: true
-   validates :condo, presence: true
 end

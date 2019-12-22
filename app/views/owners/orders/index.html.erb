@@ -1,32 +1,72 @@
 <div class="container clearfix">
- <div class="user_cd_index">
-
-
- 	<table class="table table-striped">
-          <thead>
-              <tr>
-                <th><P></P></th>
-                <th><P></P></th>
-                <th><P></P></th>
-                <th><P></P></th>
-              </tr>
-          </thead>
-          <tbody>
-
-		          <% @order.each do |o| %>
-		  <tr class="new-table">
-
-		          <th><%= o.user.id %></th>
-
-		          <th><%= o.payment %></th>
-
-		          <th><%= o.shipping_day %></th>
-
-          </tr>
-		          <% end %>
-
-           </tbody>
-    </table>
+ <div class="owner_cds_index">
+  <h3>受注商品一覧</h3>
  </div>
+
+      <% @order.each do |o| %>
+      <table class="table table-striped">
+
+        <thead>
+                    <tr>
+                      <th>発送日時</th>
+                      <th>顧客名</th>
+                      <th>支払い方法</th>
+                      <th></th>
+                      <th></th>
+                      <th></th>
+                    </tr>
+        </thead>
+
+        <tbody>
+
+            <tr class="new-table">
+                <th><%= o.shipping_day.strftime('%Y/%m/%d') %></th>
+                <th><%= o.last_name %><%= o.first_name %></th>
+                <th><%= o.payment %></th>
+                <%= form_for o,  url:"/owners/orders/#{o.id}" do |ow| %>
+                    <th><%= ow.select :shipping_status,Order.statuses.keys.to_a %>
+                    </th>
+                    <th><%= ow.submit "更新", class:"btn-sm btn-light Destroy_book btn-lg" %></th>
+                    <% end %>
+                    <div class="owner_cds_index_destroy"><th><%= link_to "削除", owners_order_path(o.id), method: :delete, "data-confirm" => "本当に削除しますか？", class:"btn-sm btn-danger Destroy_book btn-lg" %></th>
+                    </div>
+            </tr>
+        </tbody>
+
+
+        <table class="table table-striped">
+                <thead>
+                    <tr>
+                      <th></th>
+                      <th>商品名</th>
+                      <th>数</th>
+                      <th>請求額</th>
+                      <th></th>
+                      <th></th>
+                    </tr>
+                </thead>
+        <tbody>
+
+        <% o.cd_orders.each do |c| %>
+
+
+      		  <tr class="new-table">
+                    <th><%= attachment_image_tag c.cd, :jacket_image, :fill, 100, 100, format: 'jpeg'%></th>
+      		          <th><%= c.cd.name %></th>
+                    <th><%= c.disc_count %></th>
+                    <th>¥<%= c.price %></th>
+                    <th></th>
+                    <th></th>
+
+
+
+            </tr>
+
+        <% end %>
+        <% end %>
+
+        </tbody>
+        </table>
+
 </div>
 

@@ -1,0 +1,43 @@
+<div class="container clearfix">
+
+    <%= form_for @order, url: edit_owners_order_path(@order.id) do |o| %>
+
+    <% @cd_order.each do |c| %>
+
+    <%= c.cd.name %>
+
+    <%= c.text_field :disc_count %>
+
+    <% end %>
+
+    <%= o.text_field :last_name  %>
+
+    <%= o.text_field :first_name  %>
+
+    <%= o.text_field :shipping_day  %>
+
+
+
+  
+
+    <%= o.text_field :payment  %>
+
+    <%= o.text_field :payment  %>
+
+    <%= o.text_field :payment  %>
+
+    <%= o.text_field :payment  %>
+
+    <%= o.text_field :payment  %>
+
+
+  
+
+    
+
+    <% end %>
+
+
+
+
+</div>
