@@ -39,19 +39,13 @@
 
                 <% if owner_signed_in? %>
               <li>
-         　　　 <%= link_to "顧客一覧", owners_root_path, class:"btn btn-secondary rounded-pill" %>
+         　　　 <%= link_to "顧客一覧", owners_cds_path, class:"btn btn-secondary rounded-pill" %>
               </li>
               <li>
-         　　　 <%= link_to "商品一覧", owners_root_path, class:"btn btn-secondary rounded-pill" %>
+         　　　 <%= link_to "商品一覧", owners_cds_path, class:"btn btn-secondary rounded-pill" %>
               </li>
               <li>
-         　　　 <%= link_to "入荷履歴", owners_root_path, class:"btn btn-secondary rounded-pill" %>
-              </li>
-              <li>
-         　　　 <%= link_to "受注管理", owners_root_path, class:"btn btn-secondary rounded-pill" %>
-              </li>
-              <li>
-         　　　 <%= link_to "売上管理", owners_root_path, class:"btn btn-secondary rounded-pill" %>
+         　　　 <%= link_to "受注一覧", owners_orders_path, class:"btn btn-secondary rounded-pill" %>
               </li>
               <li>
          　　　<%= link_to "Sign out", destroy_owner_session_path, method: :delete, class:"btn btn-secondary rounded-pill" %></li>
