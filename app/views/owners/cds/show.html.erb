@@ -45,9 +45,9 @@
         <% end %>
         <div class="user_cd_show_price">価格（税別）</div>
           <div class="user_cd_show_price_price"><%= @cd.price %></div>
-          <%= button_to('この商品の入荷登録画面へ', new_owners_cd_arrival_path(@cd.id), method: :get) %>
-          <%= button_to('編集',edit_owners_cd_path(@cd.id), method: :get) %>
-          <%= button_to('削除',owners_cd_path(@cd.id), method: :delete) %>
+          <%= link_to'この商品の入荷登録画面へ', new_owners_cd_arrival_path(@cd.id),class:"btn btn-primary Edit btn-rg" %>
+          <%= link_to'編集',edit_owners_cd_path(@cd.id),class:"btn btn-success Edit btn-rg"%>
+          <%= link_to'削除',owners_cd_path(@cd.id),class:"btn btn-danger Edit btn-rg" %>
 
       </div>
     </div>
