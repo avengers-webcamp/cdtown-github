@@ -1,44 +1,36 @@
 class Users::UserCdsController < ApplicationController
 
-	before_action :authenticate_user!
+    before_action :authenticate_user!
+	before_action :correct_user, only: [:update, :destroy]
 
 	def index
 	end
 
-	def show
-	  	@user = User.find(params[:id])
-	  	@cart = UserCd.where(user_id: current_user.id).order(created_at: :desc)
-    end
 
 	def create
-        cd = Cd.find(params[:cd_id])
 		cart = UserCd.new(user_cd_params)
 		cart.user_id = current_user.id
-        cart.cd_id = cd.id
 
 		if cart.save!
             flash[:notice] = "カートに追加できました！"
-            redirect_to user_cd_path(current_user.id)
+            redirect_to user_cds_path
         else
             redirect_to root_path
         end
 	end
 
 	def update
-		cart = UserCd.find(params[:id])
-
-        if  cart.update(user_cd_params)
+        if  @cart.update(user_cd_params)
             flash[:notice] = "successfully"
-            redirect_to user_cd_path(current_user.id)
+            redirect_to user_cds_path
         else
 	        redirect_to root_path
         end
 	end
 
 	def destroy
-		cart = UserCd.find(params[:id])
-		cart.destroy
-        redirect_to user_cd_path(current_user.id)
+		@cart.destroy
+        redirect_to user_cds_path
 	end
 
 	private
@@ -46,5 +38,12 @@ class Users::UserCdsController < ApplicationController
 	def user_cd_params
 		params.require(:user_cd).permit(:user_id, :cd_id ,:disc_count)
 	end
+
+	def correct_user
+		@cart = UserCd.find(params[:id])
+    	if current_user!= @cart.user
+    	    redirect_to user_cds_path
+        end
+    end
 
 end

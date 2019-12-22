@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_21_022348) do
+ActiveRecord::Schema.define(version: 2019_12_11_055414) do
 
   create_table "arrivals", force: :cascade do |t|
     t.integer "cd_id", null: false
@@ -134,7 +134,7 @@ ActiveRecord::Schema.define(version: 2019_12_21_022348) do
   create_table "user_cds", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "cd_id", null: false
-    t.string "disc_count", null: false
+    t.integer "disc_count", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

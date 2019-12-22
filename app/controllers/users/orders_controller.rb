@@ -1,6 +1,7 @@
 class Users::OrdersController < ApplicationController
 
 	before_action :authenticate_user!
+	before_action :correct_user
 
 	def new
 		@order = Order.new
@@ -93,5 +94,11 @@ class Users::OrdersController < ApplicationController
     def cd_order_params
 		params.require(:order).permit(:cd_id, :order_id, :total_price, :count, :price, :tax, :disc_count)
 	end
+
+	def correct_user
+    	if current_user.id !=  params[:user_id].to_i
+    	    redirect_to user_cds_path
+        end
+    end
 
 end
