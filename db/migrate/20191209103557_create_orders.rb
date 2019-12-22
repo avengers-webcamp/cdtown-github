@@ -13,7 +13,7 @@ class CreateOrders < ActiveRecord::Migration[5.2]
     	t.text :town, :null => false
     	t.integer :post_number, :null => false
     	t.string :condo
-    	t.integer :payment, :null => false
+    	t.text :payment, :null => false
     	t.text :shipping_status, :null => false
     	t.datetime :deleted_at
 
