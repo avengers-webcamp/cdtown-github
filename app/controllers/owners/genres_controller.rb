@@ -6,7 +6,9 @@ class Owners::GenresController < ApplicationController
   def index
       @genres = Genre.all
     end
-
+  def show
+      @genre = Genre.find(params[:id])
+  end
 	def create
         @genre = Genre.new(genre_params)
       if  @genre.save
