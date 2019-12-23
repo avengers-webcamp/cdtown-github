@@ -1,5 +1,8 @@
 class Owners::OrdersController < ApplicationController
 
+	before_action :correct_owner
+
+
 	def index
 		@order = Order.all.order(created_at: :desc)
 	end
@@ -31,9 +34,19 @@ class Owners::OrdersController < ApplicationController
 
     private
     def order_params
-    	params.require(:order).permit(:user_id, :user_cd_id, :deliver_address_id, :shipping_day, :postage, :last_name, :first_name, :post_front, :post_back, :prefecture, :town, :post_number, :condo, :payment, :shipping_status)
+    	params.require(:order).permit(:user_id, :shipping_day, :postage, :last_name, :first_name, :post_front, :post_back, :prefecture, :town, :post_number, :condo, :payment, :shipping_status)
     end
 	def cd_order_params
 		params.require(:order).permit(:cd_id, :order_id, :total_price, :count, :price, :tax, :disc_count)
 	end
+
+	def correct_owner
+    	if current_owner.nil?
+    	    if user_signed_in?
+    	        redirect_to root_path
+    	    else
+    	    	redirect_to new_user_session_path
+    	    end
+        end
+    end
 end

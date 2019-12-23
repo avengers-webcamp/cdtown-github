@@ -1,5 +1,7 @@
 class Owners::CdsController < ApplicationController
 
+	before_action :correct_owner
+
 
 	def new
 		@cd = Cd.new
@@ -54,4 +56,16 @@ class Owners::CdsController < ApplicationController
     params.require(:cd).permit(:name, :jacket_image, :status, :price, :artist_id, :released_at, :label_id, :genre_id, discs_attributes: [:id, :disc_count, :description, :done, :_destroy,
                                                          songs_attributes: [:id, :name, :order, :description, :_destroy]])
     end
+    def correct_owner
+    	if current_owner.nil?
+    	    if user_signed_in?
+    	        redirect_to root_path
+    	    else
+    	    	redirect_to new_user_session_path
+    	    end
+        end
+    end
 end
+
+
+

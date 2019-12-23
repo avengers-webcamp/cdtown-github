@@ -94,7 +94,7 @@ class Users::OrdersController < ApplicationController
     private
 
     def order_params
-    	params.require(:order).permit(:user_id, :user_cd_id, :deliver_address_id, :shipping_day, :postage, :last_name, :first_name, :post_front, :post_back, :prefecture, :town, :post_number, :condo, :payment, :shipping_status)
+    	params.require(:order).permit(:user_id, :shipping_day, :postage, :last_name, :first_name, :post_front, :post_back, :prefecture, :town, :post_number, :condo, :payment, :shipping_status)
     end
 
     def cd_order_params
