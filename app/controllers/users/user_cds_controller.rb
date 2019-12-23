@@ -12,8 +12,15 @@ class Users::UserCdsController < ApplicationController
 		if UserCd.where(cd_id: cart.cd_id).exists?
 		    cart_up = UserCd.find_by(cd_id: cart.cd_id)
 		    cart_up.disc_count = cart_up.disc_count.to_i + cart.disc_count.to_i
+
 		    cart_up.update!(user_cd_params)
 		    redirect_to user_cds_path
+
+
+		    if cart_up.update(disc_count: cart_up.disc_count)
+		       redirect_to user_cds_path
+		    end
+
 		else
 		    cart.user_id = current_user.id
 
