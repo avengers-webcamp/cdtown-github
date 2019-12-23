@@ -31,6 +31,7 @@
 
 
                <% current_user.user_cds.each do |cart| %>
+
                 <tr class="new-table">
                   <td><span><%= attachment_image_tag cart.cd, :jacket_image, :fill, 50, 50, format: 'jpeg' %></span></td>
                   <td><span><%= cart.cd.name %></span></td>

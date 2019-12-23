@@ -31,7 +31,7 @@ class Users::OrdersController < ApplicationController
 	def create
 		@cart = UserCd.where(user_id: current_user.id)
 		@deliver_addresses = DeliverAddress.where(user_id: current_user.id)
-		@user = User.find(params[:user_id])
+		@user = current_user
 		@order = Order.new(order_params)
 		@order.user_id = current_user.id
 		if params[:deli] == "user"
@@ -56,13 +56,16 @@ class Users::OrdersController < ApplicationController
 		else
 		end
 
-		#@cart.each do |cart|
-	        #if cart.cd.stock < cart.disc_count
-	        	#redirect_to user_cd_path(@cart),notice:'申し訳ございません。ただ今品切れ中です。'
-	        #end
-	    #end
+		@error_cds = []
+		@cart.each do |cart|
+	        if cart.cd.stock < cart.disc_count
+	        	@error_cds << cart.cd
+	        end
+	    end
 
-		if @order.save
+	    if @error_cds != []
+	    	redirect_to user_cds_path,notice:'申し訳ございません。ただ今品切れ中です。'
+	    elsif @order.save
 		    @cart = UserCd.where(user_id: current_user.id)
 
 		    @cart.each do |cart|
@@ -73,11 +76,14 @@ class Users::OrdersController < ApplicationController
 		        cd_order.save
 
 		        cart.cd.stock = cart.cd.stock.to_i - cd_order.disc_count.to_i
+		        if cart.cd.stock < 1
+		        	cart.cd.status = 1
+		        end
 			    cart.cd.update(stock: cart.cd.stock)
 
                 cart.destroy
 		    end
-			    redirect_to user_complete_path(@user)
+			    redirect_to user_complete_path(current_user.id)
 
 		else
 			render :new

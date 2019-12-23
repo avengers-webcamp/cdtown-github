@@ -98,7 +98,7 @@
 
                   <p>住所　<%= @user.prefecture %><%= @user.town %><%= @user.post_number %><%= @user.condo %></p>
 
-
+                  <p><%= link_to'新しく配送先を登録する',new_user_deliver_address_path, class:"btn-sm btn-light " %></p>
 
               <% @deliver_addresses.each do |address| %>
 
@@ -111,6 +111,8 @@
                   <p>住所　<%= address.deliver_prefecture %><%= address.deliver_town %><%= address.deliver_post_number %><%= address.deliver_condo %></p>
 
                   <p><%= link_to'新しく配送先を登録する',new_user_deliver_address_path, class:"btn-sm btn-light " %></p>
+
+                  <p><%= link_to'登録を解除する',user_deliver_address_path(current_user.id,address.id), method: :delete, "data-confirm" => "登録されている配送先の情報は削除されます。本当によろしいでしょうか？" %></p>
 
               <% end %>
 

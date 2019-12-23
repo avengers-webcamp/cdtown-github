@@ -18,6 +18,12 @@ class Users::DeliverAddressesController < ApplicationController
 		end
 	end
 
+	def destroy
+		deliver_address = DeliverAddress.find(params[:id])
+		deliver_address.destroy
+		redirect_to new_user_order_path(current_user.id)
+	end
+
 	private
 
 	def deliver_address_params

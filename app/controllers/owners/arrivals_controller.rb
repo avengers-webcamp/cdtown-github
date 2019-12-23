@@ -20,6 +20,9 @@ class Owners::ArrivalsController < ApplicationController
         @arrival.cd_id = params[:cd_id]
 		if  @arrival.save
 			@cd.stock = @cd.stock.to_i + @arrival.arrive_count.to_i
+			if @cd.stock > 1
+		        @cd.status = 0
+		    end
 			@cd.update(stock: @cd.stock)
 		    redirect_to owners_cd_arrivals_path(@cd)
 		else
