@@ -305,7 +305,7 @@
 }
 
 .user_registration_new_titile{
-	border-bottom: 2px solid whitesmoke;
+	margin-bottom: 20px;
 }
 
 .user_registration_new_sign_up{
@@ -315,6 +315,10 @@
 .user_sessions_new{
 	margin-top: 20px;
 	margin-bottom: 20px;
+
+}
+
+.user_sessions_new_e{
 }
 
 .owner_cd_new_title{
@@ -601,8 +605,30 @@
 	border-bottom: 2px solid whitesmoke;
 }
 
-.image{
-	background-image: url("Ie8.jpg");
+.signimage{
+	height: 1000px;
+	background-image: url(data-uri-img.jpg);
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	background-color: #464646;
+}
+
+.logimage{
+	height: 680px;
+	background-image: url(data-uri-img.jpg);
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	background-color: whitesmoke;
+}
+
+.log_name{
+	margin:auto;
+	color: #ffffff;
+	width: 100px;
 }
 
 input[type="number"] {

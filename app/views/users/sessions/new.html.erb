@@ -1,43 +1,44 @@
-<div class="container">
+<div class="logimage container-fluid">
  <div class="row">
   <div class="col-md-12">
 
    <div class="user_sessions_new">
     <h2>Log in</h2>
 
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <table>
-        <tr>
-         <th><%= f.label :email %></th>
-        </tr>
-        <tr>
-         <th><%= f.email_field :email, autofocus: true, autocomplete: "email" %></th>
-        </tr>
-      </table>
+    <div class="user_sessions_new_e">
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <table>
+          <tr>
+           <th><%= f.label :email %></th>
+          </tr>
+          <tr>
+           <th><%= f.email_field :email, autofocus: true, autocomplete: "email" %></th>
+          </tr>
+        </table>
 
-      <table>
-        <tr>
-         <th><%= f.label :password %></th>
-        </tr>
-        <tr>
-         <td><%= f.password_field :password, autocomplete: "current-password" %></td>
-        </tr>
-      </table>
+        <table>
+          <tr>
+           <th><%= f.label :password %></th>
+          </tr>
+          <tr>
+           <td><%= f.password_field :password, autocomplete: "current-password" %></td>
+          </tr>
+        </table>
 
-      <% if devise_mapping.rememberable? %>
-        <div class="field">
-          <%= f.check_box :remember_me %>
-          <%= f.label :remember_me %>
+        <% if devise_mapping.rememberable? %>
+          <div class="field">
+            <%= f.check_box :remember_me %>
+            <%= f.label :remember_me %>
+          </div>
+        <% end %>
+
+        <div class="actions">
+          <%= f.submit "Log in",class:"btn-lg btn-primary " %>
         </div>
       <% end %>
 
-      <div class="actions">
-        <%= f.submit "Log in",class:"btn-lg btn-primary " %>
-      </div>
-    <% end %>
-
-    <%= render "users/shared/links" %>
-
+        <%= render "users/shared/links" %>
+    </div>
    </div>
 
   </div>
