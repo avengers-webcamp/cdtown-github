@@ -11,7 +11,6 @@ class Owners::CdsController < ApplicationController
 		@cd = Cd.new
 		@cds = Cd.all
 		arrival = Arrival.all
-		@cdss = Cd.find(params[:id])
 	end
 
 	def show
