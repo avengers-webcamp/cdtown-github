@@ -23,7 +23,7 @@ class Owners::ArrivalsController < ApplicationController
 			if @cd.stock > 1
 		        @cd.status = 0
 		    end
-			@cd.update(stock: @cd.stock)
+			@cd.update!(stock: @cd.stock)
 		    redirect_to owners_cd_arrivals_path(@cd)
 		else
 			render :new

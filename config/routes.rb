@@ -35,6 +35,7 @@ Rails.application.routes.draw do
     end
     get '/unsubscribe/:id' => 'users#unsubscribe'
     get "search" => "cds#search"
+    get 'genre/:id' => 'cds#genre'
 
     resources :user_cds
     resources :cd_orders, only: [:create]

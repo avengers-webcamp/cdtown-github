@@ -6,6 +6,7 @@
 
   	<% @genres.each do |genre| %>
       <p><%= genre.name %></p>
+    <%= link_to "削除", owners_genre_path(genre.id), method: :delete, "data-confirm" => "本当に削除しますか？", class:"btn-sm btn-danger destroy_book" %>
     <% end %>
 
   </div>
