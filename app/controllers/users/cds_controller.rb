@@ -12,6 +12,7 @@ class Users::CdsController < ApplicationController
 	def index
 		@cds = Cd.all
 		@user_cd = UserCd.new
+		@genres = Genre.all
 	end
 
 	def search
