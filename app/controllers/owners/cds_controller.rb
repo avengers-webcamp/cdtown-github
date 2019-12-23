@@ -36,7 +36,6 @@ class Owners::CdsController < ApplicationController
 
 	def update
 		@cd = Cd.find(params[:id])
-		@cd.update(cd_params)
 		if @cd.update(cd_params)
 			redirect_to owners_cd_path(@cd.id)
 		else

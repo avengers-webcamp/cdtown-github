@@ -1,6 +1,5 @@
 class Users::CdsController < ApplicationController
 
-
 	def show
 		@cd = Cd.find(params[:id])
 		@artists = Artist.select("name")
@@ -12,7 +11,15 @@ class Users::CdsController < ApplicationController
 	def index
 		@cds = Cd.all
 		@user_cd = UserCd.new
+		@genres = Genre.all
 	end
+
+	def genre
+		@genre = Genre.find(params[:id])
+		@cd = Cd.where(genre_id:@genre.id)
+		@genres = Genre.all
+		@user_cd = UserCd.new
+    end
 
 	def search
 		@cd = Cd.search(params[:search])

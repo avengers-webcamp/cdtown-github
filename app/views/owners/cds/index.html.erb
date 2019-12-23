@@ -25,8 +25,11 @@
             <div class="col-md-6">
               <div class="cart_show">
                 <p><span><%= link_to '詳細', owners_cd_path(cd.id),class:"btn-sm btn-light btn-lg" %></span></p>
+            <div class="row">
                 <p><span><%=link_to '入荷登録', new_owners_cd_arrival_path(cd.id),class:"btn-sm btn-light btn-lg" %></span></p>
-                <p><span><%=link_to '入荷履歴', owners_cd_arrivals_path(cd.id),class:"btn-sm btn-light btn-lg" %></span></p>
+            </div>
+             <div class="row">
+                <p><span><%=link_to '入荷履歴', owners_cd_arrivals_path(cd.id),class:"btn-sm btn-light btn-lg" %></span></p></div>
               </div>
             </div>
            </div>

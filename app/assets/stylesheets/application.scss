@@ -569,7 +569,41 @@
 	margin-right: 10px;
 }
 
+.top{
+	width: 100%;
+}
 
+.top_genre{
+	margin-top: 20px;
+	width: 200px;
+}
+
+.side_genre_top{
+	margin-top: 10px;
+	margin-bottom: 20px;
+	margin-right: 25px;
+	text-align: center;
+	border: 2px solid whitesmoke;
+	height: 438px;
+	padding-top: 10px;
+}
+
+.cartbutton{
+	width: 90%;
+}
+
+.side_genre_name{
+	margin-top: 20px;
+}
+
+.side_genre_title{
+	padding-bottom: 5px;
+	border-bottom: 2px solid whitesmoke;
+}
+
+.image{
+	background-image: url("Ie8.jpg");
+}
 
 input[type="number"] {
         width: 60px;
