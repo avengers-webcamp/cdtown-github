@@ -1,5 +1,8 @@
 class Owners::ArrivalsController < ApplicationController
 
+	before_action :correct_owner
+
+
 	def new
 		@arrival = Arrival.new
 		@cd = Cd.find(params[:cd_id])
@@ -35,5 +38,15 @@ class Owners::ArrivalsController < ApplicationController
 	def arrival_params
 		params.require(:arrival).permit(:arrive_day, :arrive_count, :cd_id)
 	end
+
+    def correct_owner
+    	if current_owner.nil?
+    	    if user_signed_in?
+    	        redirect_to root_path
+    	    else
+    	    	redirect_to new_user_session_path
+    	    end
+        end
+    end
 
 end

@@ -1,5 +1,8 @@
 class Owners::GenresController < ApplicationController
 
+  before_action :correct_owner
+
+
   def index
       @genres = Genre.all
     end
@@ -22,6 +25,16 @@ class Owners::GenresController < ApplicationController
 	private
     def genre_params
         params.require(:genre).permit(:name)
+    end
+
+    def correct_owner
+      if current_owner.nil?
+          if user_signed_in?
+              redirect_to root_path
+          else
+            redirect_to new_user_session_path
+          end
+        end
     end
 
 end
