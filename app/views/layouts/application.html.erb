@@ -39,7 +39,7 @@
 
                 <% if owner_signed_in? %>
               <li>
-         　　　 <%= link_to "顧客一覧", owners_cds_path, class:"btn btn-secondary rounded-pill" %>
+         　　　 <%= link_to "顧客一覧", owners_users_path, class:"btn btn-secondary rounded-pill" %>
               </li>
               <li>
          　　　 <%= link_to "商品一覧", owners_cds_path, class:"btn btn-secondary rounded-pill" %>
@@ -51,6 +51,9 @@
          　　　<%= link_to "Sign out", destroy_owner_session_path, method: :delete, class:"btn btn-secondary rounded-pill" %></li>
 
             <% elsif user_signed_in? %>
+              <li class="log_name">
+                <%= current_user.last_name %><%= current_user.first_name %> 様　
+              </li>
               <li>
                <div class="app_nav_home"><%= link_to " Home", root_path, class:"btn btn-secondary rounded-pill" %></div>
               </li>
@@ -60,6 +63,7 @@
               <li>
                <div class="app_nav_sign_out"><%= link_to " Sign out" ,destroy_user_session_path, method: :delete, class:"btn btn-secondary rounded-pill" %></div>
                </li>
+
 
             <% else %>
               <li>
