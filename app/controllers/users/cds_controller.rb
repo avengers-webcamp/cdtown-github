@@ -1,4 +1,6 @@
 class Users::CdsController < ApplicationController
+    PER = 4
+
 
 	def show
 		@cd = Cd.find(params[:id])
@@ -10,6 +12,7 @@ class Users::CdsController < ApplicationController
 
 	def index
 		@cds = Cd.all
+		@cds = Kaminari.paginate_array(@cds).page(params[:page]).per(PER)
 		@user_cd = UserCd.new
 		@genres = Genre.all
 	end
