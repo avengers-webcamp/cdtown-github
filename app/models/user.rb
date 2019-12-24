@@ -9,6 +9,8 @@ class User < ApplicationRecord
   has_many :orders
   has_many :user_cds, foreign_key: 'User_id',dependent: :destroy
   has_many :cds , through: :user_cds, source: :cd
+  has_many :likes, dependent: :destroy
+  has_many :liked_cds, through: :likes, source: :cd
 
   validates :last_name, presence: true
 
@@ -29,7 +31,6 @@ class User < ApplicationRecord
   validates :encrypted_password, presence: true, uniqueness: true, confirmation: true, length: { minimum: 6 }
 
   validates :email,presence: true
-
 
 
 end
