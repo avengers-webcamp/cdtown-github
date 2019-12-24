@@ -12,6 +12,7 @@ class Users::DeliverAddressesController < ApplicationController
 		@deliver_address = DeliverAddress.new(deliver_address_params)
 		@deliver_address.user_id = current_user.id
 		if  @deliver_address.save
+			flash[:notice] = "登録しました!"
 		    redirect_to new_user_order_path
 		else
 			render :new

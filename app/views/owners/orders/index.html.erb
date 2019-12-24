@@ -1,4 +1,9 @@
 <div class="container clearfix">
+  <% if flash[:notice] %>
+      <div class="flash">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
  <div class="owner_cds_index">
   <h3>受注商品一覧</h3>
  </div>

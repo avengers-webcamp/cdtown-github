@@ -18,6 +18,7 @@ class Owners::UsersController < ApplicationController
 	def update
 		@user = User.find(params[:id])
         @user.update(user_params)
+        flash[:notice] = "変更しました!"
         redirect_to owners_user_path(@user.id)
 	end
 

@@ -1,6 +1,17 @@
 <%= form_for @order, url: user_orders_path(@user), method: :post do |o| %>
-<%= render 'layouts/error_messages', model: o.object %>
 
+
+    <% if flash[:notice] %>
+      <div class="flash">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+
+    <% if flash.now[:alert] %>
+      <div class="alert">
+        <%= flash.now[:alert] %>
+      </div>
+    <% end %>
 
 <div class="container">
   <div class="payment_all">

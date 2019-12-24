@@ -11,6 +11,7 @@ class Owners::LabelsController < ApplicationController
 		  @label = Label.new(label_params)
       if  @label.save
           redirect_to new_owners_create_path
+          flash[:notice] = "レーベルを登録しました!"
       else
           redirect_to new_owners_create_path
       end

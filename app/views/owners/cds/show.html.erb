@@ -1,5 +1,11 @@
 <div class="container clearfix">
 
+    <% if flash[:notice] %>
+      <div class="flash">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+
   <div class="row">
     <div class="col-xs-4">
       <div class="user_cd_show_top">

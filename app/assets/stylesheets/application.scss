@@ -21,6 +21,21 @@
 	clear: both;
 }
 
+
+
+.flash {
+    color: $white;
+    text-align: center;
+    background-color: lightBlue;
+}
+
+.alert {
+    color: $white;
+    text-align: center;
+    background-color: orange;
+}
+
+
 .input-group-btn{
 	height: 20px;
 }
@@ -608,4 +623,5 @@
 input[type="number"] {
         width: 60px;
         height: 30px;
-    }
+}
+
