@@ -10,6 +10,8 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require bxslider
+ *= require_tree .
  *= require_self
  */
 // Custom bootstrap variables must be set or imported *before* bootstrap.
@@ -681,3 +683,99 @@ input[type="number"] {
 	border: solid whitesmoke;
 	text-align: center;
 }
+
+
+
+
+.thank16 {
+
+    background-image: url(thank16.jpg);
+    height: 600px;
+    width: 1000px;
+}
+.thank15 {
+    background-image: url(thank15.jpg);
+    height: 600px;
+    width: 1000px;
+}
+.thank14 {
+    background-image: url(thank14.jpg);
+    height: 600px;
+    width: 1000px;
+}
+.thank13 {
+    background-image: url(thank13.jpg);
+    height: 600px;
+    width: 1000px;
+}
+.thank12 {
+    background-image: url(thank12.jpg);
+    height: 600px;
+    width: 1000px;
+}
+.thank11 {
+    background-image: url(thank11.jpg);
+    height: 600px;
+    width: 1000px;
+}
+.thank10 {
+    background-image: url(thank10.jpg);
+    height: 600px;
+    width: 1000px;
+}
+.thank9 {
+    background-image: url(thank9.jpg);
+    height: 600px;
+    width: 1000px;
+}
+.thank8 {
+    background-image: url(thank8.jpg);
+    height: 600px;
+    width: 1000px;
+}
+.thank7 {
+    background-image: url(thank7.jpg);
+    height: 600px;
+    width: 1000px;
+}
+.thank6 {
+    background-image: url(thank6.jpg);
+    height: 600px;
+    width: 1000px;
+}
+.thank5 {
+    background-image: url(thank5.jpg);
+    height: 600px;
+    width: 1000px;
+}
+.thank4 {
+    background-image: url(thank4.jpg);
+    height: 600px;
+    width: 1000px;
+}
+.thank3 {
+    background-image: url(thank3.jpg);
+    height: 600px;
+    width: 1000px;
+}
+.thank2 {
+    background-image: url(thank2.jpg);
+    height: 600px;
+    width: 1000px;
+}
+.thank1 {
+    background-image: url(thank1.jpg);
+    height: 600px;
+    width: 1000px;
+}
+.bx-wrapper {
+    background-color: transparent;
+    margin: 0px auto 0px;
+    border: none;
+    box-shadow: none;
+}
+.bx-wrapper img {
+    display: block;
+    margin: 0px auto;
+}
+
