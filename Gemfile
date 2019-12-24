@@ -78,3 +78,4 @@ gem 'cocoon'
 
 gem 'pry-byebug'
 
+gem 'bxslider-rails'
