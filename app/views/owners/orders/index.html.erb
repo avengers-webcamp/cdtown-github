@@ -1,12 +1,28 @@
-<div class="container clearfix">
+
   <% if flash[:notice] %>
       <div class="flash">
         <%= flash[:notice] %>
       </div>
     <% end %>
+
+
+  <% x = 0 %>
+
+   <% @cdorder.each do |cd| %>
+
+    <% x += cd.total_price.to_i %>
+
+   <% end %>
+
+
+<div class="container clearfix">
  <div class="owner_cds_index">
-  <h3>受注商品一覧</h3>
+   <h3>受注商品一覧</h3>
  </div>
+ <div class="uriage">
+  <strong>売上合計金額　　<i class="fas fa-arrow-alt-circle-right"></i>　¥<%= x %></strong>
+ </div>
+
 
       <% @order.each do |o| %>
       <table class="table table-striped">

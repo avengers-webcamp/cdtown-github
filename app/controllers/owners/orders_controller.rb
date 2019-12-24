@@ -4,7 +4,9 @@ class Owners::OrdersController < ApplicationController
 
 
 	def index
-		@order = Order.without_deleted.order(created_at: :desc)
+        @cdorder = CdOrder.all
+		@order = Order.all.without_deleted.order(created_at: :desc)
+
 	end
 
 	def show
