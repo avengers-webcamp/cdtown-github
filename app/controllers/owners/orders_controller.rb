@@ -5,6 +5,7 @@ class Owners::OrdersController < ApplicationController
 
 	def index
 		@order = Order.all.order(created_at: :desc)
+		@cdorder = CdOrder.all
 	end
 
 	def show
