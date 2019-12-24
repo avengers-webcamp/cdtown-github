@@ -4,7 +4,7 @@ class Owners::UsersController < ApplicationController
 
 
 	def index
-		@users = User.all
+		@users = User.all.without_deleted
 	end
 
 	def show
