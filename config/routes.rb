@@ -36,6 +36,9 @@ Rails.application.routes.draw do
     get '/unsubscribe/:id' => 'users#unsubscribe'
     get "search" => "cds#search"
     get 'genre/:id' => 'cds#genre'
+    post   '/like/:cd_id' => 'likes#like',   as: 'like'
+    delete '/like/:cd_id' => 'likes#unlike', as: 'unlike'
+
 
     resources :user_cds
     resources :cd_orders, only: [:create]

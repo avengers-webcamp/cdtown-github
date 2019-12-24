@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_11_055414) do
+ActiveRecord::Schema.define(version: 2019_12_24_093326) do
 
   create_table "arrivals", force: :cascade do |t|
     t.integer "cd_id", null: false
@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(version: 2019_12_11_055414) do
     t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "likes_count"
     t.index ["deleted_at"], name: "index_cds_on_deleted_at"
   end
 
@@ -89,6 +90,13 @@ ActiveRecord::Schema.define(version: 2019_12_11_055414) do
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.integer "cd_id"
   end
 
   create_table "orders", force: :cascade do |t|

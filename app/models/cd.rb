@@ -15,6 +15,8 @@ class Cd < ApplicationRecord
 	has_many :users, through: :user_cds, source: :user
 	has_many :cd_orders
 	has_many :orders, through: :cd_orders, source: :order
+    has_many :likes, dependent: :destroy
+    has_many :liked_users, through: :likes, source: :user
 
 	default_scope -> { order(created_at: :desc) }
 

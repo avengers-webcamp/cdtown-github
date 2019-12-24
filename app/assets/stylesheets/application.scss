@@ -217,6 +217,7 @@
 .user_cd_show_disc{
 	margin-top: 10px;
 	margin-bottom: 10px;
+	margin-left: 30px;
 }
 
 .user_cd_show_song_name{
@@ -669,6 +670,14 @@
 .pagination{
 	text-align: center;
 	margin-left: 370px;
+}
+
+.cd_title_ran{
+	margin-top: 20px;
+	margin-bottom: 5px;
+	margin-left: 0.1px;
+	margin-right: 160px;
+	border-bottom: 2px solid whitesmoke;
 }
 
 input[type="number"] {
