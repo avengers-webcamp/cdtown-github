@@ -87,7 +87,7 @@
        </div>
 
         <div class="row">
-          <div class="col-xs-3">
+          <div class="col-xs-6">
             <div class="payment_way">
               <div class="payment_way_name">お支払い方法</div>
               <% ["クレジットカード払い","銀行振り込み","代引き"].each do |pay| %>
@@ -96,7 +96,7 @@
             </div>
           </div>
 
-          <div class="col-xs-3">
+          <div class="col-xs-6">
             <div class="payment_address">
               <div class="payment_way_name">住所選択</div>
 
@@ -140,7 +140,7 @@
                    <%= o.label :配達日 %>
                 </th>
                 <th>
-                   <%= o.date_select :shipping_day %>
+                   <%= o.date_field :shipping_day %>
                 </th>
                </tr>
                    <%= o.hidden_field :shipping_status, value: 0 %>

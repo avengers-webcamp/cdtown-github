@@ -19,6 +19,8 @@
         </div>
 
         <%= form_for @user_cd, url: user_cds_path(@cd.id), method: :post do |cart| %>
+        <%= cart.number_field :disc_count, value: 1 , min: 1, max:@cd.stock.to_i,  class:"form-control"%>
+        <p><%= cart.hidden_field :cd_id, value: @cd.id %></p>
            <div class="user_cd_show_incart">
             <%= cart.submit "カートに入れる", class:"btn-sm btn-primary " %>
            </div>
