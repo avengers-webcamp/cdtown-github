@@ -68,7 +68,7 @@
                 </thead>
         <tbody>
 
-        <% o.cd_orders.each do |c| %>
+        <% o.cd_orders.with_deleted.each do |c| %>
 
 
       		  <tr class="new-table">

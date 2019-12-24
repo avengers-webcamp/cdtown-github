@@ -3,7 +3,6 @@
       <div class="owner_cd_new_title">
             <h2>NEW CD</h2>
 
-
         <%= form_for @cd, url: owners_cds_path, method: :post do |cd| %>
         <%= render 'layouts/error_messages', model: cd.object %>
 
@@ -33,12 +32,13 @@
           </div>
 
           <div class="col-md-4">
-            <div class="owner_cd_new_form"><%= render 'form', cd: @cd %><br></div>
             <div class="owner_cd_new_form"><%= link_to "アーティスト/ジャンル/レーベル登録フォーム", new_owners_create_path, class:"btn-sm btn-success " %></div>
             <div class="owner_cd_new_create"><%= cd.submit "商品登録", class:"btn-lg btn-primary " %></div>
-          </div>
 
              <% end %>
+
+            <div class="owner_cd_new_form"><%= render 'form', cd: @cd %><br></div>
+          </div>
         </div>
 
       </div>
