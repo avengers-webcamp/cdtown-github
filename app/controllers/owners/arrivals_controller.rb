@@ -27,6 +27,7 @@ class Owners::ArrivalsController < ApplicationController
 		        @cd.status = 0
 		    end
 			@cd.update!(stock: @cd.stock)
+			flash[:notice] = "登録しました!"
 		    redirect_to owners_cd_arrivals_path(@cd)
 		else
 			render :new

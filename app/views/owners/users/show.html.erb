@@ -1,4 +1,12 @@
 <div class="container">
+
+    <% if flash[:notice] %>
+      <div class="flash">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+
+
   <h2>顧客情報</h2>
 </div>
 

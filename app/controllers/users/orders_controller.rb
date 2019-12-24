@@ -56,15 +56,16 @@ class Users::OrdersController < ApplicationController
 		else
 		end
 
-		@error_cds = []
-		@cart.each do |cart|
-	        if cart.cd.stock < cart.disc_count
-	        	@error_cds << cart.cd
+		    @error_cds = []
+		    @cart.each do |cart|
+	            if cart.cd.stock < cart.disc_count
+	        	    @error_cds << cart.cd
+	            end
 	        end
-	    end
 
 	    if @error_cds != []
-	    	redirect_to user_cds_path,notice:'申し訳ございません。ただ今品切れ中です。'
+	    	flash[:alert] = '申し訳ございません。ただ今品切れ中です。'
+	    	redirect_to user_cds_path
 	    elsif @order.save
 		    @cart = UserCd.where(user_id: current_user.id)
 
@@ -86,6 +87,7 @@ class Users::OrdersController < ApplicationController
 			    redirect_to user_complete_path(current_user.id)
 
 		else
+			flash.now[:alert] = 'Payment or Address can’t be blank'
 			render :new
 		end
 		@submit = "注文する"

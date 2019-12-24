@@ -1,5 +1,19 @@
 
 
+
+    <% if flash[:notice] %>
+      <div class="flash">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+
+
+    <% if flash[:alert] %>
+      <div class="alert">
+        <%= flash[:alert] %>
+      </div>
+    <% end %>
+
 <% if current_user.user_cds.exists? %>
 
 
@@ -52,6 +66,7 @@
 </div>
 
 <% else %>
+
 
 <div class="container">
 

@@ -19,7 +19,7 @@ class Owners::OrdersController < ApplicationController
 		o = Order.find(params[:id])
 
         if  o.update(order_params)
-            flash[:notice] = "successfully"
+            flash[:notice] = "変更しました!"
             redirect_to owners_orders_path
         else
 	        redirect_to root_path

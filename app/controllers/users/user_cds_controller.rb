@@ -18,7 +18,7 @@ class Users::UserCdsController < ApplicationController
 		    cart.user_id = current_user.id
 
 		    if cart.save!
-                flash[:notice] = "カートに追加できました！"
+                flash[:notice] = "カートに追加しました！"
                 redirect_to user_cds_path
             else
                 redirect_to root_path
@@ -28,7 +28,7 @@ class Users::UserCdsController < ApplicationController
 
 	def update
         if  @cart.update(user_cd_params)
-            flash[:notice] = "successfully"
+            flash[:notice] = "変更しました!"
             redirect_to user_cds_path
         else
 	        redirect_to root_path

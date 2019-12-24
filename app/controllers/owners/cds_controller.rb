@@ -30,7 +30,8 @@ class Owners::CdsController < ApplicationController
 		@cd = Cd.new(cd_params)
 		@cd.stock = 0
 		 if @cd.save
-			redirect_to owners_cds_path
+		 	flash[:notice] = "CDを登録しました!"
+			redirect_to owners_cd_path(@cd.id)
 	     else
 	     	render :new
 	     end
@@ -39,6 +40,7 @@ class Owners::CdsController < ApplicationController
 	def update
 		@cd = Cd.find(params[:id])
 		if @cd.update(cd_params)
+			flash[:notice] = "変更しました!"
 			redirect_to owners_cd_path(@cd.id)
 		else
 		  render :edit
