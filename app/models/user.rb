@@ -7,7 +7,7 @@ class User < ApplicationRecord
 
   has_many :deliver_addresses, dependent: :destroy
   has_many :orders
-  has_many :user_cds,dependent: :destroy
+  has_many :user_cds, foreign_key: 'User_id',dependent: :destroy
   has_many :cds , through: :user_cds, source: :cd
 
   validates :last_name, presence: true
