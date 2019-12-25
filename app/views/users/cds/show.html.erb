@@ -17,9 +17,11 @@
           </div>
 
         </div>
-
+         <div class = "user_cd_show_incart"><%= render 'cds', cd: @cd %></div>
         <%= form_for @user_cd, url: user_cds_path(@cd.id), method: :post do |cart| %>
-        <%= cart.number_field :disc_count, value: 1 , min: 1, max:@cd.stock.to_i,  class:"form-control"%>
+        <div class="user_cd_show_incart">
+         <%= cart.number_field :disc_count, value: 1 , min: 1, max:@cd.stock.to_i,  class:"form-control"%>
+        </div>
         <p><%= cart.hidden_field :cd_id, value: @cd.id %></p>
            <div class="user_cd_show_incart">
             <%= cart.submit "カートに入れる", class:"btn-sm btn-primary " %>

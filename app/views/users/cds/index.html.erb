@@ -3,19 +3,48 @@
 <div class="row">
      <div class="col-2">
      <div class="side_genre_top">
-        <h5 class="side_genre_title">ジャンル</h5>
+        <h6 class="side_genre_title">ジャンル</h6>
       <div class="side_genre_name">
         <% @genres.each do |g| %>
         <%= link_to "/genre/#{g.id}" do %>
-        <p><%= g.name %></p>
+        <p class="btn-light  btn-{themecolor}.rounded-0"><%= g.name %></p>
         <% end %>
         <% end %>
       </div>
     </div>
     </div>
     <div class="col-10">
+
           <div class="cd_title_ran row">
-              <h5>お気に入りランキング</h5>k
+              <h5>NEW ARRAIVAL</h5>
+          </div>
+          <div class="row">
+              <% @new_cd.each do |cd| %>
+              <div class="cd">
+                <p><span><%= attachment_image_tag cd, :jacket_image, :fill, 180, 180, format: 'jpeg' %></span></p>
+                <div class="user_cd_index_cdname">
+                  <p><span><%= cd.name %></span></p>
+                </div>
+                <div class="user_cd_index_cdprice">
+                  <p><span>¥ <%= cd.price %> (税抜)</span></p>
+                </div>
+                <div class="cart_show">
+                  <p><span><%= link_to '詳細', cd_path(cd.id),class:"btn-sm btn-light btn-lg" %></span></p>
+                  <div>
+                    <div class = "iine__button_index"><%= render 'cds', cd: cd %></div>
+                    <%= form_for @user_cd, url: user_cds_path, method: :post do |cart| %>
+                        <%= cart.number_field :disc_count, value: 1 , min: 1, max:cd.stock.to_i,  class:"form-control"%>
+                        <p><%= cart.hidden_field :cd_id, value: cd.id %></p>
+                        <p><%= cart.submit "カートに入れる", class:"cartbutton btn-sm btn-primary"%></p>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+              <% end %>
+          </div>
+
+          <div class="cd_title_ran row">
+              <h5>お気に入りランキング</h5>
           </div>
           <div class="row">
               <% @all_ranks.each do |cd| %>

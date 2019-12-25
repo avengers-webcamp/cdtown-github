@@ -1,4 +1,7 @@
 <div class="container clearfix">
+
+ <h4>入荷登録</h4>
+
   <div class="row">
     <%= form_for @arrival, url: owners_cd_arrivals_path, method: :post do |arr| %>
       <%= render 'layouts/error_messages', model: arr.object %>
@@ -11,7 +14,7 @@
 
             <tr>
                 <th>
-                    <%= arr.label :シングル_アルバム名 %>
+                    <%= arr.label :シングルorアルバム名 %>
                 </th>
                 <th>
                     <%= @cd.name %>

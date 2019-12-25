@@ -11,12 +11,13 @@ class Users::CdsController < ApplicationController
 	end
 
 	def index
-		@all_ranks = Cd.find(Like.group(:cd_id).order('count(cd_id) desc').limit(3).pluck(:cd_id))
-		@cds = Cd.all
+		@all_ranks = Cd.find(Like.group(:cd_id).order('count(cd_id) desc').limit(4).pluck(:cd_id))
+		@cds = Cd.all.order(created_at: :desc)
 		@cds = Kaminari.paginate_array(@cds).page(params[:page]).per(PER)
 		@user_cd = UserCd.new
 		@genres = Genre.all
 		@like = Like.new
+		@new_cd = Cd.all.limit(4).order(created_at: :desc)
 	end
 
 	def genre
