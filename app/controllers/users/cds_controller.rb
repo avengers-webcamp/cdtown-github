@@ -28,7 +28,7 @@ class Users::CdsController < ApplicationController
 
 	def search
 		@cd = Cd.search(params[:search])
-		submit_name_ids = Submit.where("submit_name = ?", params[:submit_name]) .pluck(:id)
+
 		@user_cd = UserCd.new
 	end
 

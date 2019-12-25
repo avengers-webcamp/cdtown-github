@@ -1,6 +1,30 @@
 <div class="container clearfix">
- <div class="user_cd_index">
 
+<p>
+<div id='menu'>
+<ul>
+   <li><%= submit_tag "アーティスト"%></li>
+   <li><%= submit_tag "シングル/アルバム"%></li>
+   <li><%= submit_tag "レーベル" %></li>
+</ul>
+</div>
+</p>
+</div>
+
+        <div class="container clearfix">
+          <div class='search'>
+          <%= form_tag search_path, :method => 'get' do %>
+          <table>
+               <%= search_field_tag :search, params[:search], class:"form-control" %>
+            <th><%= text_field_tag :search, params[:search], class:"form-control" %></th>
+            <th><%= submit_tag "Search", :name => nil, class:"btn-sm btn-secondary rounded-pill" %></th>
+          </table>
+          <% end %>
+          </div>
+        </div>
+
+<div class="container clearfix">
+<div class="user_cd_index">
           <% @cd.each do |scd| %>
 
           <div class="cd">

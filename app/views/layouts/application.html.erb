@@ -25,6 +25,7 @@
           <%= form_tag search_path, :method => 'get' do %>
           <table>
             <th><%= text_field_tag :search, params[:search], class:"form-control" %></th>
+            <th><%= select_tag "submit_name", options_for_select([["アーティスト", "アーティスト"],["シングル/アルバム","シングル/アルバム"],["レーベル","レーベル"]]) %></th>
             <th><%= submit_tag "Search", :name => nil, class:"btn-sm btn-secondary rounded-pill" %></th>
           </table>
           <% end %>
