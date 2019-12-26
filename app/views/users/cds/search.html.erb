@@ -1,15 +1,15 @@
 <div class="container clearfix">
 
-<p>
-<div id='menu'>
-<ul>
-   <li class="artist"><%= link_to "アーティスト", search_path(x:'artist') %></li>
-   <li class="song"><%= link_to "曲名", search_path(x:'song') %></li>
-   <li class="album"><%= link_to "シングル/アルバム", search_path(x:'album') %></li>
-   <li class="label"><%= link_to "レーベル", search_path(x:'label') %></li>
-</ul>
-</div>
-</p>
+  <p>
+    <div id='menu'>
+      <ul>
+        <li class="artist"><%= link_to "アーティスト", search_path(x:'artist') %></li>
+        <li class="song"><%= link_to "曲名", search_path(x:'song') %></li>
+        <li class="album"><%= link_to "シングル/アルバム", search_path(x:'album') %></li>
+        <li class="label"><%= link_to "レーベル", search_path(x:'label') %></li>
+      </ul>
+    </div>
+  </p>
 </div>
 
         <div class="container clearfix">
@@ -41,36 +41,31 @@
 
 <div class="container clearfix">
 <div class="user_cd_index">
-          <% @cd.each do |scd| %>
-
-          <div class="cd">
-              <p><span><%= attachment_image_tag scd, :jacket_image, :fill, 180, 180, format: 'jpeg' %></span></p>
-            <div class="user_cd_index_cdname">
-              <p><span><%= scd.name %></span></p>
-            </div>
-            <div class="user_cd_index_cdprice">
-              <p><span>¥ <%= scd.price %> (税抜)</span></p>
-            </div>
-            <div class="cart_show">
-              <p><span><%= link_to '詳細', cd_path(scd.id),class:"btn-sm btn-light btn-lg" %></span></p>
-            </div>
-              <%= form_for @user_cd, url: user_cds_path(cd_id: scd.id), method: :post do |cart| %>
-              <div class="user_index_cart_count">
-                <div class="row">
-                  <div class="col-md-4">
-                    <div class="user_index_count"><span><%= cart.number_field :disc_count, value: 1 , min: 1, max:10,  class:"form-control"%></span></div>
+          <div class="row">
+              <% @cds.each do |cd| %>
+              <div class="cd">
+                <p><span><%= attachment_image_tag cd, :jacket_image, :fill, 180, 180, format: 'jpeg' %></span></p>
+                <div class="user_cd_index_cdname">
+                  <p><span><%= cd.name %></span></p>
+                </div>
+                <div class="user_cd_index_cdprice">
+                  <p><span>¥ <%= cd.price %> (税抜)</span></p>
+                </div>
+                <div class="cart_show">
+                  <p><span><%= link_to '詳細', cd_path(cd.id),class:"btn-sm btn-light btn-lg" %></span></p>
+                  <div>
+                    <div class = "iine__button_index"><%= render 'cds', cd: cd %></div>
+                    <%= form_for @user_cd, url: user_cds_path, method: :post do |cart| %>
+                        <%= cart.number_field :disc_count, value: 1 , min: 1, max:cd.stock.to_i,  class:"form-control"%>
+                        <p><%= cart.hidden_field :cd_id, value: cd.id %></p>
+                        <p><%= cart.submit "カートに入れる", class:"cartbutton btn-sm btn-primary"%></p>
+                    <% end %>
                   </div>
-                    <div class="col-md-8">
-                      <div class="incart"><span><%= cart.submit "カートに入れる", class:"btn-sm btn-primary " %></span></div>
-                    </div>
                 </div>
               </div>
-          </div>
               <% end %>
-
-          <% end %>
-
-
+          </div>
 
  </div>
 </div>
+
