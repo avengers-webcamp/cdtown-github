@@ -16,7 +16,6 @@ class Users::UserCdsController < ApplicationController
 		    redirect_to user_cds_path
 		else
 		    cart.user_id = current_user.id
-
 		    if cart.save!
                 flash[:notice] = "カートに追加しました！"
                 redirect_to user_cds_path
