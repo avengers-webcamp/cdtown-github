@@ -6,37 +6,73 @@
     <h3>Buying Item LIst</h3>
  </div>
 
-    <% @orders.each do |o| %>
 
-      <div class="user_buying_deli_day">配送日<%= o.shipping_day %><%= o.shipping_status %>
-    	<div class="user_buying_deli_deli">配送先<%= o.post_front %>-<%= o.post_back %>
-    	<%= o.prefecture %><%= o.town %><%= o.post_number %><%= o.condo %></div></div>
+<% @orders.each do |o| %>
+<% x = 500 %>
+  <table class="table table-striped pop">
+    <thead>
+        <tr>
+          <th><P>購入日</P></th>
+          <th><P>配送日</P></th>
+          <th><P>配送先</P></th>
+          <th><P>配送状況</P></th>
+        </tr>
+    </thead>
+    <tbody>
 
-         <table class="table table-striped">
+
+     <tr class="new-table">
+      <td><span><%= o.shipping_day %></span></td>
+      <td><span><%= o.shipping_day %></span></td>
+      <td><span><%= o.post_front %>-<%= o.post_back %><%= o.prefecture %><%= o.town %><%= o.post_number %><%= o.condo %></span></td>
+      <% if o.shipping_status = 0 %>
+       <td><span>発送中</span></td>
+      <% elsif o.shipping_status = 1 %>
+       <td><span>発送済み</span></td>
+      <% else %>
+       <td><span>発送準備中</span></td>
+      <% end %>
+    </tr>
+
+     <tr class="new-table">
+         <table class="table table-striped pop">
           <thead>
               <tr>
                 <th><P>ジャケット画像</P></th>
                 <th><P>商品名</P></th>
                 <th><P>価格（税別）</P></th>
                 <th><P>購入数</P></th>
+                <th><P>合計</P></th>
                 <th><P></P></th>
               </tr>
           </thead>
           <tbody>
-
-
                <% o.cd_orders.each do |buy| %>
                 <tr class="new-table">
                   <td><span><%= attachment_image_tag buy.cd, :jacket_image, :fill, 50, 50, format: 'jpeg' %></span></td>
                   <td><span><%= buy.cd.name %></span></td>
                   <td><span><%= buy.cd.price %></span></td>
                   <td><span><%= buy.disc_count%></span></td>
+                  <td><span><%= buy.total_price %></span></td>
                   <td><span><%= link_to 'この商品の詳細へ', cd_path(buy.cd.id), class:"btn-sm btn-light Destroy_book btn-lg" %></span></td>
                 </tr>
+                <% x += buy.total_price.to_i %>
                <% end %>
-
            </tbody>
          </table>
+         <table class="table table-striped pop2">
+          <thead>
+           <tr>
+            <th><P>総額(送料・税込金額)</P></th>
+           </tr>
+          </thead>
+          <tbody>
+               <tr>
+                <td><span><strong>¥<%= x %></strong></span></td>
+               </tr>
+          </tbody>
+        </table>
+
     <% end %>
 </div>
 
