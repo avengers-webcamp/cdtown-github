@@ -47,8 +47,9 @@
               <h5>お気に入りランキング</h5>
           </div>
           <div class="row">
-              <% @all_ranks.each do |cd| %>
+              <% @all_ranks.each.with_index(1) do |cd, i| %>
               <div class="cd">
+                <div class="rank"><%= i %>位</div>
                 <p><span><%= attachment_image_tag cd, :jacket_image, :fill, 180, 180, format: 'jpeg' %></span></p>
                 <div class="user_cd_index_cdname">
                   <p><span><%= cd.name %></span></p>

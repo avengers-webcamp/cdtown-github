@@ -876,5 +876,44 @@ input[type="number"] {
 	margin-bottom: 10px;
 	margin-left: 61px;
 }
+
+.rank{
+	text-align: center;
+}
+
+
+#page_top{
+  width: 60px;
+  height: 60px;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  opacity: 0.6;
+}
+#page_top a{
+  width: 60px;
+  height: 60px;
+  text-decoration: none;
+}
+#page_top a::before{
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  content: '\🔝';
+  font-size: 50px;
+  color: #000000;
+}
+
+.owners_render{
+	margin:auto;
+}
+
+.owner_user_bottom{
+	margin-bottom: 423px;
+}
+
+.owner_user_bottom{
+	margin-bottom: 623px;
+}
+
 html, body { height: 100%; }
 
