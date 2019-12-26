@@ -5,28 +5,34 @@
       </div>
     <% end %>
 
-<h2>入荷履歴</h2>
+<div class="container clearfix">
+ <div class='owner_user_title'>
+		<h4>入荷履歴</h4>
+ </div>
 
-<div class="table">
-	<thead>
-		<tr>
-			<th>入荷日時</th>
-			<th>入荷数</th>
-		</tr>
-	</thead>
-  <% @arrivals.each do |arr| %>
-	<tbody>
-		<tr>
-			<p><th><%= arr.arrive_day %></th></p>
-			<p><th><%= arr.arrive_count %></th></p>
-		</tr>
-	</tbody>
-  <% end %>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>入荷日時</th>
+					<th>入荷数</th>
+				</tr>
+			</thead>
+		  <% @arrivals.each do |arr| %>
+			<tbody>
+				<tr>
+					<p><th><%= arr.arrive_day %></th></p>
+					<p><th><%= arr.arrive_count %></th></p>
+				</tr>
+			</tbody>
+		  <% end %>
+		</table>
+
+    <div class='owner_user_bottom'>
+		<%= link_to '商品一覧',owners_cds_path,class:"btn-sm btn-light btn-lg" %>
+
+		<%= link_to '商品登録',new_owners_cd_path,class:"btn-sm btn-light btn-lg"%>
+
+		<%= link_to '入荷登録',new_owners_cd_arrival_path(@cd),class:"btn-sm btn-light btn-lg" %>
+    </div>
+
 </div>
-
-
-<%= link_to '商品一覧',owners_cds_path %>
-
-<%= link_to '商品登録',new_owners_cd_path %>
-
-<%= link_to '入荷登録',new_owners_cd_arrival_path(@cd) %>

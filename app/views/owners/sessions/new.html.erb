@@ -5,6 +5,7 @@
    <div class="user_sessions_new">
     <h2>Log in</h2>
 
+    <div class="user_sessions_new_e">
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <table>
           <tr>
@@ -37,6 +38,7 @@
       <% end %>
 
         <%= render "owners/shared/links" %>
+    </div>
    </div>
 
   </div>
