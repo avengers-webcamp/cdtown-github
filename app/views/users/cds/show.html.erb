@@ -18,6 +18,7 @@
 
         </div>
          <div class = "user_cd_show_incart"><%= render 'cds', cd: @cd %></div>
+         <% if @cd.stock > 1 %>
         <%= form_for @user_cd, url: user_cds_path(@cd.id), method: :post do |cart| %>
         <div class="user_cd_show_incart">
          <%= cart.number_field :disc_count, value: 1 , min: 1, max:@cd.stock.to_i,  class:"form-control"%>
@@ -26,7 +27,11 @@
            <div class="user_cd_show_incart">
             <%= cart.submit "カートに入れる", class:"btn-sm btn-primary " %>
            </div>
-           <% end %>
+        <% end %>
+        <% else %>
+        <p>品切れです</p>
+        <p>申し訳ございません</p>
+        <% end %>
     </div>
 
     <div class="col-xs-4">

@@ -178,7 +178,14 @@
 	margin-top: 5px;
 	margin-bottom: 5px;
 }
+.user_cd_show_stock{
+	border-bottom: 2px solid whitesmoke;
+	margin-top: 15px;
+}
 
+.user_cd_show_stock_count{
+	margin-bottom: 5px;
+}
 .user_cd_show_genre{
 	border-bottom: 2px solid whitesmoke;
 }
@@ -919,6 +926,7 @@ html, body { height: 100%; }
 
 .pop{
 	margin-bottom: -2px;
+	padding-bottom: -100px
 }
 .pop2{
 	margin-bottom: 40px;

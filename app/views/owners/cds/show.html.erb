@@ -34,6 +34,8 @@
               <div class="user_cd_show_disc"><%= disc.disc_count %></div>
            <div class="user_cd_show_release">発売日</div>
              <div class="user_cd_show_release_day"><%= @cd.released_at.strftime('%Y/%m/%d') %></div>
+           <div class="user_cd_show_stock">在庫数</div>
+             <div class="user_cd_show_stock_count"><%= @cd.stock %></div>
         </div>
       </div>
     </div>
@@ -44,7 +46,7 @@
           <div class="user_cd_show_artist_name_name"><%= @artists[0]['name'] %></div>
         <div class="user_cd_show_label">レーベル名</div>
           <div class="user_cd_show_label_name"><%= @labels[0]['name'] %></div>
-        <% disc.songs.order(:order).each do |song| %>
+        <% disc.songs.order(:name).each do |song| %>
         <div class="user_cd_show_song_name">曲名</div>
           <div class="user_cd_show_song"><%= song.name %></div>
         <% end %>

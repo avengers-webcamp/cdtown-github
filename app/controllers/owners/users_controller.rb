@@ -22,6 +22,12 @@ class Owners::UsersController < ApplicationController
         redirect_to owners_user_path(@user.id)
 	end
 
+    def destroy
+        @user = User.find(params[:id])
+        @user.destroy
+        redirect_to owners_users_path
+    end
+
 	private
     def user_params
         params.require(:user).permit(:last_name, :first_name, :last_name_kana, :first_name_kana,
