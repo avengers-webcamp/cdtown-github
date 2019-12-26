@@ -1,6 +1,46 @@
 <div class="container clearfix">
- <div class="user_cd_index">
 
+<p>
+<div id='menu'>
+<ul>
+   <li class="artist"><%= link_to "アーティスト", search_path(x:'artist') %></li>
+   <li class="song"><%= link_to "曲名", search_path(x:'song') %></li>
+   <li class="album"><%= link_to "シングル/アルバム", search_path(x:'album') %></li>
+   <li class="label"><%= link_to "レーベル", search_path(x:'label') %></li>
+</ul>
+</div>
+</p>
+</div>
+
+        <div class="container clearfix">
+          <div class='search'>
+          <%= form_with url: search_path, :method => 'get', local: true do |s|%>
+          <table>
+            <% if params[:x] == 'artist' %>
+              <th> アーティスト </th>
+              <th><%= s.text_field :artist, class:"form-control" %></th>
+              <th><%= s.submit :search, class:"btn-sm btn-secondary rounded-pill" %></th>
+            <% elsif params[:x] == 'song' %>
+            <th> 曲名 </th>
+              <th><%= s.text_field :song, class:"form-control" %></th>
+              <th><%= s.submit :search, class:"btn-sm btn-secondary rounded-pill" %></th>
+            <% elsif params[:x] == 'album' %>
+            <th> シングル/アルバム </th>
+              <th><%= s.text_field :album, class:"form-control" %></th>
+              <th><%= s.submit :search, class:"btn-sm btn-secondary rounded-pill" %></th>
+            <% elsif params[:x] == 'label' %>
+            <th> レーベル </th>
+              <th><%= s.text_field :label, class:"form-control" %></th>
+              <th><%= s.submit :search, class:"btn-sm btn-secondary rounded-pill" %></th>
+            <% else %>
+            <% end %>
+          </table>
+          <% end %>
+          </div>
+        </div>
+
+<div class="container clearfix">
+<div class="user_cd_index">
           <% @cd.each do |scd| %>
 
           <div class="cd">
