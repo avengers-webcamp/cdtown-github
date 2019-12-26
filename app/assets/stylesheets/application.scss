@@ -788,18 +788,49 @@ input[type="number"] {
     margin: 0px auto;
 }
 
-<<<<<<< HEAD
 
 .search{
 	position: relative;
-	padding-left: 100px;
+	padding-left: 40px;
+}
+#menu {
+  width: auto;
+}
+#menu > ul {
+  position: relative;
+  font-size: 18px;
+}
+#menu > ul li {
+  list-style: none;
+  width: 25%;
+}
+#menu > ul > li {
+  float: left;
+  background-color: #343a40 !important;
+  position: relative;
+  display: block;
+  line-height: 32px;
+  text-align: center;
+  vertical-align: middle;
+}
+#menu > ul > li > a {
+  display: block;
+  padding: 7px 30px;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  line-height: 18px;
+}
+#menu > ul > li:hover > a {
+  background-color: #bbb;
+}
+#menu > ul > li > a > span {
+  line-height: 18px;
 }
 
-
-=======
 .cartfa{
     color: white;
 }
 
 html, body { height: 100%; }
->>>>>>> 2a1936590c18bdac47ef416004ae29f2d43ba739
+

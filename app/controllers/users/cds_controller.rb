@@ -28,9 +28,23 @@ class Users::CdsController < ApplicationController
     end
 
 	def search
-		@cd = Cd.search(params[:search])
-
+		@cds = Cd.all.order(created_at: :desc)
+		@cds = Kaminari.paginate_array(@cds).page(params[:page]).per(PER)
 		@user_cd = UserCd.new
+		@genres = Genre.all
+		@like = Like.new
+		@new_cd = Cd.all.limit(4).order(created_at: :desc)
+		if params[:artist].present?
+            @cd = Cd.joins(:artist).where('artists.name LIKE ?', "%#{params[:artist]}%").references(:artist)
+        elsif params[:album].present?
+        	@cd = Cd.joins(:song).where('songs.name LIKE ?', "%#{params[:song]}%").references(:song)
+        elsif params[:album].present?
+            @cd = Cd.where('name LIKE ?', "%#{params[:album]}%")
+        elsif params[:label].present?
+        	@cd = Cd.joins(:label).where('labels.name LIKE ?', "%#{params[:label]}%").references(:label)
+        else
+            @cd = Cd.all
+        end
 	end
 
 
