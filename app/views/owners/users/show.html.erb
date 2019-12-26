@@ -140,6 +140,9 @@
         <tr>
          <th><%= link_to "購入履歴", owners_orders_path,class:"btn btn-primary Primary btn-rg" %></th>
         </tr>
+        <tr>
+         <th><%= link_to "削除", owners_user_path(@user), method: :delete , "data-confirm" => "削除してしまってよろしいでしょうか？",class:"btn btn-danger Edit btn-rg" %></th>
+        </tr>
        </table>
       </div>
     </div>

@@ -32,10 +32,15 @@
                   <p><span><%= link_to '詳細', cd_path(cd.id),class:"btn-sm btn-light btn-lg" %></span></p>
                   <div>
                     <div class = "iine__button_index"><%= render 'cds', cd: cd %></div>
+                    <% if cd.stock > 1 %>
                     <%= form_for @user_cd, url: user_cds_path, method: :post do |cart| %>
                         <%= cart.number_field :disc_count, value: 1 , min: 1, max:cd.stock.to_i,  class:"form-control"%>
                         <p><%= cart.hidden_field :cd_id, value: cd.id %></p>
                         <p><%= cart.submit "カートに入れる", class:"cartbutton btn-sm btn-primary"%></p>
+                    <% end %>
+                    <% else %>
+                    <p>品切れです</p>
+                    <p>申し訳ございません</p>
                     <% end %>
                   </div>
                 </div>
@@ -60,10 +65,15 @@
                   <p><span><%= link_to '詳細', cd_path(cd.id),class:"btn-sm btn-light btn-lg" %></span></p>
                   <div>
                     <div class = "iine__button_index"><%= render 'cds', cd: cd %></div>
+                    <% if cd.stock > 1 %>
                     <%= form_for @user_cd, url: user_cds_path, method: :post do |cart| %>
                         <%= cart.number_field :disc_count, value: 1 , min: 1, max:cd.stock.to_i,  class:"form-control"%>
                         <p><%= cart.hidden_field :cd_id, value: cd.id %></p>
                         <p><%= cart.submit "カートに入れる", class:"cartbutton btn-sm btn-primary"%></p>
+                    <% end %>
+                    <% else %>
+                    <p>品切れです</p>
+                    <p>申し訳ございません</p>
                     <% end %>
                   </div>
                 </div>
@@ -88,10 +98,15 @@
                   <p><span><%= link_to '詳細', cd_path(cd.id),class:"btn-sm btn-light btn-lg" %></span></p>
                   <div>
                     <div class = "iine__button_index"><%= render 'cds', cd: cd %></div>
+                    <% if cd.stock > 1 %>
                     <%= form_for @user_cd, url: user_cds_path, method: :post do |cart| %>
                         <%= cart.number_field :disc_count, value: 1 , min: 1, max:cd.stock.to_i,  class:"form-control"%>
                         <p><%= cart.hidden_field :cd_id, value: cd.id %></p>
                         <p><%= cart.submit "カートに入れる", class:"cartbutton btn-sm btn-primary"%></p>
+                    <% end %>
+                    <% else %>
+                    <p>品切れです</p>
+                    <p>申し訳ございません</p>
                     <% end %>
                   </div>
                 </div>

@@ -12,17 +12,17 @@
   <table class="table table-striped pop">
     <thead>
         <tr>
-          <th><P>購入日</P></th>
-          <th><P>配送日</P></th>
-          <th><P>配送先</P></th>
-          <th><P>配送状況</P></th>
+          <th>購入日</th>
+          <th>配送日</th>
+          <th>配送先</th>
+          <th>配送状況</th>
         </tr>
     </thead>
     <tbody>
 
 
      <tr class="new-table">
-      <td><span><%= o.shipping_day %></span></td>
+      <td><span><%= o.created_at.strftime('%Y-%m-%d') %></span></td>
       <td><span><%= o.shipping_day %></span></td>
       <td><span><%= o.post_front %>-<%= o.post_back %><%= o.prefecture %><%= o.town %><%= o.post_number %><%= o.condo %></span></td>
       <% if o.shipping_status = 0 %>
@@ -38,12 +38,12 @@
          <table class="table table-striped pop">
           <thead>
               <tr>
-                <th><P>ジャケット画像</P></th>
-                <th><P>商品名</P></th>
-                <th><P>価格（税別）</P></th>
-                <th><P>購入数</P></th>
-                <th><P>合計</P></th>
-                <th><P></P></th>
+                <th>ジャケット画像</th>
+                <th>商品名</th>
+                <th>価格（税別)</th>
+                <th>購入数</th>
+                <th>合計</th>
+                <th></th>
               </tr>
           </thead>
           <tbody>
@@ -63,7 +63,7 @@
          <table class="table table-striped pop2">
           <thead>
            <tr>
-            <th><P>総額(送料・税込金額)</P></th>
+            <th>総額(送料・税込金額)</th>
            </tr>
           </thead>
           <tbody>
