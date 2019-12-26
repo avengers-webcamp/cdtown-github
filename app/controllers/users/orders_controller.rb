@@ -20,8 +20,8 @@ class Users::OrdersController < ApplicationController
 	end
 
 	def index
-		@orders = Order.where(user_id: current_user.id)
-		@cd_orders = CdOrder.all
+		@orders = Order.where(user_id: current_user.id).order(created_at: :desc)
+		@cd_orders = CdOrder.all.order(created_at: :desc)
 	end
 
 	def complete
