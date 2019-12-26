@@ -25,6 +25,8 @@
           <ul class="nav navbar-expand-lg navbar-right">
 
                 <% if owner_signed_in? %>
+              <li><%= link_to "検索", search_path, class:"btn btn-default rounded-pill",style:  "color:white;" %>
+              </li>
               <li>
          　　　 <%= link_to "顧客一覧", owners_users_path, class:"btn btn-default rounded-pill",style:  "color:white;" %>
               </li>
@@ -34,7 +36,6 @@
               <li>
          　　　 <%= link_to "受注一覧", owners_orders_path, class:"btn btn-default rounded-pill" ,style:  "color:white;"%>
               </li>
-              <li><%= link_to "検索", search_path, class:"btn btn-default rounded-pill",style:  "color:white;" %></li>
               <li>
          　　　<%= link_to "Sign out", destroy_owner_session_path, method: :delete, class:"btn btn-default rounded-pill",style:  "color:white;" %></li>
 
@@ -44,7 +45,7 @@
               </li>
               <li><%= link_to "Search", search_path, class:"btn btn-default rounded-pill",style:  "color:white;" %></li>
 
-              <div class="app_nav_home"><i class="cartfa fas fa-shopping-cart"></i><%= link_to "Cart", user_cds_path, class:"btn btn-default rounded-pill",style:  "color:white;" %></div>
+              <div class="app_nav_home"><%= link_to "Cart", user_cds_path, class:"btn btn-default rounded-pill",style:  "color:white;" %></div>
               <li>
                <div class="app_nav_home"><%= link_to " Home", root_path, class:"btn btn-default rounded-pill",style:  "color:white;" %></div>
               </li>

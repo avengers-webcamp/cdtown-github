@@ -788,6 +788,18 @@ input[type="number"] {
     margin: 0px auto;
 }
 
+.bx-pager {
+	opacity: 0;
+}
+
+.bx-prev{
+	opacity: 0;
+}
+
+.bx-next{
+	opacity: 0;
+}
+
 
 .search{
 	position: relative;
@@ -832,5 +844,37 @@ input[type="number"] {
     color: white;
 }
 
+.complete{
+	margin-top: 20px;
+	margin-left: 10px;
+}
+
+.owner_user_title{
+	margin-top: 20px;
+}
+
+.arrival_bottom{
+	margin-bottom: 20px;
+}
+
+.arrival_name{
+	margin-bottom: 10px;
+	margin-left: 5px;
+}
+
+.complete_top{
+	margin-bottom: 20px;
+	margin-left: 10px;
+}
+
+.cd_liked{
+	margin-bottom: 20px;
+	margin-left: 40px;
+}
+
+.user_liked_title{
+	margin-bottom: 10px;
+	margin-left: 60px;
+}
 html, body { height: 100%; }
 

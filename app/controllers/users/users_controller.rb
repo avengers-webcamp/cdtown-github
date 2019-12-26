@@ -5,6 +5,7 @@ class Users::UsersController < ApplicationController
 
 	def show
 		@user = User.find(params[:id])
+        @user_cd = UserCd.new
 	end
 
 	def edit

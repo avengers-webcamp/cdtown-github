@@ -1,11 +1,20 @@
-<div class="like-link" id="like-link-<%= cd.id %>">
-  <% if current_user.likes.find_by(cd: cd) %>
-    <%= link_to unlike_path(cd_id: cd.id), method: :delete, remote: true do %>
-        <div class = "iine__button"><i class="fas fa-star"></i> 解除</div>
-    <% end %>
-  <% else %>
-    <%= link_to like_path(cd_id: cd.id), method: :post, remote: true do %>
-        <div class = "iine__button"><i class="far fa-star"></i> お気に入り</div>
-    <% end %>
-  <% end %>
-</div>
+ <% if user_signed_in? %>
+
+		<div class="like-link" id="like-link-<%= cd.id %>">
+		  <% if current_user.likes.find_by(cd: cd) %>
+		    <%= link_to unlike_path(cd_id: cd.id), method: :delete, remote: true do %>
+		        <div class = "iine__button"><i class="fas fa-star"></i> 解除</div>
+		    <% end %>
+		  <% else %>
+		    <%= link_to like_path(cd_id: cd.id), method: :post, remote: true do %>
+		        <div class = "iine__button"><i class="far fa-star"></i> お気に入り</div>
+		    <% end %>
+		  <% end %>
+		</div>
+
+<% else %>
+
+
+
+
+<% end %>

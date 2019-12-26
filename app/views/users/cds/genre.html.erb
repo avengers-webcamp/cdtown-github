@@ -3,11 +3,11 @@
 <div class="row">
      <div class="col-2">
      <div class="side_genre_top">
-        <h5 class="side_genre_title">ジャンル</h5>
+        <h6 class="side_genre_title">ジャンル</h6>
       <div class="side_genre_name">
         <% @genres.each do |g| %>
         <%= link_to "/genre/#{g.id}" do %>
-        <p><%= g.name %></p>
+        <p class="btn-light  btn-{themecolor}.rounded-0"><%= g.name %></p>
         <% end %>
         <% end %>
       </div>
