@@ -1,6 +1,7 @@
 <div class="container clearfix">
-
- <h4>入荷登録</h4>
+ <div class='owner_user_title'>
+  <h4>入荷登録</h4>
+ </div>
 
   <div class="row">
     <%= form_for @arrival, url: owners_cd_arrivals_path, method: :post do |arr| %>
@@ -17,7 +18,7 @@
                     <%= arr.label :シングルorアルバム名 %>
                 </th>
                 <th>
-                    <%= @cd.name %>
+                    <div class='arrival_name'><%= @cd.name %></div>
                 </th>
             </tr>
         	<tr>
@@ -39,7 +40,9 @@
           </table>
         </div>
 
-        <%= arr.submit "登録" %>
+      <div class='arrival_bottom'>
+        <%= arr.submit "登録", class:"btn-sm btn-primary "  %>
+      </div>
 
     <% end %>
  </div>

@@ -6,137 +6,142 @@
       </div>
     <% end %>
 
-
-  <h2>顧客情報</h2>
+ <div class="users_user_show_top">
+  <h4>顧客情報</h4>
+ </div>
 </div>
 
 <div class="container">
  <div class="row">
   <div class='col-lg-5'>
+    <div class="users_user_show_mypage">
 
-  <%= form_for @user do |f| %>
+      <%= form_for @user do |f| %>
 
-   <div class="row">
-   	<table>
-   	 <thead>
-   	 <tr>
-   	 	<th>名前（姓名）</th>
-   	 </tr>
-   	 </thead>
-   	 <tbody>
-   	 <tr>
-        <td><%= f.text_field :last_name, class:"form-control" %></td>
-        <td><%= f.text_field :first_name, class:"form-control" %></td>
-     </tr>
-     </tbody>
-    </table>
-   </div>
+       <div class="row">
+       	<table>
+       	 <thead>
+       	 <tr>
+       	 	<th>名前（姓名）</th>
+       	 </tr>
+       	 </thead>
+       	 <tbody>
+       	 <tr>
+            <td><%= f.text_field :last_name, class:"form-control" %></td>
+            <td><%= f.text_field :first_name, class:"form-control" %></td>
+         </tr>
+         </tbody>
+        </table>
+       </div>
 
-    <div class="row">
-     <table>
-      <thead>
-   	  <tr>
-   	 	<th>名前（カナ）</th>
-   	  </tr>
-   	  </thead>
-   	  <tbody>
-   	  <tr>
-        <td><%= f.text_field :last_name_kana, class:"form-control" %></td>
-        <td><%= f.text_field :last_name_kana, class:"form-control" %></td>
-      </tr>
-      </tbody>
-     </table>
+        <div class="row">
+         <table>
+          <thead>
+       	  <tr>
+       	 	<th>名前（カナ）</th>
+       	  </tr>
+       	  </thead>
+       	  <tbody>
+       	  <tr>
+            <td><%= f.text_field :last_name_kana, class:"form-control" %></td>
+            <td><%= f.text_field :last_name_kana, class:"form-control" %></td>
+          </tr>
+          </tbody>
+         </table>
+        </div>
+
+
+       <div class="row">
+       	<table>
+       	 <thead>
+       	 <tr>
+       	 	<th>電話番号</th>
+       	 </tr>
+       	 </thead>
+       	 <tbody>
+       	 <tr>
+            <td><%=f.text_field :phone_number, class:"form-control" %></td>
+         </tr>
+         </tbody>
+        </table>
+         <table>
+       	 <tr>
+       	 	<th>Email</th>
+       	 </tr>
+       	 <tr>
+            <th><%= f.text_field :email, class:"form-control" %></th>
+         </tr>
+         </table>
+       </div>
+
+       <div class="row">
+       	<table>
+       	 <tr>
+       	 	<th>住所</th>
+       	 </tr>
+       	 <tr>
+       	     <th>郵便番号</th>
+       	 </tr>
+         <tr>
+            <th><%=f.text_field :post_front, class:"form-control" %></th>
+            <th><%=f.text_field :post_back, class:"form-control" %></th>
+         </tr>
+         </table>
+       </div>
+
+       <div class="row">
+       	<table>
+       	 <tr>
+       	     <th>都道府県</th>
+       	 </tr>
+         <tr>
+            <th><%=f.text_field :prefecture, class:"form-control" %></th>
+         </tr>
+         </table>
+         <table>
+       	 <tr>
+       	     <th>市町村</th>
+       	 </tr>
+         <tr>
+            <th><%=f.text_field :town, class:"form-control" %></th>
+         </tr>
+         </table>
+       </div>
+
+       <div class="row">
+       	<table>
+       	 <tr>
+       	     <th>番地</th>
+       	 </tr>
+         <tr>
+            <th><%=f.text_field :post_number, class:"form-control" %></th>
+         </tr>
+         </table>
+         <table>
+       	 <tr>
+       	     <th>マンション名</th>
+       	 </tr>
+         <tr>
+            <th><%=f.text_field :condo, class:"form-control" %></th>
+         </tr>
+         </table>
+       </div>
+      <% end %>
     </div>
-
-
-   <div class="row">
-   	<table>
-   	 <thead>
-   	 <tr>
-   	 	<th>電話番号</th>
-   	 </tr>
-   	 </thead>
-   	 <tbody>
-   	 <tr>
-        <td><%=f.text_field :phone_number, class:"form-control" %></td>
-     </tr>
-     </tbody>
-    </table>
-     <table>
-   	 <tr>
-   	 	<th>Email</th>
-   	 </tr>
-   	 <tr>
-        <th><%= f.text_field :email, class:"form-control" %></th>
-     </tr>
-     </table>
-   </div>
-
-   <div class="row">
-   	<table>
-   	 <tr>
-   	 	<th>住所</th>
-   	 </tr>
-   	 <tr>
-   	     <th>郵便番号</th>
-   	 </tr>
-     <tr>
-        <th><%=f.text_field :post_front, class:"form-control" %></th>
-        <th><%=f.text_field :post_back, class:"form-control" %></th>
-     </tr>
-     </table>
-   </div>
-
-   <div class="row">
-   	<table>
-   	 <tr>
-   	     <th>都道府県</th>
-   	 </tr>
-     <tr>
-        <th><%=f.text_field :prefecture, class:"form-control" %></th>
-     </tr>
-     </table>
-     <table>
-   	 <tr>
-   	     <th>市町村</th>
-   	 </tr>
-     <tr>
-        <th><%=f.text_field :town, class:"form-control" %></th>
-     </tr>
-     </table>
-   </div>
-
-   <div class="row">
-   	<table>
-   	 <tr>
-   	     <th>番地</th>
-   	 </tr>
-     <tr>
-        <th><%=f.text_field :post_number, class:"form-control" %></th>
-     </tr>
-     </table>
-     <table>
-   	 <tr>
-   	     <th>マンション名</th>
-   	 </tr>
-     <tr>
-        <th><%=f.text_field :condo, class:"form-control" %></th>
-     </tr>
-     </table>
-   </div>
-  <% end %>
 
  </div>
 
    	<div class='col-lg-3'>
-     <table>
-      <tr>
-       <th><%= link_to " 編集 ", edit_owners_user_path(@user),class:"btn btn-success Edit btn-rg" %></th>
-      </tr>
-      <tr>
-       <th><%= link_to "購入履歴", owners_orders_path,class:"btn btn-primary Primary btn-rg" %></th>
-      </tr>
-     </table>
+      <div class="users_user_show_down">
+       <table>
+        <tr>
+         <th><%= link_to " 編集 ", edit_owners_user_path(@user),class:"btn btn-success Edit btn-rg" %></th>
+        </tr>
+        <tr>
+         <th><%= link_to "購入履歴", owners_orders_path,class:"btn btn-primary Primary btn-rg" %></th>
+        </tr>
+       </table>
+      </div>
     </div>
 
 

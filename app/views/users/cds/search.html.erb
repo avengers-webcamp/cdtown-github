@@ -15,26 +15,28 @@
         <div class="container clearfix">
           <div class='search'>
           <%= form_with url: search_path, :method => 'get', local: true do |s|%>
-          <table>
-            <% if params[:x] == 'artist' %>
-              <th> アーティスト </th>
-              <th><%= s.text_field :artist, class:"form-control" %></th>
-              <th><%= s.submit :search, class:"btn-sm btn-secondary rounded-pill" %></th>
-            <% elsif params[:x] == 'song' %>
-            <th> 曲名 </th>
-              <th><%= s.text_field :song, class:"form-control" %></th>
-              <th><%= s.submit :search, class:"btn-sm btn-secondary rounded-pill" %></th>
-            <% elsif params[:x] == 'album' %>
-            <th> シングル/アルバム </th>
-              <th><%= s.text_field :album, class:"form-control" %></th>
-              <th><%= s.submit :search, class:"btn-sm btn-secondary rounded-pill" %></th>
-            <% elsif params[:x] == 'label' %>
-            <th> レーベル </th>
-              <th><%= s.text_field :label, class:"form-control" %></th>
-              <th><%= s.submit :search, class:"btn-sm btn-secondary rounded-pill" %></th>
-            <% else %>
-            <% end %>
-          </table>
+            <div class='search_form'>
+            <table>
+              <% if params[:x] == 'artist' %>
+                <th> アーティスト </th>
+                <th><%= s.text_field :artist, class:"form-control" %></th>
+                <th><%= s.submit :search, class:"btn-sm btn-secondary rounded-pill" %></th>
+              <% elsif params[:x] == 'song' %>
+              <th> 曲名 </th>
+                <th><%= s.text_field :song, class:"form-control" %></th>
+                <th><%= s.submit :search, class:"btn-sm btn-secondary rounded-pill" %></th>
+              <% elsif params[:x] == 'album' %>
+              <th> シングル/アルバム </th>
+                <th><%= s.text_field :album, class:"form-control" %></th>
+                <th><%= s.submit :search, class:"btn-sm btn-secondary rounded-pill" %></th>
+              <% elsif params[:x] == 'label' %>
+              <th> レーベル </th>
+                <th><%= s.text_field :label, class:"form-control" %></th>
+                <th><%= s.submit :search, class:"btn-sm btn-secondary rounded-pill" %></th>
+              <% else %>
+              <% end %>
+            </table>
+           </div>
           <% end %>
           </div>
         </div>
