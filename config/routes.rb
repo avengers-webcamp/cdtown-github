@@ -10,11 +10,11 @@ Rails.application.routes.draw do
 
   namespace :owners do
     resources :artists, :genres, :labels, :sales
-    resources :orders, only: [:index, :show, :edit, :update, :destroy] 
+    resources :orders, only: [:index, :show, :edit, :update, :destroy]
     resources :cds do
        resources :arrivals
     end
-    resources :users, only: [:show, :index, :edit, :update]
+    resources :users, only: [:show, :index, :edit, :update ,:destroy]
     resources :creates, only: [:new]
   end
 
